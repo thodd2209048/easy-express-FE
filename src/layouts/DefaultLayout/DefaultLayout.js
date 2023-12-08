@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Header from "../Header/Header";
 
 DefaultLayout.propTypes = {};
 
 function DefaultLayout({ children }) {
   return (
     <div>
-      <main className="mt-5">{children}</main>
+      <Header />
+      <main className="mt-3 container">{children}</main>
     </div>
   );
 }
