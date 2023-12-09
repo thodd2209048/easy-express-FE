@@ -17,6 +17,9 @@ function AddHub(props) {
     error: null,
     isLoading: false,
   });
+
+  const [detail, setDetail] = useState(null);
+
   const handleSubmit = async (values) => {
     setResponse({ data: null, error: null, isLoading: true });
     try {
@@ -37,10 +40,10 @@ function AddHub(props) {
         onSubmit={(values) => handleSubmit(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
-          <Form className="p-3 mt-2 border rounded">
+          <Form className="mt-3">
             <h5>Enter new hub's information</h5>
 
-            <Row>
+            <div>
               <Field name="name">
                 {({ field, form, meta }) => (
                   <>
@@ -67,7 +70,7 @@ function AddHub(props) {
                   </>
                 )}
               </Field>
-            </Row>
+            </div>
             <div className="row mt-3">
               <div className="col">
                 <button
@@ -89,7 +92,16 @@ function AddHub(props) {
           </Form>
         )}
       </Formik>
-      <Notification response={response} />
+      <Notification response={response} isShowSucceed>
+        {response.data && (
+          <>
+            <p>Hub is added</p>
+            <p className="m-0">Hub: {response.data.name} </p>
+            <p className="m-0">Id: {response.data.id}</p>
+            <p className="m-0">Location: {response.data.location}</p>
+          </>
+        )}
+      </Notification>
     </>
   );
 }

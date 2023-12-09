@@ -10,7 +10,7 @@ GeneralInput.propTypes = {
 function GeneralInput({ label, field, form, meta, ...props }) {
   return (
     <>
-      <Row className="mt-3 form-group">
+      <Row className="mt-2 mt-md-3 form-group">
         <Col md="3" lg="2" className="d-flex">
           <label>{label}</label>
         </Col>

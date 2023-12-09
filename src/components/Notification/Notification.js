@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-Notification.propTypes = {};
+Notification.propTypes = {
+  isShowDetail: PropTypes.bool,
+};
 
-function Notification({ response }) {
+function Notification({ response, children, isShowSucceed }) {
   return (
     <div className="mt-2 text-start">
-      {response.data && (
+      {isShowSucceed && response.data && (
         <div class="alert alert-success" role="alert">
-          <h5>New category added!</h5>
-          <span>Name: {response.data.name}</span>
-          <span className="ms-4">Id: {response.data.id}</span>
+          <h5>Success!</h5>
+          {children}
         </div>
       )}
       {response.error && (

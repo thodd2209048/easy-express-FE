@@ -3,6 +3,7 @@ import Home from "~/pages/public/Home/Home";
 import AdminPanel from "~/pages/private/AdminPanel/AdminPanel";
 import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
+import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
 
 const publicRoutes = [{ path: config.routes.home, component: Home }];
 const privateRoutes = [
@@ -14,6 +15,10 @@ const privateRoutes = [
       {
         path: config.routes.addHub,
         component: AddHub,
+      },
+      {
+        path: config.routes.listHub,
+        component: ListHub,
       },
     ],
   },

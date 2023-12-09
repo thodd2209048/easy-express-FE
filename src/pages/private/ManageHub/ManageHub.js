@@ -17,6 +17,14 @@ function ManageHub(props) {
       </div>
       <div className={clsx(styles.options)}>
         <NavLink
+          to={routes.listHub}
+          className={({ isActive }) =>
+            isActive ? "btn btn-info" : "btn btn-outline-info"
+          }
+        >
+          List hub
+        </NavLink>
+        <NavLink
           to={routes.addHub}
           className={({ isActive }) =>
             isActive ? "btn btn-info" : "btn btn-outline-info"
