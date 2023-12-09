@@ -11,7 +11,7 @@ ManageHub.propTypes = {};
 
 function ManageHub(props) {
   return (
-    <div className={clsx(styles.wrapper, "p-3 mt-2 border rounded")}>
+    <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
         <PageTitle title="Manage hub" />
       </div>

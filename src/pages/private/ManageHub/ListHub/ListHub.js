@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { Button, Col, Row } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 
 import api from "~/config/api/axiosConfig";
 import styles from "./ListHub.module.scss";
 
 import Notification from "~/components/Notification/Notification";
+import UpdateHub from "../UpdateHub/UpdateHub";
+import SingleHubDisplay from "../SingleHubDisplay/SingleHubDisplay";
 
 ListHub.propTypes = {};
 
@@ -33,12 +38,9 @@ function ListHub(props) {
   return (
     <>
       <div className={clsx(styles.list, "mt-3 rounded")}>
-        <h5>List of hubs</h5>
+        <h4>List of hubs</h4>
         {response.data?.content.map((hub, idx) => (
-          <div className="text-start">
-            <h5>{hub.name}</h5>
-            <p>{hub.location}</p>
-          </div>
+          <SingleHubDisplay key={idx} hub={hub} />
         ))}
       </div>
       <Notification response={response} />

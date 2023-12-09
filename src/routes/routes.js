@@ -4,6 +4,7 @@ import AdminPanel from "~/pages/private/AdminPanel/AdminPanel";
 import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
 import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
+import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
 
 const publicRoutes = [{ path: config.routes.home, component: Home }];
 const privateRoutes = [
@@ -19,6 +20,10 @@ const privateRoutes = [
       {
         path: config.routes.listHub,
         component: ListHub,
+      },
+      {
+        path: config.routes.updateHub,
+        component: UpdateHub,
       },
     ],
   },

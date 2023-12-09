@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Field, Form, Formik } from "formik";
-import { Row } from "react-bootstrap";
+import clsx from "clsx";
 
-import config from "~/config";
 import api from "~/config/api/axiosConfig";
-
+import { Field, Form, Formik } from "formik";
+import config from "~/config";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
-import Notification from "~/components/Notification/Notification";
+import { useParams } from "react-router-dom";
 
-AddHub.propTypes = {};
+UpdateHub.propTypes = {};
 
-function AddHub(props) {
+function UpdateHub({ hubId }) {
   const [response, setResponse] = useState({
     data: null,
     error: null,
@@ -21,12 +20,13 @@ function AddHub(props) {
   const handleSubmit = async (values) => {
     setResponse({ data: null, error: null, isLoading: true });
     try {
-      const res = await api.post("api/hub", values);
+      const res = await api.put(`api/hub/${hubId}`, values);
       setResponse({ data: res.data, error: null, isLoading: false });
     } catch (err) {
       setResponse({ data: null, error: err.response.data, isLoading: false });
     }
   };
+
   return (
     <>
       <Formik
@@ -38,8 +38,8 @@ function AddHub(props) {
         onSubmit={(values) => handleSubmit(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
-          <Form className="mt-3">
-            <h5>Enter new hub's information</h5>
+          <Form className="mt-2">
+            <p>Update</p>
 
             <div>
               <Field name="name">
@@ -72,14 +72,14 @@ function AddHub(props) {
             <div className="row mt-3">
               <div className="col">
                 <button
-                  className="btn btn-primary me-3"
+                  className="btn btn-primary me-3 btn-sm"
                   type="submit"
                   disabled={isSubmitting}
                 >
                   Submit
                 </button>
                 <button
-                  className="btn btn-outline-secondary"
+                  className="btn btn-outline-secondary btn-sm"
                   type="reset"
                   onClick={() => resetForm()}
                 >
@@ -90,18 +90,8 @@ function AddHub(props) {
           </Form>
         )}
       </Formik>
-      <Notification response={response} isShowSucceed>
-        {response.data && (
-          <>
-            <p>Hub is added</p>
-            <p className="m-0">Hub: {response.data.name} </p>
-            <p className="m-0">Id: {response.data.id}</p>
-            <p className="m-0">Location: {response.data.location}</p>
-          </>
-        )}
-      </Notification>
     </>
   );
 }
 
-export default AddHub;
+export default UpdateHub;
