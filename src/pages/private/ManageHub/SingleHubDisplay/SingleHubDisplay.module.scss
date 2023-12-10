@@ -1,0 +1,21 @@
+.hubInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.itemContainer {
+  // width: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 4px;
+}
+
+.btnEdit {
+  cursor: pointer;
+}
+
+.btnDelete {
+  cursor: pointer;
+}

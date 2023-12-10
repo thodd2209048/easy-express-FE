@@ -11,11 +11,19 @@ ManageHub.propTypes = {};
 
 function ManageHub(props) {
   return (
-    <div className={clsx(styles.wrapper, "p-3 mt-2 border rounded")}>
+    <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
         <PageTitle title="Manage hub" />
       </div>
       <div className={clsx(styles.options)}>
+        <NavLink
+          to={routes.listHub}
+          className={({ isActive }) =>
+            isActive ? "btn btn-info" : "btn btn-outline-info"
+          }
+        >
+          List hub
+        </NavLink>
         <NavLink
           to={routes.addHub}
           className={({ isActive }) =>

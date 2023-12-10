@@ -8,6 +8,7 @@ import api from "~/config/api/axiosConfig";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import Notification from "~/components/Notification/Notification";
+import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 AddHub.propTypes = {};
 
@@ -17,6 +18,7 @@ function AddHub(props) {
     error: null,
     isLoading: false,
   });
+
   const handleSubmit = async (values) => {
     setResponse({ data: null, error: null, isLoading: true });
     try {
@@ -37,59 +39,68 @@ function AddHub(props) {
         onSubmit={(values) => handleSubmit(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
-          <Form className="p-3 mt-2 border rounded">
-            <h5>Enter new hub's information</h5>
-
-            <Row>
-              <Field name="name">
-                {({ field, form, meta }) => (
-                  <>
-                    <GeneralInput
-                      label="Name: "
-                      type="text"
-                      field={field}
-                      form={form}
-                      meta={meta}
-                    />
-                  </>
-                )}
-              </Field>
-              <Field name="location">
-                {({ field, form, meta }) => (
-                  <>
-                    <GeneralInput
-                      label="Location: "
-                      type="text"
-                      field={field}
-                      form={form}
-                      meta={meta}
-                    />
-                  </>
-                )}
-              </Field>
-            </Row>
-            <div className="row mt-3">
-              <div className="col">
-                <button
-                  className="btn btn-primary me-3"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  Submit
-                </button>
-                <button
-                  className="btn btn-outline-secondary"
-                  type="reset"
-                  onClick={() => resetForm()}
-                >
-                  Reset
-                </button>
+          <Form className="mt-3">
+            <SubContentLayout subTitle="Enter new hub's information">
+              <div>
+                <Field name="name">
+                  {({ field, form, meta }) => (
+                    <>
+                      <GeneralInput
+                        label="Name: "
+                        type="text"
+                        field={field}
+                        form={form}
+                        meta={meta}
+                      />
+                    </>
+                  )}
+                </Field>
+                <Field name="location">
+                  {({ field, form, meta }) => (
+                    <>
+                      <GeneralInput
+                        label="Location: "
+                        type="text"
+                        field={field}
+                        form={form}
+                        meta={meta}
+                      />
+                    </>
+                  )}
+                </Field>
               </div>
-            </div>
+              <div className="row mt-3">
+                <div className="col">
+                  <button
+                    className="btn btn-primary me-3"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </button>
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="reset"
+                    onClick={() => resetForm()}
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </SubContentLayout>
           </Form>
         )}
       </Formik>
-      <Notification response={response} />
+      <Notification response={response} isShowSucceed>
+        {response.data && (
+          <>
+            <p>Hub is added</p>
+            <p className="m-0">Hub: {response.data.name} </p>
+            <p className="m-0">Id: {response.data.id}</p>
+            <p className="m-0">Location: {response.data.location}</p>
+          </>
+        )}
+      </Notification>
     </>
   );
 }
