@@ -8,6 +8,7 @@ import api from "~/config/api/axiosConfig";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import Notification from "~/components/Notification/Notification";
+import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 AddHub.propTypes = {};
 
@@ -39,54 +40,54 @@ function AddHub(props) {
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-3">
-            <h5>Enter new hub's information</h5>
-
-            <div>
-              <Field name="name">
-                {({ field, form, meta }) => (
-                  <>
-                    <GeneralInput
-                      label="Name: "
-                      type="text"
-                      field={field}
-                      form={form}
-                      meta={meta}
-                    />
-                  </>
-                )}
-              </Field>
-              <Field name="location">
-                {({ field, form, meta }) => (
-                  <>
-                    <GeneralInput
-                      label="Location: "
-                      type="text"
-                      field={field}
-                      form={form}
-                      meta={meta}
-                    />
-                  </>
-                )}
-              </Field>
-            </div>
-            <div className="row mt-3">
-              <div className="col">
-                <button
-                  className="btn btn-primary me-3"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  Submit
-                </button>
-                <button
-                  className="btn btn-outline-secondary"
-                  type="reset"
-                  onClick={() => resetForm()}
-                >
-                  Reset
-                </button>
+            <SubContentLayout subTitle="Enter new hub's information">
+              <div>
+                <Field name="name">
+                  {({ field, form, meta }) => (
+                    <>
+                      <GeneralInput
+                        label="Name: "
+                        type="text"
+                        field={field}
+                        form={form}
+                        meta={meta}
+                      />
+                    </>
+                  )}
+                </Field>
+                <Field name="location">
+                  {({ field, form, meta }) => (
+                    <>
+                      <GeneralInput
+                        label="Location: "
+                        type="text"
+                        field={field}
+                        form={form}
+                        meta={meta}
+                      />
+                    </>
+                  )}
+                </Field>
               </div>
-            </div>
+              <div className="row mt-3">
+                <div className="col">
+                  <button
+                    className="btn btn-primary me-3"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </button>
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="reset"
+                    onClick={() => resetForm()}
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </SubContentLayout>
           </Form>
         )}
       </Formik>

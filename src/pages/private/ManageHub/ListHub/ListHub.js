@@ -11,6 +11,7 @@ import styles from "./ListHub.module.scss";
 import Notification from "~/components/Notification/Notification";
 import UpdateHub from "../UpdateHub/UpdateHub";
 import SingleHubDisplay from "../SingleHubDisplay/SingleHubDisplay";
+import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 ListHub.propTypes = {};
 
@@ -20,6 +21,7 @@ function ListHub(props) {
     error: null,
     isLoading: false,
   });
+  const [listHub, setListHub] = useState([]);
 
   const fetchApi = async () => {
     setResponse({ data: null, error: null, isLoading: true });
@@ -31,18 +33,33 @@ function ListHub(props) {
     }
   };
 
+  const deleteHub = (idx) => {
+    setListHub((prev) => {
+      const updatedList = [...prev];
+      updatedList.splice(idx, 1);
+      return updatedList;
+    });
+  };
+
   useEffect(() => {
     fetchApi();
   }, []);
-  console.log(response.data);
+
+  useEffect(() => {
+    setListHub(response.data === null ? [] : response.data.content);
+  }, [response]);
   return (
     <>
-      <div className={clsx(styles.list, "mt-3 rounded")}>
-        <h4>List of hubs</h4>
-        {response.data?.content.map((hub, idx) => (
-          <SingleHubDisplay key={idx} hub={hub} />
+      <SubContentLayout subTitle="List of hubs">
+        {listHub?.map((hub, idx) => (
+          <SingleHubDisplay
+            key={idx}
+            hub={hub}
+            deleteHub={deleteHub}
+            idx={idx}
+          />
         ))}
-      </div>
+      </SubContentLayout>
       <Notification response={response} />
     </>
   );
