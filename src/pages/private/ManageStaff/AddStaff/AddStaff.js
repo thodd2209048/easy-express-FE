@@ -1,20 +1,20 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 
 import config from "~/config";
-import api from "~/config/api/axiosConfig";
+import { addStaff } from "~/api/api";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import axios from "axios";
-import { Button } from "react-bootstrap";
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 
 AddStaff.propTypes = {};
 
 function AddStaff(props) {
+  const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: (values) => api.post("/api/staff", values),
+    mutationFn: addStaff,
+    onSuccess: queryClient.invalidateQueries({ queryKey: ["staffs"] }),
   });
 
   return (
@@ -80,7 +80,7 @@ function AddStaff(props) {
           </Form>
         )}
       </Formik>
-      <NotificationApi mutation={mutation}>
+      <NotificationApi response={mutation} showSuccess={true}>
         {mutation.isSuccess && (
           <>
             <p>Staff is added</p>

@@ -1,35 +1,28 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
+import PropTypes from "prop-types";
+// import clsx from "clsx";
 
+import { updateHub } from "~/api/api";
 import config from "~/config";
-import api from "~/config/api/axiosConfig";
-import styles from "./UpdateHub.module.scss";
+// import styles from "./UpdateHub.module.scss";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
-import Notification from "~/components/Notification/Notification";
+import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import axios from "axios";
 
 UpdateHub.propTypes = {
   hub: PropTypes.object,
 };
 
 function UpdateHub({ hub }) {
-  const [response, setResponse] = useState({
-    data: null,
-    error: null,
-    isLoading: false,
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (values) => updateHub(hub.id, values),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+    },
   });
-
-  const handleSubmit = async (values) => {
-    setResponse({ data: null, error: null, isLoading: true });
-    try {
-      const res = await api.put(`api/hub/${hub.id}`, values);
-      setResponse({ data: res.data, error: null, isLoading: false });
-    } catch (err) {
-      setResponse({ data: null, error: err.response.data, isLoading: false });
-    }
-  };
 
   return (
     <>
@@ -39,7 +32,7 @@ function UpdateHub({ hub }) {
           location: `${hub.location}`,
         }}
         validationSchema={config.schemas.hub}
-        onSubmit={(values) => handleSubmit(values)}
+        onSubmit={(values) => mutation.mutate(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-2">
@@ -78,7 +71,7 @@ function UpdateHub({ hub }) {
                 <button
                   className="btn btn-primary me-3 btn-sm"
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={mutation.isPending}
                 >
                   Submit
                 </button>
@@ -94,16 +87,16 @@ function UpdateHub({ hub }) {
           </Form>
         )}
       </Formik>
-      <Notification response={response} isShowSucceed>
-        {response.data && (
+      <NotificationApi response={mutation}>
+        {mutation.isSuccess && (
           <>
             <p>Hub is updated</p>
-            <p className="m-0">Hub: {response.data.name} </p>
-            <p className="m-0">Id: {response.data.id}</p>
-            <p className="m-0">Location: {response.data.location}</p>
+            <p className="m-0">Hub: {mutation.data.data.name} </p>
+            <p className="m-0">Id: {mutation.data.data.id}</p>
+            <p className="m-0">Location: {mutation.data.data.location}</p>
           </>
         )}
-      </Notification>
+      </NotificationApi>
     </>
   );
 }

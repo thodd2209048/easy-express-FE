@@ -1,33 +1,26 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Field, Form, Formik } from "formik";
-import { Row } from "react-bootstrap";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import config from "~/config";
-import api from "~/config/api/axiosConfig";
+import { addHub } from "~/api/api";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
-import Notification from "~/components/Notification/Notification";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
+import NotificationApi from "~/components/NotificationApi/NotificationApi";
 
 AddHub.propTypes = {};
 
 function AddHub(props) {
-  const [response, setResponse] = useState({
-    data: null,
-    error: null,
-    isLoading: false,
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: addHub,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+    },
   });
 
-  const handleSubmit = async (values) => {
-    setResponse({ data: null, error: null, isLoading: true });
-    try {
-      const res = await api.post("api/hub", values);
-      setResponse({ data: res.data, error: null, isLoading: false });
-    } catch (err) {
-      setResponse({ data: null, error: err.response.data, isLoading: false });
-    }
-  };
   return (
     <>
       <Formik
@@ -36,7 +29,7 @@ function AddHub(props) {
           location: "",
         }}
         validationSchema={config.schemas.hub}
-        onSubmit={(values) => handleSubmit(values)}
+        onSubmit={(values) => mutation.mutate(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-3">
@@ -91,16 +84,16 @@ function AddHub(props) {
           </Form>
         )}
       </Formik>
-      <Notification response={response} isShowSucceed>
-        {response.data && (
+      <NotificationApi response={mutation} showSucceed>
+        {mutation.isSuccess && (
           <>
             <p>Hub is added</p>
-            <p className="m-0">Hub: {response.data.name} </p>
-            <p className="m-0">Id: {response.data.id}</p>
-            <p className="m-0">Location: {response.data.location}</p>
+            <p className="m-0">Hub: {mutation.data.data.name} </p>
+            <p className="m-0">Id: {mutation.data.data.id}</p>
+            <p className="m-0">Location: {mutation.data.data.location}</p>
           </>
         )}
-      </Notification>
+      </NotificationApi>
     </>
   );
 }

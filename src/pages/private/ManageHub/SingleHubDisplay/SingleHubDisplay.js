@@ -17,17 +17,17 @@ import DeleteHub from "../DeleteHub/DeleteHub";
 HubItem.propTypes = {};
 
 function HubItem({ hub, deleteHub, idx }) {
-  const [isEdit, setIsEdit] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
 
   const toggleEdit = () => {
-    setIsEdit((prev) => !prev);
-    setIsDeleting(false);
+    setShowEdit((prev) => !prev);
+    setShowDelete(false);
   };
 
   const toggleDelete = () => {
-    setIsDeleting((prev) => !prev);
-    setIsEdit(false);
+    setShowDelete((prev) => !prev);
+    setShowEdit(false);
   };
 
   return (
@@ -40,7 +40,7 @@ function HubItem({ hub, deleteHub, idx }) {
 
         <div className={clsx(styles.itemContainer)}>
           <FontAwesomeIcon
-            icon={isEdit ? faRectangleXmark : faPenToSquare}
+            icon={showEdit ? faRectangleXmark : faPenToSquare}
             className={clsx(styles.btnEdit)}
             onClick={() => toggleEdit()}
           />
@@ -52,14 +52,9 @@ function HubItem({ hub, deleteHub, idx }) {
           />
         </div>
       </div>
-      {isEdit && <UpdateHub hub={hub} />}
-      {isDeleting && (
-        <DeleteHub
-          hub={hub}
-          setIsDeleting={setIsDeleting}
-          deleteHub={deleteHub}
-          idx={idx}
-        />
+      {showEdit && <UpdateHub hub={hub} />}
+      {showDelete && (
+        <DeleteHub hub={hub} setShowDelete={setShowDelete} idx={idx} />
       )}
     </div>
   );
