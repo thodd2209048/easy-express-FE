@@ -5,6 +5,8 @@ import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
 import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
 import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
+import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
+import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
 
 const publicRoutes = [{ path: config.routes.home, component: Home }];
 const privateRoutes = [
@@ -24,6 +26,16 @@ const privateRoutes = [
       {
         path: config.routes.updateHub,
         component: UpdateHub,
+      },
+    ],
+  },
+  {
+    path: config.routes.staff,
+    component: ManageStaff,
+    child: [
+      {
+        path: config.routes.addStaff,
+        component: AddStaff,
       },
     ],
   },
