@@ -1,0 +1,33 @@
+import axios from "axios";
+
+const baseURL = "http://localhost:8080";
+
+export const listStaff = async () => {
+  const res = await axios.get(baseURL + "/api/staffs");
+  return res;
+};
+
+export const addStaff = async (values) => {
+  const res = await axios.post(baseURL + "/api/staffs", values);
+  return res;
+};
+
+export const listHub = async () => {
+  const res = await axios.get(baseURL + "/api/hubs");
+  return res;
+};
+
+export const addHub = async (values) => {
+  const res = await axios.post(baseURL + "/api/hubs", values);
+  return res;
+};
+
+export const updateHub = async (hubId, values) => {
+  const res = await axios.put(baseURL + `/api/hubs/${hubId}`, values);
+  return res;
+};
+
+export const deleteHub = async (hubId) => {
+  const res = await axios.delete(baseURL + `/api/hubs/${hubId}`);
+  return res;
+};

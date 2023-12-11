@@ -25,6 +25,14 @@ function ManageStaff(props) {
         >
           Add staff
         </NavLink>
+        <NavLink
+          to={routes.listStaff}
+          className={({ isActive }) =>
+            isActive ? "btn btn-info" : "btn btn-outline-info"
+          }
+        >
+          List staff
+        </NavLink>
       </div>
       <Outlet />
     </div>

@@ -7,6 +7,7 @@ import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
 import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
 import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
 import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
+import ListStaff from "~/pages/private/ManageStaff/ListStaff/ListStaff";
 
 const publicRoutes = [{ path: config.routes.home, component: Home }];
 const privateRoutes = [
@@ -36,6 +37,10 @@ const privateRoutes = [
       {
         path: config.routes.addStaff,
         component: AddStaff,
+      },
+      {
+        path: config.routes.listStaff,
+        component: ListStaff,
       },
     ],
   },

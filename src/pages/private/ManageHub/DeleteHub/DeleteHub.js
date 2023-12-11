@@ -1,31 +1,24 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import clsx from "clsx";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import styles from "./DeleteHub.module.scss";
-import api from "~/config/api/axiosConfig";
-import Notification from "~/components/Notification/Notification";
+import { deleteHub } from "~/api/api";
+
+import NotificationApi from "~/components/NotificationApi/NotificationApi";
 
 DeleteHub.propTypes = {};
 
-function DeleteHub({ hub, setIsDeleting, deleteHub, idx }) {
-  const [response, setResponse] = useState({
-    data: null,
-    error: null,
-    isLoading: false,
+function DeleteHub({ hub, setShowDelete, idx }) {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: deleteHub,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+    },
   });
-
-  const handleSubmit = async () => {
-    setResponse({ status: null, error: null, isLoading: true });
-    try {
-      const res = await api.delete(`api/hub/${hub.id}`);
-      setResponse({ status: res.status, error: null, isLoading: false });
-      deleteHub(idx);
-    } catch (err) {
-      setResponse({ status: null, error: err.response.data, isLoading: false });
-    }
-  };
 
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
@@ -36,15 +29,15 @@ function DeleteHub({ hub, setIsDeleting, deleteHub, idx }) {
         <Button
           variant="outline-danger"
           size="sm"
-          onClick={() => handleSubmit()}
+          onClick={() => mutation.mutate(hub.id)}
         >
           Yes
         </Button>
-        <Button size="sm" className="ms-4" onClick={() => setIsDeleting(false)}>
+        <Button size="sm" className="ms-4" onClick={() => setShowDelete(false)}>
           No
         </Button>
       </div>
-      <Notification response={response} />
+      <NotificationApi response={mutation} />
     </div>
   );
 }

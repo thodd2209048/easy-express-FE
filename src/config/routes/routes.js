@@ -5,7 +5,8 @@ const addHub = hub + "/add-hub";
 const listHub = hub + "/list-hub";
 const updateHub = hub + "/update-hub/:hubId";
 const staff = adminPanel + "/staff";
-const addStaff = staff + "/add-Staff";
+const addStaff = staff + "/add-staff";
+const listStaff = staff + "/list-staff";
 
 const routes = {
   home,
@@ -16,6 +17,7 @@ const routes = {
   updateHub,
   staff,
   addStaff,
+  listStaff,
 };
 
 export default routes;
