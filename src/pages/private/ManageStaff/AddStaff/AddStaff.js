@@ -14,8 +14,12 @@ function AddStaff(props) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: addStaff,
-    onSuccess: queryClient.invalidateQueries({ queryKey: ["staffs"] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["staffs"] });
+    },
   });
+
+  console.log(mutation);
 
   return (
     <div>
@@ -27,7 +31,7 @@ function AddStaff(props) {
         validationSchema={config.schemas.staff}
         onSubmit={(values) => mutation.mutate(values)}
       >
-        {({ touched, errors, isSubmitting, resetForm }) => (
+        {({ resetForm }) => (
           <Form className="mt-3">
             <SubContentLayout subTitle="Enter new staff's information">
               <div>

@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Button, Col, Row } from "react-bootstrap";
+import clsx from "clsx";
+
+import styles from "./SingleItemDisplay.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPenToSquare,
   faRectangleXmark,
   faTrashCan,
 } from "@fortawesome/free-regular-svg-icons";
-import clsx from "clsx";
 
-import styles from "./SingleHubDisplay.module.scss";
+SingleItemDisplay.propTypes = {
+  item: PropTypes.object,
+  idx: PropTypes.number,
+  editComponent: PropTypes.func,
+  deleteComponent: PropTypes.func,
+};
 
-import UpdateHub from "../UpdateHub/UpdateHub";
-import DeleteHub from "../DeleteHub/DeleteHub";
-
-HubItem.propTypes = {};
-
-function HubItem({ hub, deleteHub, idx }) {
+function SingleItemDisplay({
+  item,
+  idx,
+  editComponent,
+  deleteComponent,
+  children,
+}) {
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
+  const EditComponent = editComponent;
+  const DeleteComponent = deleteComponent;
 
   const toggleEdit = () => {
     setShowEdit((prev) => !prev);
@@ -32,12 +41,8 @@ function HubItem({ hub, deleteHub, idx }) {
 
   return (
     <div className="mt-4 p-2 border rounded">
-      <div className={clsx(styles.hubInfo)}>
-        <div>
-          <h5>{hub.name}</h5>
-          <p className="m-0">{hub.location}</p>
-        </div>
-
+      <div className={clsx(styles.itemInfo)}>
+        <div>{children}</div>
         <div className={clsx(styles.itemContainer)}>
           <FontAwesomeIcon
             icon={showEdit ? faRectangleXmark : faPenToSquare}
@@ -52,12 +57,12 @@ function HubItem({ hub, deleteHub, idx }) {
           />
         </div>
       </div>
-      {showEdit && <UpdateHub hub={hub} />}
+      {showEdit && <EditComponent item={item} />}
       {showDelete && (
-        <DeleteHub hub={hub} setShowDelete={setShowDelete} idx={idx} />
+        <DeleteComponent item={item} setShowDelete={setShowDelete} />
       )}
     </div>
   );
 }
 
-export default HubItem;
+export default SingleItemDisplay;

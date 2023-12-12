@@ -6,16 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5a2c6bfa-0d87-4768-9508-ec191831acef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotificationApi/NotificationApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NotificationApi/NotificationApi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/routes/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/AddHub/AddHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/AddHub/AddHub.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/DeleteHub/DeleteHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/DeleteHub/DeleteHub.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/ListHub/ListHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/ListHub/ListHub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/SingleHubDisplay/SingleHubDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/SingleHubDisplay/SingleHubDisplay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/SingleHubDisplay/SingleHubDisplay.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/SingleHubDisplay/SingleHubDisplay.module.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/UpdateHub/UpdateHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/UpdateHub/UpdateHub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageStaff/AddStaff/AddStaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageStaff/AddStaff/AddStaff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageStaff/ManageStaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageStaff/ManageStaff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/UpdateHub/UpdateHub.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/UpdateHub/UpdateHub.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageStaff/ListStaff/ListStaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageStaff/ListStaff/ListStaff.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "staff-react-query",
-    "last_opened_file_path": "D:/Work/Project/easy-express/easy-express-github-fe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;staff&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Work/Project/easy-express/easy-express-github-fe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,7 +59,8 @@
       <updated>1702055963748</updated>
       <workItem from="1702055964780" duration="54000" />
       <workItem from="1702119203857" duration="2882000" />
-      <workItem from="1702316507602" duration="2484000" />
+      <workItem from="1702316507602" duration="3318000" />
+      <workItem from="1702404501937" duration="203000" />
     </task>
     <servers />
   </component>

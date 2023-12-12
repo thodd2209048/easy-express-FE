@@ -3,22 +3,22 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 
-import { deleteHub } from "~/api/api";
-import styles from "./DeleteHub.module.scss";
+import { deleteStaff } from "~/api/api";
+import styles from "./DeleteStaff.module.scss";
 
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 
-DeleteHub.propTypes = {
-  hub: PropTypes.object,
+DeleteStaff.propTypes = {
+  item: PropTypes.object,
   setShowDelete: PropTypes.func,
 };
 
-function DeleteHub({ hub, setShowDelete }) {
+function DeleteStaff({ item, setShowDelete }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: deleteHub,
+    mutationFn: deleteStaff,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+      queryClient.invalidateQueries({ queryKey: ["staffs"] });
     },
   });
 
@@ -31,7 +31,7 @@ function DeleteHub({ hub, setShowDelete }) {
         <Button
           variant="outline-danger"
           size="sm"
-          onClick={() => mutation.mutate(hub.id)}
+          onClick={() => mutation.mutate(item.id)}
         >
           Yes
         </Button>
@@ -44,4 +44,4 @@ function DeleteHub({ hub, setShowDelete }) {
   );
 }
 
-export default DeleteHub;
+export default DeleteStaff;

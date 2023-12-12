@@ -2,39 +2,36 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 import PropTypes from "prop-types";
 
-import { updateHub } from "~/api/api";
+import { updateStaff } from "~/api/api";
 import config from "~/config";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 
-UpdateHub.propTypes = {
+UpdateStaff.propTypes = {
   item: PropTypes.object,
 };
 
-function UpdateHub({ item }) {
+function UpdateStaff({ item }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: (values) => updateHub(item.id, values),
+    mutationFn: (values) => updateStaff(item.id, values),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+      queryClient.invalidateQueries({ queryKey: ["staffs"] });
     },
   });
-
   return (
     <>
       <Formik
         initialValues={{
           name: `${item.name}`,
-          location: `${item.location}`,
+          hubId: `${item.hubId}`,
         }}
-        validationSchema={config.schemas.hub}
+        validationSchema={config.schemas.staff}
         onSubmit={(values) => mutation.mutate(values)}
       >
-        {({ touched, errors, isSubmitting, resetForm }) => (
+        {({ resetForm }) => (
           <Form className="mt-2">
-            {/* <p>Update</p> */}
-
             <div>
               <Field name="name">
                 {({ field, form, meta }) => (
@@ -49,11 +46,11 @@ function UpdateHub({ item }) {
                   </>
                 )}
               </Field>
-              <Field name="location">
+              <Field name="hubId">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
-                      label="Location: "
+                      label="HubId: "
                       type="text"
                       field={field}
                       form={form}
@@ -87,10 +84,10 @@ function UpdateHub({ item }) {
       <NotificationApi response={mutation}>
         {mutation.isSuccess && (
           <>
-            <p>Hub is updated</p>
-            <p className="m-0">Hub: {mutation.data.data.name} </p>
+            <p>Staff is updated</p>
+            <p className="m-0">Name: {mutation.data.data.name} </p>
             <p className="m-0">Id: {mutation.data.data.id}</p>
-            <p className="m-0">Location: {mutation.data.data.location}</p>
+            <p className="m-0">HubId: {mutation.data.data.hubId}</p>
           </>
         )}
       </NotificationApi>
@@ -98,4 +95,4 @@ function UpdateHub({ item }) {
   );
 }
 
-export default UpdateHub;
+export default UpdateStaff;

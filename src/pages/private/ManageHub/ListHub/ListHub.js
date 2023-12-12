@@ -7,7 +7,9 @@ import { listHub } from "~/api/api";
 
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import SingleHubDisplay from "../SingleHubDisplay/SingleHubDisplay";
+import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
+import UpdateHub from "../UpdateHub/UpdateHub";
+import DeleteHub from "../DeleteHub/DeleteHub";
 
 ListHub.propTypes = {};
 
@@ -19,7 +21,17 @@ function ListHub(props) {
       {query.isSuccess && (
         <SubContentLayout subTitle="List of hubs">
           {query.data.data.content.map((hub, idx) => (
-            <SingleHubDisplay key={idx} hub={hub} idx={idx} />
+            <SingleItemDisplay
+              key={idx}
+              item={hub}
+              editComponent={UpdateHub}
+              deleteComponent={DeleteHub}
+            >
+              <>
+                <h5>{hub.name}</h5>
+                <p className="m-0">{hub.location}</p>
+              </>
+            </SingleItemDisplay>
           ))}
         </SubContentLayout>
       )}
