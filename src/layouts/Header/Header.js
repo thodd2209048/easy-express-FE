@@ -29,6 +29,9 @@ function Header(props) {
             <Nav.Link as={Link} to={routes.adminPanel}>
               Admin
             </Nav.Link>
+            <Nav.Link as={Link} to={routes.test}>
+              Test
+            </Nav.Link>
             <NavDropdown title="Staff" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

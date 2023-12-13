@@ -1,20 +1,20 @@
-import config from "~/config";
 import routes from "~/config/routes/routes";
-import Home from "~/pages/public/Home/Home";
 import AdminPanel from "~/pages/private/AdminPanel/AdminPanel";
-import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
 import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
+import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
 import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
-import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
 import ListStaff from "~/pages/private/ManageStaff/ListStaff/ListStaff";
-import Parcel from "~/pages/public/CreateShipment/CreateShipment";
+import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
+import Test from "~/pages/private/Test/Test";
 import CreateShipment from "~/pages/public/CreateShipment/CreateShipment";
+import Home from "~/pages/public/Home/Home";
 
 const publicRoutes = [
   { path: routes.home, component: Home },
   { path: routes.shipment, component: CreateShipment },
+  { path: routes.test, component: Test },
 ];
 const privateRoutes = [
   { path: routes.adminPanel, component: AdminPanel },
@@ -52,4 +52,4 @@ const privateRoutes = [
   },
 ];
 
-export { publicRoutes, privateRoutes };
+export { privateRoutes, publicRoutes };

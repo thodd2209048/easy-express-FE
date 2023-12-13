@@ -1,4 +1,5 @@
 const home = "/";
+const test = home + "test";
 const adminPanel = home + "admin-panel";
 const hub = adminPanel + "/hub";
 const addHub = hub + "/add-hub";
@@ -11,6 +12,7 @@ const shipment = home + "shipment";
 
 const routes = {
   home,
+  test,
   adminPanel,
   hub,
   addHub,
