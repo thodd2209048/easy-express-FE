@@ -41,3 +41,8 @@ export const deleteHub = async (hubId) => {
   const res = await axios.delete(baseURL + `/api/hubs/${hubId}`);
   return res;
 };
+
+export const addShipment = async (values) => {
+  const res = await axios.post(baseURL + "/api/shipments", values);
+  return res;
+};

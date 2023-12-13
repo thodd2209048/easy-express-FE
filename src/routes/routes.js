@@ -1,4 +1,5 @@
 import config from "~/config";
+import routes from "~/config/routes/routes";
 import Home from "~/pages/public/Home/Home";
 import AdminPanel from "~/pages/private/AdminPanel/AdminPanel";
 import ManageHub from "~/pages/private/ManageHub/ManageHub";
@@ -8,38 +9,43 @@ import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
 import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
 import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
 import ListStaff from "~/pages/private/ManageStaff/ListStaff/ListStaff";
+import Parcel from "~/pages/public/CreateShipment/CreateShipment";
+import CreateShipment from "~/pages/public/CreateShipment/CreateShipment";
 
-const publicRoutes = [{ path: config.routes.home, component: Home }];
+const publicRoutes = [
+  { path: routes.home, component: Home },
+  { path: routes.shipment, component: CreateShipment },
+];
 const privateRoutes = [
-  { path: config.routes.adminPanel, component: AdminPanel },
+  { path: routes.adminPanel, component: AdminPanel },
   {
-    path: config.routes.hub,
+    path: routes.hub,
     component: ManageHub,
     child: [
       {
-        path: config.routes.addHub,
+        path: routes.addHub,
         component: AddHub,
       },
       {
-        path: config.routes.listHub,
+        path: routes.listHub,
         component: ListHub,
       },
       {
-        path: config.routes.updateHub,
+        path: routes.updateHub,
         component: UpdateHub,
       },
     ],
   },
   {
-    path: config.routes.staff,
+    path: routes.staff,
     component: ManageStaff,
     child: [
       {
-        path: config.routes.addStaff,
+        path: routes.addStaff,
         component: AddStaff,
       },
       {
-        path: config.routes.listStaff,
+        path: routes.listStaff,
         component: ListStaff,
       },
     ],

@@ -5,7 +5,7 @@ import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import images from "~/assets/images";
 import styles from "./Header.module.scss";
 import clsx from "clsx";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import routes from "~/config/routes/routes";
 
 Header.propTypes = {};
@@ -14,7 +14,7 @@ function Header(props) {
   return (
     <Navbar expand="lg" bg="body-light" data-bs-theme="light">
       <Container>
-        <Navbar.Brand href="#home" className={clsx(styles.logo)}>
+        <Navbar.Brand as={NavLink} to={"/"} className={clsx(styles.logo)}>
           <img src={images.logo} alt="Home" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -22,6 +22,9 @@ function Header(props) {
           <Nav className="me-auto">
             <Nav.Link as={Link} to={routes.home}>
               Home
+            </Nav.Link>
+            <Nav.Link as={Link} to={routes.shipment}>
+              New shipment
             </Nav.Link>
             <Nav.Link as={Link} to={routes.adminPanel}>
               Admin
