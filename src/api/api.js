@@ -1,9 +1,12 @@
 import axios from "axios";
 
 const baseURL = "http://localhost:8080";
+const size = 3;
 
 export const listStaff = async (page) => {
-  const res = await axios.get(baseURL + "/api/staffs?page=" + page);
+  const res = await axios.get(
+    baseURL + `/api/staffs?page=${page}&size=${size}`
+  );
   return res;
 };
 

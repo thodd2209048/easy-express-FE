@@ -1,10 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import ReactPaginate from "react-paginate";
+import PaginatedItems from "./PaginatedItems";
 
 Test.propTypes = {};
 
-function Test(props) {
-  return <div></div>;
+function Test({ currentItems }) {
+  return (
+    <>
+      <PaginatedItems itemsPerPage={4} />
+    </>
+  );
 }
 
 export default Test;

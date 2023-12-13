@@ -1,11 +1,11 @@
 import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Field, Form, Formik } from "formik";
 
 import styles from "./CreateShipment.module.scss";
-import routes from "~/config/routes/routes";
+// import routes from "~/config/routes/routes";
 import schemas from "~/config/schemas";
 
 import PageTitle from "~/components/PageTitle/PageTitle";
@@ -92,7 +92,7 @@ function CreateShipment(props) {
       <NotificationApi response={mutation} showSucceed>
         {mutation.isSuccess && (
           <>
-            <p>NOTI</p>
+            <p>NOTIFICATION</p>
             <p className="m-0">Hub: {mutation.data.data.name} </p>
             <p className="m-0">Id: {mutation.data.data.id}</p>
             <p className="m-0">Location: {mutation.data.data.location}</p>
