@@ -1,32 +1,55 @@
-import config from "~/config";
-import Home from "~/pages/public/Home/Home";
+import routes from "~/config/routes/routes";
 import AdminPanel from "~/pages/private/AdminPanel/AdminPanel";
-import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
 import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
+import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
+import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
+import ListStaff from "~/pages/private/ManageStaff/ListStaff/ListStaff";
+import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
+import Test from "~/pages/private/Test/Test";
+import CreateShipment from "~/pages/public/CreateShipment/CreateShipment";
+import Home from "~/pages/public/Home/Home";
 
-const publicRoutes = [{ path: config.routes.home, component: Home }];
+const publicRoutes = [
+  { path: routes.home, component: Home },
+  { path: routes.shipment, component: CreateShipment },
+  { path: routes.test, component: Test },
+];
 const privateRoutes = [
-  { path: config.routes.adminPanel, component: AdminPanel },
+  { path: routes.adminPanel, component: AdminPanel },
   {
-    path: config.routes.hub,
+    path: routes.hub,
     component: ManageHub,
     child: [
       {
-        path: config.routes.addHub,
+        path: routes.addHub,
         component: AddHub,
       },
       {
-        path: config.routes.listHub,
+        path: routes.listHub,
         component: ListHub,
       },
       {
-        path: config.routes.updateHub,
+        path: routes.updateHub,
         component: UpdateHub,
+      },
+    ],
+  },
+  {
+    path: routes.staff,
+    component: ManageStaff,
+    child: [
+      {
+        path: routes.addStaff,
+        component: AddStaff,
+      },
+      {
+        path: routes.listStaff,
+        component: ListStaff,
       },
     ],
   },
 ];
 
-export { publicRoutes, privateRoutes };
+export { privateRoutes, publicRoutes };

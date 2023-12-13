@@ -1,57 +1,63 @@
-// import PropTypes from "prop-types";
+import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+// import PropTypes from "prop-types";
+import clsx from "clsx";
 import { Field, Form, Formik } from "formik";
 
-import { addHub } from "~/api/api";
-import config from "~/config";
+import styles from "./CreateShipment.module.scss";
+// import routes from "~/config/routes/routes";
+import schemas from "~/config/schemas";
+
+import PageTitle from "~/components/PageTitle/PageTitle";
 
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
+import { addShipment } from "~/api/api";
 
-AddHub.propTypes = {};
+CreateShipment.propTypes = {};
 
-function AddHub(props) {
+function CreateShipment(props) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: addHub,
+    mutationFn: addShipment,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+      queryClient.invalidateQueries({ queryKey: ["shipments"] });
     },
   });
-
   return (
-    <>
+    <div className={clsx(styles.wrapper, "mt-2")}>
+      <div className="row">
+        <PageTitle title="Create new shipment" />
+      </div>
       <Formik
         initialValues={{
-          name: "",
-          location: "",
+          senderName: "",
+          senderPhone: "",
+          senderAddress: "",
+          receiverName: "",
+          receiverPhone: "",
+          receiverAddress: "",
+          value: "",
+          description: "",
+          weight: "",
+          length: "",
+          width: "",
+          height: "",
         }}
-        validationSchema={config.schemas.hub}
+        validationSchema={schemas.hub}
         onSubmit={(values) => mutation.mutate(values)}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-3">
             <SubContentLayout subTitle="Enter new hub's information">
               <div>
-                <Field name="name">
+                <p className="fs-3">From:</p>
+                <Field name="senderName">
                   {({ field, form, meta }) => (
                     <>
                       <GeneralInput
                         label="Name: "
-                        type="text"
-                        field={field}
-                        form={form}
-                        meta={meta}
-                      />
-                    </>
-                  )}
-                </Field>
-                <Field name="location">
-                  {({ field, form, meta }) => (
-                    <>
-                      <GeneralInput
-                        label="Location: "
                         type="text"
                         field={field}
                         form={form}
@@ -86,15 +92,15 @@ function AddHub(props) {
       <NotificationApi response={mutation} showSucceed>
         {mutation.isSuccess && (
           <>
-            <p>Hub is added</p>
+            <p>NOTIFICATION</p>
             <p className="m-0">Hub: {mutation.data.data.name} </p>
             <p className="m-0">Id: {mutation.data.data.id}</p>
             <p className="m-0">Location: {mutation.data.data.location}</p>
           </>
         )}
       </NotificationApi>
-    </>
+    </div>
   );
 }
 
-export default AddHub;
+export default CreateShipment;

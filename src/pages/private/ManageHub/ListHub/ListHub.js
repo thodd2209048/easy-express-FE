@@ -1,66 +1,41 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { Button, Col, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+// import PropTypes from "prop-types";
 
-import api from "~/config/api/axiosConfig";
-import styles from "./ListHub.module.scss";
+// import styles from "./ListHub.module.scss";
 
-import Notification from "~/components/Notification/Notification";
-import UpdateHub from "../UpdateHub/UpdateHub";
-import SingleHubDisplay from "../SingleHubDisplay/SingleHubDisplay";
+import { useQuery } from "@tanstack/react-query";
+import { listHub } from "~/api/api";
+
+import NotificationApi from "~/components/NotificationApi/NotificationApi";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
+import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
+import UpdateHub from "../UpdateHub/UpdateHub";
+import DeleteHub from "../DeleteHub/DeleteHub";
 
 ListHub.propTypes = {};
 
 function ListHub(props) {
-  const [response, setResponse] = useState({
-    data: null,
-    error: null,
-    isLoading: false,
-  });
-  const [listHub, setListHub] = useState([]);
+  const query = useQuery({ queryKey: ["hubs"], queryFn: listHub });
 
-  const fetchApi = async () => {
-    setResponse({ data: null, error: null, isLoading: true });
-    try {
-      const res = await api.get("api/hub");
-      setResponse({ data: res.data, error: null, isLoading: false });
-    } catch (err) {
-      setResponse({ data: null, error: err.response.data, isLoading: false });
-    }
-  };
-
-  const deleteHub = (idx) => {
-    setListHub((prev) => {
-      const updatedList = [...prev];
-      updatedList.splice(idx, 1);
-      return updatedList;
-    });
-  };
-
-  useEffect(() => {
-    fetchApi();
-  }, []);
-
-  useEffect(() => {
-    setListHub(response.data === null ? [] : response.data.content);
-  }, [response]);
   return (
     <>
-      <SubContentLayout subTitle="List of hubs">
-        {listHub?.map((hub, idx) => (
-          <SingleHubDisplay
-            key={idx}
-            hub={hub}
-            deleteHub={deleteHub}
-            idx={idx}
-          />
-        ))}
-      </SubContentLayout>
-      <Notification response={response} />
+      {query.isSuccess && (
+        <SubContentLayout subTitle="List of hubs">
+          {query.data.data.content.map((hub, idx) => (
+            <SingleItemDisplay
+              key={idx}
+              item={hub}
+              editComponent={UpdateHub}
+              deleteComponent={DeleteHub}
+            >
+              <>
+                <h5>{hub.name}</h5>
+                <p className="m-0">{hub.location}</p>
+              </>
+            </SingleItemDisplay>
+          ))}
+        </SubContentLayout>
+      )}
+      <NotificationApi response={query} showSuccess={false} />
     </>
   );
 }

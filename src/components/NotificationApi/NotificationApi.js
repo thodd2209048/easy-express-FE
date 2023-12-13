@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-Notification.propTypes = {
-  isShowDetail: PropTypes.bool,
-};
+NotificationApi.propTypes = {};
 
-function Notification({ response, children, isShowSucceed }) {
+function NotificationApi({response, showSuccess=true, children }) {
   return (
     <div className="mt-2 text-start">
-      {isShowSucceed && response.data && (
+      {showSuccess && response.isSuccess && (
         <div className="alert alert-success" role="alert">
           <h5>Success!</h5>
           {children}
         </div>
       )}
-      {response.error && (
+      {response.isError && (
         <div className="alert alert-warning" role="alert">
           <span>{response.error.message}</span>
         </div>
       )}
-      {response.isLoading && (
+      {response.isPending && (
         <div className="alert alert-secondary" role="alert">
           <span>Loading...</span>
         </div>
@@ -28,4 +26,4 @@ function Notification({ response, children, isShowSucceed }) {
   );
 }
 
-export default Notification;
+export default NotificationApi;
