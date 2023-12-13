@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 
 import images from "~/assets/images";
