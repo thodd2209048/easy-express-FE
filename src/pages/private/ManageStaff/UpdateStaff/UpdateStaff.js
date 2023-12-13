@@ -7,6 +7,7 @@ import config from "~/config";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import HubInput from "~/components/inputs/HubInput/HubInput";
 
 UpdateStaff.propTypes = {
   item: PropTypes.object,
@@ -49,9 +50,8 @@ function UpdateStaff({ item }) {
               <Field name="hubId">
                 {({ field, form, meta }) => (
                   <>
-                    <GeneralInput
-                      label="HubId: "
-                      type="text"
+                    <HubInput
+                      label="Hub: "
                       field={field}
                       form={form}
                       meta={meta}

@@ -40,10 +40,10 @@ function SingleItemDisplay({
   };
 
   return (
-    <div className="mt-4 p-2 border rounded">
-      <div className={clsx(styles.itemInfo)}>
-        <div>{children}</div>
-        <div className={clsx(styles.itemContainer)}>
+    <div className="mt-1 p-2 border rounded">
+      <div className={clsx(styles.itemInfo, "row")}>
+        <div className="col-10">{children}</div>
+        <div className={clsx(styles.itemContainer, "col-2")}>
           <FontAwesomeIcon
             icon={showEdit ? faRectangleXmark : faPenToSquare}
             className={clsx(styles.btnEdit)}

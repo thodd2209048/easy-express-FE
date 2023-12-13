@@ -7,6 +7,7 @@ import { addStaff } from "~/api/api";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import HubInput from "~/components/inputs/HubInput/HubInput";
 
 AddStaff.propTypes = {};
 
@@ -19,8 +20,6 @@ function AddStaff(props) {
     },
   });
 
-  console.log(mutation);
-
   return (
     <div>
       <Formik
@@ -29,60 +28,64 @@ function AddStaff(props) {
           hubId: "",
         }}
         validationSchema={config.schemas.staff}
-        onSubmit={(values) => mutation.mutate(values)}
+        onSubmit={(values) => {
+          console.log(values);
+          mutation.mutate(values);
+        }}
       >
-        {({ resetForm }) => (
-          <Form className="mt-3">
-            <SubContentLayout subTitle="Enter new staff's information">
-              <div>
-                <Field name="name">
-                  {({ field, form, meta }) => (
-                    <>
-                      <GeneralInput
-                        label="Name: "
-                        type="text"
-                        field={field}
-                        form={form}
-                        meta={meta}
-                      />
-                    </>
-                  )}
-                </Field>
-                <Field name="hubId">
-                  {({ field, form, meta }) => (
-                    <>
-                      <GeneralInput
-                        label="HubId: "
-                        type="number"
-                        field={field}
-                        form={form}
-                        meta={meta}
-                      />
-                    </>
-                  )}
-                </Field>
-              </div>
-              <div className="row mt-3">
-                <div className="col">
-                  <button
-                    className="btn btn-primary me-3"
-                    type="submit"
-                    disabled={mutation.isPending}
-                  >
-                    Submit
-                  </button>
-                  <button
-                    className="btn btn-outline-secondary"
-                    type="reset"
-                    onClick={() => resetForm()}
-                  >
-                    Reset
-                  </button>
+        {({ errors, touched, resetForm }) => {
+          return (
+            <Form className="mt-3">
+              <SubContentLayout subTitle="Enter new staff's information">
+                <div>
+                  <Field name="name">
+                    {({ field, form, meta }) => (
+                      <>
+                        <GeneralInput
+                          label="Name: "
+                          type="text"
+                          field={field}
+                          form={form}
+                          meta={meta}
+                        />
+                      </>
+                    )}
+                  </Field>
+                  <Field name="hubId">
+                    {({ field, form, meta }) => (
+                      <>
+                        <HubInput
+                          label="Hub: "
+                          field={field}
+                          form={form}
+                          meta={meta}
+                        />
+                      </>
+                    )}
+                  </Field>
                 </div>
-              </div>
-            </SubContentLayout>
-          </Form>
-        )}
+                <div className="row mt-3">
+                  <div className="col">
+                    <button
+                      className="btn btn-primary me-3"
+                      type="submit"
+                      disabled={mutation.isPending}
+                    >
+                      Submit
+                    </button>
+                    <button
+                      className="btn btn-outline-secondary"
+                      type="reset"
+                      onClick={() => resetForm()}
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+              </SubContentLayout>
+            </Form>
+          );
+        }}
       </Formik>
       <NotificationApi response={mutation} showSuccess={true}>
         {mutation.isSuccess && (

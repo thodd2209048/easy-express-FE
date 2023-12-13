@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import clsx from "clsx";
 
-import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import { useQuery } from "@tanstack/react-query";
 import { listStaff } from "~/api/api";
+import styles from "./ListStaff.module.scss";
+
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
 import UpdateStaff from "../UpdateStaff/UpdateStaff";
 import DeleteStaff from "../DeleteStaff/DeleteStaff";
+import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 ListStaff.propTypes = {};
 
@@ -16,6 +19,7 @@ function ListStaff(props) {
     queryKey: ["staffs", page],
     queryFn: () => listStaff(page),
   });
+
   return (
     <>
       {query.isSuccess && (
@@ -27,11 +31,11 @@ function ListStaff(props) {
               editComponent={UpdateStaff}
               deleteComponent={DeleteStaff}
             >
-              <>
-                <span>{staff.id}</span>
-                <span className="ms-3 fw-bold">{staff.name}</span>
-                <span className="ms-3">{staff.hubId}</span>
-              </>
+              <div className={clsx(styles.itemInfo, "row")}>
+                <span className="col-1">{staff.id}</span>
+                <span className="fw-bold col-7">{staff.name}</span>
+                <span className="col-4">{staff.hubName}</span>
+              </div>
             </SingleItemDisplay>
           ))}
         </SubContentLayout>
