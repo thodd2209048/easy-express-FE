@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Form, InputGroup, Row } from "react-bootstrap";
 import { ErrorMessage } from "formik";
 
 GeneralInput.propTypes = {
   label: PropTypes.string,
 };
 
-function GeneralInput({ label, field, form, meta, ...props }) {
+function GeneralInput({ label, prefix, suffix, field, form, meta, ...props }) {
   return (
     <>
       <Row className="mt-2 mt-md-3 form-group">
@@ -15,16 +15,20 @@ function GeneralInput({ label, field, form, meta, ...props }) {
           <label>{label}</label>
         </Col>
         <Col xs="9" lg="10">
-          <Form.Control
-            className={meta.error && meta.touched ? "is-invalid" : ""}
-            {...field}
-            {...props}
-          />
-          <ErrorMessage
-            component={"div"}
-            name={field.name}
-            className="invalid-feedback text-start"
-          />
+          <InputGroup>
+            {!!prefix && <InputGroup.Text>{prefix}</InputGroup.Text>}
+            <Form.Control
+              className={meta.error && meta.touched ? "is-invalid" : ""}
+              {...field}
+              {...props}
+            />
+            {!!suffix && <InputGroup.Text>{suffix}</InputGroup.Text>}
+            <ErrorMessage
+              component={"div"}
+              name={field.name}
+              className="invalid-feedback text-start"
+            />
+          </InputGroup>
         </Col>
       </Row>
     </>

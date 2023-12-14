@@ -19,7 +19,7 @@ SingleItemDisplay.propTypes = {
 
 function SingleItemDisplay({
   item,
-  idx,
+  keyInfo,
   editComponent,
   deleteComponent,
   children,
@@ -41,22 +41,29 @@ function SingleItemDisplay({
 
   return (
     <div className="mt-1 p-2 border rounded">
-      <div className={clsx(styles.itemInfo, "row")}>
-        <div className="col-10">{children}</div>
-        <div className={clsx(styles.itemContainer, "col-2")}>
-          <FontAwesomeIcon
-            icon={showEdit ? faRectangleXmark : faPenToSquare}
-            className={clsx(styles.btnEdit)}
-            onClick={() => toggleEdit()}
-          />
+      <div className={clsx(styles.title, "row")}>
+        <div className="col fw-bold">{keyInfo}</div>
+        {(!!editComponent || !!deleteComponent) && (
+          <div div className={clsx(styles.itemContainer, "col-2")}>
+            {!!editComponent && (
+              <FontAwesomeIcon
+                icon={showEdit ? faRectangleXmark : faPenToSquare}
+                className={clsx(styles.btnEdit)}
+                onClick={() => toggleEdit()}
+              />
+            )}
 
-          <FontAwesomeIcon
-            icon={faTrashCan}
-            className={clsx(styles.btnDelete)}
-            onClick={() => toggleDelete()}
-          />
-        </div>
+            {!!deleteComponent && (
+              <FontAwesomeIcon
+                icon={faTrashCan}
+                className={clsx(styles.btnDelete)}
+                onClick={() => toggleDelete()}
+              />
+            )}
+          </div>
+        )}
       </div>
+      <div className={clsx(styles.itemInfo, "row")}>{children}</div>
       {showEdit && <EditComponent item={item} />}
       {showDelete && (
         <DeleteComponent item={item} setShowDelete={setShowDelete} />

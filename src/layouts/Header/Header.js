@@ -22,21 +22,17 @@ function Header(props) {
             <Nav.Link as={Link} to={routes.home}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to={routes.shipment}>
-              New shipment
-            </Nav.Link>
             <Nav.Link as={Link} to={routes.adminPanel}>
               Admin
             </Nav.Link>
             <Nav.Link as={Link} to={routes.test}>
               Test
             </Nav.Link>
-            <NavDropdown title="Staff" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
+            <NavDropdown title="Customer" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to={routes.shipment}>
+                Shipment
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="#">Tracking</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

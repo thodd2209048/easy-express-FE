@@ -24,11 +24,11 @@ function ListHub(props) {
             <SingleItemDisplay
               key={idx}
               item={hub}
+              keyInfo={hub.name}
               editComponent={UpdateHub}
               deleteComponent={DeleteHub}
             >
               <>
-                <h5>{hub.name}</h5>
                 <p className="m-0">{hub.location}</p>
               </>
             </SingleItemDisplay>

@@ -40,6 +40,14 @@ function AdminPanel(props) {
           >
             Staff
           </NavLink>
+          <NavLink
+            to={routes.manageShipment}
+            className={({ isActive }) =>
+              isActive ? "btn btn-info" : "btn btn-outline-info"
+            }
+          >
+            Shipment
+          </NavLink>
         </div>
       </div>
     </div>

@@ -1,8 +1,9 @@
-import { hub, staff } from "./schemas";
+import { hub, staff, shipment } from "./schemas";
 
 const schemas = {
   hub,
   staff,
+  shipment,
 };
 
 export default schemas;

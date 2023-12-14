@@ -3,28 +3,24 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { listStaff } from "~/api/api";
-import styles from "./ListStaff.module.scss";
+import { listShipment, listStaff } from "~/api/api";
+import styles from "./ListShipment.module.scss";
 
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
 import Paginate from "~/components/Paginate/Paginate";
 import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import DeleteStaff from "../DeleteStaff/DeleteStaff";
-import UpdateStaff from "../UpdateStaff/UpdateStaff";
 
-ListStaff.propTypes = {};
-
-function ListStaff(props) {
+function ListShipment(props) {
   const [page, setPage] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   const query = useQuery({
     queryKey: ["staffs", page],
-    queryFn: () => listStaff(page),
+    queryFn: () => listShipment(page),
   });
   const handlePageClick = (e) => {
-    navigate(`/admin-panel/staff/list-staff?page=${e.selected + 1}`);
+    navigate(`/admin-panel/shipment/list-shipment?page=${e.selected + 1}`);
   };
 
   useEffect(() => {
@@ -34,22 +30,25 @@ function ListStaff(props) {
     }
     setPage();
   }, [location]);
-
   return (
     <>
       {query.isSuccess && (
         <SubContentLayout>
-          {query.data.data.content.map((staff) => (
+          {query.data.data.content.map((shipment) => (
             <SingleItemDisplay
-              key={staff.id}
-              item={staff}
-              keyInfo={staff.name}
-              editComponent={UpdateStaff}
-              deleteComponent={DeleteStaff}
+              key={shipment.id}
+              item={shipment}
+              keyInfo={shipment.number}
             >
-              <div className={clsx(styles.itemInfo, "row")}>
-                <span className="col-3">Id: {staff.id}</span>
-                <span className="col-4">Hub: {staff.hubName}</span>
+              <div className={clsx(styles.address, "row")}>
+                <div className="col-6">
+                  <p className="m-0">{shipment.senderName}</p>
+                  <p className="m-0">{shipment.senderAddress}</p>
+                </div>
+                <div className="col-6">
+                  <p className="m-0">{shipment.receiverName}</p>
+                  <p className="m-0">{shipment.receiverAddress}</p>
+                </div>
               </div>
             </SingleItemDisplay>
           ))}
@@ -67,4 +66,4 @@ function ListStaff(props) {
   );
 }
 
-export default ListStaff;
+export default ListShipment;

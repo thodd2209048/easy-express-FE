@@ -9,6 +9,8 @@ const staff = adminPanel + "/staff";
 const addStaff = staff + "/add-staff";
 const listStaff = staff + "/list-staff";
 const shipment = home + "shipment";
+const manageShipment = adminPanel + "/shipment";
+const listShipment = manageShipment + "/list-shipment";
 
 const routes = {
   home,
@@ -22,6 +24,8 @@ const routes = {
   addStaff,
   listStaff,
   shipment,
+  manageShipment,
+  listShipment,
 };
 
 export default routes;

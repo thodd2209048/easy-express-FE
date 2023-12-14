@@ -45,6 +45,13 @@ export const deleteHub = async (hubId) => {
   return res;
 };
 
+export const listShipment = async (page) => {
+  const res = await axios.get(
+    baseURL + `/api/shipments?page=${page}&size=${size}`
+  );
+  return res;
+};
+
 export const addShipment = async (values) => {
   const res = await axios.post(baseURL + "/api/shipments", values);
   return res;
