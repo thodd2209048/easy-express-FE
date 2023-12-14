@@ -4,6 +4,8 @@ import AddHub from "~/pages/private/ManageHub/AddHub/AddHub";
 import ListHub from "~/pages/private/ManageHub/ListHub/ListHub";
 import ManageHub from "~/pages/private/ManageHub/ManageHub";
 import UpdateHub from "~/pages/private/ManageHub/UpdateHub/UpdateHub";
+import ListShipment from "~/pages/private/ManageShipment/ListShipment/ListShipment";
+import ManageShipment from "~/pages/private/ManageShipment/ManageShipment";
 import AddStaff from "~/pages/private/ManageStaff/AddStaff/AddStaff";
 import ListStaff from "~/pages/private/ManageStaff/ListStaff/ListStaff";
 import ManageStaff from "~/pages/private/ManageStaff/ManageStaff";
@@ -47,6 +49,16 @@ const privateRoutes = [
       {
         path: routes.listStaff,
         component: ListStaff,
+      },
+    ],
+  },
+  {
+    path: routes.manageShipment,
+    component: ManageShipment,
+    child: [
+      {
+        path: routes.listShipment,
+        component: ListShipment,
       },
     ],
   },

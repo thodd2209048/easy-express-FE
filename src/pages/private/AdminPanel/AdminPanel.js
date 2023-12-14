@@ -1,22 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-
 import clsx from "clsx";
 
-import styles from "./AdminPanel.module.scss";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import PageTitle from "~/components/PageTitle/PageTitle";
 import routes from "~/config/routes/routes";
+import styles from "./AdminPanel.module.scss";
 
 AdminPanel.propTypes = {};
 
 function AdminPanel(props) {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handleClick = (link) => {
-    navigate(`${location.pathname}${link}`);
-  };
   return (
     <div className="container">
       <div className="row">
@@ -39,6 +30,14 @@ function AdminPanel(props) {
             }
           >
             Staff
+          </NavLink>
+          <NavLink
+            to={routes.manageShipment}
+            className={({ isActive }) =>
+              isActive ? "btn btn-info" : "btn btn-outline-info"
+            }
+          >
+            Shipment
           </NavLink>
         </div>
       </div>
