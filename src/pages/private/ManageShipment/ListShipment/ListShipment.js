@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { listShipment, listStaff } from "~/api/api";
+import { listShipment } from "~/api/api";
 import styles from "./ListShipment.module.scss";
 
 import NotificationApi from "~/components/NotificationApi/NotificationApi";
