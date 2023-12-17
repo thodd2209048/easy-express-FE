@@ -8,9 +8,9 @@ import styles from "./CreateShipment.module.scss";
 // import routes from "~/config/routes/routes";
 import schemas from "~/config/schemas";
 
-import PageTitle from "~/components/PageTitle/PageTitle";
+import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import { addShipment } from "~/api/api";

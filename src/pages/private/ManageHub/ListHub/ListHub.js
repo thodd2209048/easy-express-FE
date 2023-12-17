@@ -5,9 +5,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { listHub } from "~/api/api";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
+import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDisplay";
 import UpdateHub from "../UpdateHub/UpdateHub";
 import DeleteHub from "../DeleteHub/DeleteHub";
 

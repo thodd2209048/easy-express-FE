@@ -5,7 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import styles from "./ManageShipment.module.scss";
 import routes from "~/config/routes/routes";
 
-import PageTitle from "~/components/PageTitle/PageTitle";
+import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
 ManageShipment.propTypes = {};
 

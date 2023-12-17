@@ -1,13 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { ErrorMessage } from "formik";
 import PropTypes from "prop-types";
 import { Col, Form, Row } from "react-bootstrap";
-import { listHub } from "~/api/api";
 
-HubInput.propTypes = { label: PropTypes.string };
+ConstantInput.propTypes = { label: PropTypes.string };
 
-function HubInput({ label, field, form, meta, ...props }) {
-  const query = useQuery({ queryKey: ["hubs"], queryFn: listHub });
+function ConstantInput({ label, options, field, form, meta, ...props }) {
   return (
     <Row className="mt-2 mt-md-3 form-group">
       <Col xs="3" lg="2" className="d-flex">
@@ -20,9 +17,9 @@ function HubInput({ label, field, form, meta, ...props }) {
           {...props}
         >
           <option>Open this select menu</option>
-          {query.data?.data.content.map((hub, idx) => (
-            <option key={idx} value={hub.id}>
-              {hub.name}
+          {options.map((option, idx) => (
+            <option key={idx} value={option}>
+              {option}
             </option>
           ))}
         </Form.Select>
@@ -36,4 +33,4 @@ function HubInput({ label, field, form, meta, ...props }) {
   );
 }
 
-export default HubInput;
+export default ConstantInput;

@@ -2,14 +2,14 @@ import React from "react";
 import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 
-import styles from "./ManageHub.module.scss";
+import styles from "./AdminManageTracking.module.scss";
 import routes from "~/config/routes/routes";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
-ManageHub.propTypes = {};
+AdminManageTracking.propTypes = {};
 
-function ManageHub(props) {
+function AdminManageTracking(props) {
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
@@ -38,4 +38,4 @@ function ManageHub(props) {
   );
 }
 
-export default ManageHub;
+export default AdminManageTracking;

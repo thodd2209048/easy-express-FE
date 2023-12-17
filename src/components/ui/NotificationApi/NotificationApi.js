@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 NotificationApi.propTypes = {};
 
-function NotificationApi({response, showSuccess=true, children }) {
+function NotificationApi({ response, showSuccess = true, children }) {
   return (
     <div className="mt-2 text-start">
       {showSuccess && response.isSuccess && (
@@ -14,7 +14,7 @@ function NotificationApi({response, showSuccess=true, children }) {
       )}
       {response.isError && (
         <div className="alert alert-warning" role="alert">
-          <span>{response.error.message}</span>
+          <span>{response.error.response?.data.message}</span>
         </div>
       )}
       {response.isPending && (

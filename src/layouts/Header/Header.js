@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 
-import images from "~/assets/images";
-import styles from "./Header.module.scss";
 import clsx from "clsx";
 import { Link, NavLink } from "react-router-dom";
+
+import images from "~/assets/images";
+import styles from "./Header.module.scss";
 import routes from "~/config/routes/routes";
 
 Header.propTypes = {};
@@ -28,14 +29,21 @@ function Header(props) {
             <Nav.Link as={Link} to={routes.test}>
               Test
             </Nav.Link>
-            <NavDropdown title="Customer" id="basic-nav-dropdown">
+            <NavDropdown title="Customer">
               <NavDropdown.Item as={Link} to={routes.shipment}>
                 Shipment
               </NavDropdown.Item>
-              <NavDropdown.Item href="#">Tracking</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to={routes.trackingShipment}>
+                Tracking
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title="Staff">
+              <NavDropdown.Item as={Link} to={routes.addTracking}>
+                Handle shipment
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

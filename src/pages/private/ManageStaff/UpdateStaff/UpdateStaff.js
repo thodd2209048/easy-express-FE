@@ -6,7 +6,7 @@ import { updateStaff } from "~/api/api";
 import config from "~/config";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import HubInput from "~/components/inputs/HubInput/HubInput";
 
 UpdateStaff.propTypes = {

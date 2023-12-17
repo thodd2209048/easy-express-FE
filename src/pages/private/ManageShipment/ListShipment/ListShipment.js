@@ -6,9 +6,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { listShipment } from "~/api/api";
 import styles from "./ListShipment.module.scss";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
-import Paginate from "~/components/Paginate/Paginate";
-import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import Paginate from "~/components/ui/Paginate/Paginate";
+import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDisplay";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 function ListShipment(props) {

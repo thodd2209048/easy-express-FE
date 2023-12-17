@@ -5,7 +5,7 @@ import { Field, Form, Formik } from "formik";
 import { addHub } from "~/api/api";
 import config from "~/config";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
@@ -24,8 +24,9 @@ function AddHub(props) {
     <>
       <Formik
         initialValues={{
-          name: "",
-          location: "",
+          shipmentNumber: "",
+          staffId: "",
+          status: "",
         }}
         validationSchema={config.schemas.hub}
         onSubmit={(values) => mutation.mutate(values)}
