@@ -18,7 +18,7 @@ const addTracking = staff + "/add-tracking";
 const shipment = home + "shipment";
 const trackingShipment = home + "tracking";
 
-const routes = {
+const paths = {
   home,
 
   test,
@@ -42,4 +42,5 @@ const routes = {
   trackingShipment,
 };
 
-export default routes;
+export { home };
+export default paths;
