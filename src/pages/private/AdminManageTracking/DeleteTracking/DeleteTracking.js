@@ -3,25 +3,24 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 
-import { deleteHub } from "~/api/api";
+import { deleteTracking } from "~/api/api";
 import styles from "./DeleteHub.module.scss";
 
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 
-DeleteHub.propTypes = {
-  hub: PropTypes.object,
+DeleteTracking.propTypes = {
+  tracking: PropTypes.object,
   setShowDelete: PropTypes.func,
 };
 
-function DeleteHub({ hub, setShowDelete }) {
+function DeleteTracking({ tracking, setShowDelete }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: deleteHub,
+    mutationFn: deleteTracking,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["hubs"] });
+      queryClient.invalidateQueries({ queryKey: ["trackings"] });
     },
   });
-
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <p className={clsx(styles.question, "mb-1")}>
@@ -31,7 +30,7 @@ function DeleteHub({ hub, setShowDelete }) {
         <Button
           variant="outline-danger"
           size="sm"
-          onClick={() => mutation.mutate(hub.id)}
+          onClick={() => mutation.mutate(tracking.id)}
         >
           Yes
         </Button>
@@ -44,4 +43,4 @@ function DeleteHub({ hub, setShowDelete }) {
   );
 }
 
-export default DeleteHub;
+export default DeleteTracking;

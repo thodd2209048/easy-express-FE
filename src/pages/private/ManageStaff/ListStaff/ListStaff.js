@@ -6,9 +6,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { listStaff } from "~/api/api";
 import styles from "./ListStaff.module.scss";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
-import Paginate from "~/components/Paginate/Paginate";
-import SingleItemDisplay from "~/components/SingleItemDisplay/SingleItemDisplay";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import Paginate from "~/components/ui/Paginate/Paginate";
+import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDisplay";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import DeleteStaff from "../DeleteStaff/DeleteStaff";
 import UpdateStaff from "../UpdateStaff/UpdateStaff";

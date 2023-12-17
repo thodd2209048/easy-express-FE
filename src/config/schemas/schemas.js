@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { shipmentStatus } from "../constant/constant";
 
 export const hub = Yup.object({
   name: Yup.string()
@@ -53,4 +54,19 @@ export const shipment = Yup.object({
   length: Yup.number().positive("Must be positive").required("Required"),
   width: Yup.number().positive("Must be positive").required("Required"),
   height: Yup.number().positive("Must be positive").required("Required"),
+});
+
+export const tracking = Yup.object({
+  shipmentNumber: Yup.string()
+    .max(10, "Must be 10 characters")
+    .min(10, "Must be 10 characters")
+    .required("Required"),
+  status: Yup.string().oneOf(shipmentStatus).required("Required"),
+});
+
+export const trackingShipment = Yup.object({
+  number: Yup.string()
+    .max(10, "Must be 10 characters")
+    .min(10, "Must be 10 characters")
+    .required("Required"),
 });

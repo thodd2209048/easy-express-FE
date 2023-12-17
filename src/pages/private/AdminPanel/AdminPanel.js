@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 import { NavLink } from "react-router-dom";
-import PageTitle from "~/components/PageTitle/PageTitle";
+import PageTitle from "~/components/ui/PageTitle/PageTitle";
 import routes from "~/config/routes/routes";
 import styles from "./AdminPanel.module.scss";
 
@@ -24,7 +24,7 @@ function AdminPanel(props) {
             Hub
           </NavLink>
           <NavLink
-            to={routes.staff}
+            to={routes.manageStaff}
             className={({ isActive }) =>
               isActive ? "btn btn-info" : "btn btn-outline-info"
             }

@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import { deleteStaff } from "~/api/api";
 import styles from "./DeleteStaff.module.scss";
 
-import NotificationApi from "~/components/NotificationApi/NotificationApi";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 
 DeleteStaff.propTypes = {
   item: PropTypes.object,

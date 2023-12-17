@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  &:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+  }
+}
+
+.titleActive {
+  color: var(--primary-color);
+}
+
+.icon {
+  color: var(--primary-color);
+}

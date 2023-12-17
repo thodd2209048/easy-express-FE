@@ -23,6 +23,7 @@ function SingleItemDisplay({
   editComponent,
   deleteComponent,
   children,
+  className,
 }) {
   const [showEdit, setShowEdit] = useState(false);
   const [showDelete, setShowDelete] = useState(false);
@@ -40,11 +41,11 @@ function SingleItemDisplay({
   };
 
   return (
-    <div className="mt-1 p-2 border rounded">
+    <div className={clsx(styles.wrapper, "mt-1 p-2 border rounded", className)}>
       <div className={clsx(styles.title, "row")}>
         <div className="col fw-bold">{keyInfo}</div>
         {(!!editComponent || !!deleteComponent) && (
-          <div div className={clsx(styles.itemContainer, "col-2")}>
+          <div className={clsx(styles.itemContainer, "col-2")}>
             {!!editComponent && (
               <FontAwesomeIcon
                 icon={showEdit ? faRectangleXmark : faPenToSquare}
@@ -63,7 +64,9 @@ function SingleItemDisplay({
           </div>
         )}
       </div>
+
       <div className={clsx(styles.itemInfo, "row")}>{children}</div>
+
       {showEdit && <EditComponent item={item} />}
       {showDelete && (
         <DeleteComponent item={item} setShowDelete={setShowDelete} />

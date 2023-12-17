@@ -1,0 +1,17 @@
+// .wrapper {
+//   transition-delay: 0.3s;
+// }
+
+.trackingItem {
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+  // border-radius: none;
+}
+
+.address {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
