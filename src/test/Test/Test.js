@@ -1,10 +1,15 @@
+//get name from user input and print it out
 import React from "react";
 import PropTypes from "prop-types";
 
-Test.propTypes = {};
+EnterName.propTypes = {};
 
-function Test(props) {
-  return <div></div>;
+function EnterName(props) {
+  return (
+    <div>
+      <form action=""></form>
+    </div>
+  );
 }
 
-export default Test;
+export default EnterName;
