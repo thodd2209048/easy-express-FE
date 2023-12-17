@@ -24,9 +24,8 @@ function AddHub(props) {
     <>
       <Formik
         initialValues={{
-          shipmentNumber: "",
-          staffId: "",
-          status: "",
+          name: "",
+          location: "",
         }}
         validationSchema={config.schemas.hub}
         onSubmit={(values) => mutation.mutate(values)}

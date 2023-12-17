@@ -1,37 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 
-import styles from "./ManageStaff.module.scss";
-import paths from "~/routes/paths/paths";
+import styles from "./ManageShipment.module.scss";
+import paths from "../../routes/paths/paths";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
-ManageStaff.propTypes = {};
+ManageShipment.propTypes = {};
 
-function ManageStaff(props) {
+function ManageShipment(props) {
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
-        <PageTitle title="Manage staff" />
+        <PageTitle title="Manage shipment" />
       </div>
       <div className={clsx(styles.options)}>
         <NavLink
-          to={paths.addStaff}
+          to={paths.listShipment}
           className={({ isActive }) =>
             isActive ? "btn btn-info" : "btn btn-outline-info"
           }
         >
-          Add staff
-        </NavLink>
-        <NavLink
-          to={paths.listStaff}
-          className={({ isActive }) =>
-            isActive ? "btn btn-info" : "btn btn-outline-info"
-          }
-        >
-          List staff
+          List shipment
         </NavLink>
       </div>
       <Outlet />
@@ -39,4 +30,4 @@ function ManageStaff(props) {
   );
 }
 
-export default ManageStaff;
+export default ManageShipment;

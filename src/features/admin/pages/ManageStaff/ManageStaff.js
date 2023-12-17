@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 
 import styles from "./ManageStaff.module.scss";
-import paths from "~/routes/paths/paths";
+import paths from "../../routes/paths/paths";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 

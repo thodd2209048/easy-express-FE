@@ -1,9 +1,10 @@
 import clsx from "clsx";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet, Route } from "react-router-dom";
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 import paths from "~/routes/paths/paths";
 import styles from "./AdminPanel.module.scss";
+import adminRoutes from "../../routes/adminRoutes";
 
 AdminPanel.propTypes = {};
 
@@ -41,6 +42,7 @@ function AdminPanel(props) {
           </NavLink>
         </div>
       </div>
+      <Outlet />
     </div>
   );
 }

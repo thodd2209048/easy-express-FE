@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { Field, Form, Formik } from "formik";
 
 import styles from "./CreateShipment.module.scss";
-// import routes from "~/config/routes/routes";
+// import paths from "~/config/paths/paths";
 import schemas from "~/config/schemas";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";

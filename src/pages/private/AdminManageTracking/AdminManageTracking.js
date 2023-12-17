@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 
 import styles from "./AdminManageTracking.module.scss";
-import routes from "~/config/routes/routes";
+import paths from "~/routes/paths/paths";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
@@ -17,7 +17,7 @@ function AdminManageTracking(props) {
       </div>
       <div className={clsx(styles.options)}>
         <NavLink
-          to={routes.listHub}
+          to={paths.listHub}
           className={({ isActive }) =>
             isActive ? "btn btn-info" : "btn btn-outline-info"
           }
@@ -25,7 +25,7 @@ function AdminManageTracking(props) {
           List hub
         </NavLink>
         <NavLink
-          to={routes.addHub}
+          to={paths.addHub}
           className={({ isActive }) =>
             isActive ? "btn btn-info" : "btn btn-outline-info"
           }

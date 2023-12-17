@@ -1,9 +1,6 @@
 import axios from "axios";
 
-const baseURL = `http://localhost:8080`;
-const pageSize = 10;
-
-export { baseURL, pageSize };
+import { baseURL, pageSize } from "~/api/api";
 
 export const listStaff = async (page) => {
   const res = await axios.get(
@@ -51,21 +48,6 @@ export const listShipment = async (page) => {
   const res = await axios.get(
     baseURL + `/api/shipments?page=${page}&size=${pageSize}`
   );
-  return res;
-};
-
-export const addShipment = async (values) => {
-  const res = await axios.post(baseURL + "/api/shipments", values);
-  return res;
-};
-
-export const listTrackingOfShipment = async (number) => {
-  const res = await axios.get(baseURL + "/api/trackings?shipment=" + number);
-  return res;
-};
-
-export const addTracking = async (values) => {
-  const res = await axios.post(baseURL + "/api/trackings", values);
   return res;
 };
 
