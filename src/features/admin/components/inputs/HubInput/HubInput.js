@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ErrorMessage } from "formik";
 import PropTypes from "prop-types";
 import { Col, Form, Row } from "react-bootstrap";
-import { listHub } from "~/api/api";
+import { listHub } from "../../../api/api";
 
 HubInput.propTypes = { label: PropTypes.string };
 

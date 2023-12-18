@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-NotificationApi.propTypes = {};
+NotificationApi.propTypes = {
+  response: PropTypes.object,
+  showSuccess: PropTypes.bool,
+  children: PropTypes.node,
+};
 
 function NotificationApi({ response, showSuccess = true, children }) {
   return (

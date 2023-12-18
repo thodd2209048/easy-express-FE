@@ -7,7 +7,7 @@ import schemas from "../../../config/schemas";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
-import HubInput from "~/components/inputs/HubInput/HubInput";
+import HubInput from "../../../components/inputs/HubInput/HubInput";
 
 AddStaff.propTypes = {};
 

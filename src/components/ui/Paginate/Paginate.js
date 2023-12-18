@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
 
-Paginate.propTypes = {};
+Paginate.propTypes = {
+  handlePageClick: PropTypes.func,
+  pageCount: PropTypes.number,
+  currentPage: PropTypes.number,
+};
 
 function Paginate({ handlePageClick, pageCount, currentPage = 0 }) {
   return (

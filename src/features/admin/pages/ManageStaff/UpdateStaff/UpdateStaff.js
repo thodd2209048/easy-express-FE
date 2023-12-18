@@ -7,7 +7,7 @@ import schemas from "../../../config/schemas";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
-import HubInput from "~/components/inputs/HubInput/HubInput";
+import HubInput from "../../../components/inputs/HubInput/HubInput";
 
 UpdateStaff.propTypes = {
   item: PropTypes.object,
