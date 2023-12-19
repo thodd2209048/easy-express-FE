@@ -25,6 +25,7 @@ function TrackingsDisplay({ number }) {
   const handleShowAllUpdates = () => {
     setShowAllTracking((prev) => !prev);
   };
+
   return (
     <div className={clsx(styles.wrapper)}>
       <NotificationApi

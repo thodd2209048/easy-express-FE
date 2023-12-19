@@ -2,8 +2,8 @@ import clsx from "clsx";
 
 import styles from "./DefaultLayout.module.scss";
 
-import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 DefaultLayout.propTypes = {};
 

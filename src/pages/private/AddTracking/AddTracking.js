@@ -20,17 +20,19 @@ function AddTracking(props) {
       queryClient.invalidateQueries({ queryKey: ["trackings"] });
     },
   });
-  const staffId = 22;
+
   return (
     <>
       <Formik
         initialValues={{
           shipmentNumber: "",
+          staffId: "",
+          hubId: "",
           status: "",
         }}
         validationSchema={config.schemas.tracking}
         onSubmit={(values) => {
-          mutation.mutate({ ...values, staffId });
+          mutation.mutate({ ...values });
         }}
       >
         {({ touched, errors, isSubmitting, submitForm, resetForm }) => {
@@ -43,7 +45,39 @@ function AddTracking(props) {
                       <>
                         <GeneralInput
                           label="Shipment number: "
-                          type="text"
+                          type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]+"
+                          field={field}
+                          form={form}
+                          meta={meta}
+                        />
+                      </>
+                    )}
+                  </Field>
+                  <Field name="staffId">
+                    {({ field, form, meta }) => (
+                      <>
+                        <GeneralInput
+                          label="StaffId: "
+                          type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]+"
+                          field={field}
+                          form={form}
+                          meta={meta}
+                        />
+                      </>
+                    )}
+                  </Field>
+                  <Field name="hubId">
+                    {({ field, form, meta }) => (
+                      <>
+                        <GeneralInput
+                          label="HubId: "
+                          type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]+"
                           field={field}
                           form={form}
                           meta={meta}
@@ -97,11 +131,11 @@ function AddTracking(props) {
             <p className="m-0">Number: {mutation.data.data.shipmentNumber}</p>
             <p className="m-0">Status: {mutation.data.data.status}</p>
             <p className="m-0">
-              Staff: {mutation.data.data.staffId} -{" "}
-              {mutation.data.data.staffName}
+              Staff: {mutation.data.data.staff.id} -{" "}
+              {mutation.data.data.staff.name}
             </p>
             <p className="m-0">
-              Hub: {mutation.data.data.hubId} - {mutation.data.data.hubName}
+              Hub: {mutation.data.data.hub.id} - {mutation.data.data.hub.name}
             </p>
           </>
         )}

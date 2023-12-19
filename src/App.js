@@ -3,9 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { publicRoutes, privateRoutes } from "./routes/routes";
-import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
+
 import { Fragment } from "react";
 import adminRoutes from "./features/admin/routes/adminRoutes";
+import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
 
 function App() {
   return (
