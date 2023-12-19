@@ -42,6 +42,8 @@ export const tracking = Yup.object({
     .max(10, "Must be 10 characters")
     .min(10, "Must be 10 characters")
     .required("Required"),
+  staffId: Yup.number().integer("Id must be an integer").required("Required"),
+  hubId: Yup.number().integer("Id must be an integer").required("Required"),
   status: Yup.string().oneOf(shipmentStatus).required("Required"),
 });
 

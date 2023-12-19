@@ -15,20 +15,36 @@ function GeneralInput({ label, prefix, suffix, field, form, meta, ...props }) {
           <label>{label}</label>
         </Col>
         <Col xs="9" lg="10">
-          <InputGroup>
-            {!!prefix && <InputGroup.Text>{prefix}</InputGroup.Text>}
-            <Form.Control
-              className={meta.error && meta.touched ? "is-invalid" : ""}
-              {...field}
-              {...props}
-            />
-            {!!suffix && <InputGroup.Text>{suffix}</InputGroup.Text>}
-            <ErrorMessage
-              component={"div"}
-              name={field.name}
-              className="invalid-feedback text-start"
-            />
-          </InputGroup>
+          {!!prefix || !!suffix ? (
+            <InputGroup>
+              {!!prefix && <InputGroup.Text>{prefix}</InputGroup.Text>}
+              <Form.Control
+                className={meta.error && meta.touched ? "is-invalid" : ""}
+                {...field}
+                {...props}
+              />
+              {!!suffix && <InputGroup.Text>{suffix}</InputGroup.Text>}
+              <ErrorMessage
+                component={"div"}
+                name={field.name}
+                className="invalid-feedback text-start"
+              />
+            </InputGroup>
+          ) : (
+            <>
+              <Form.Control
+                className={meta.error && meta.touched ? "is-invalid" : ""}
+                {...field}
+                {...props}
+              />
+
+              <ErrorMessage
+                component={"div"}
+                name={field.name}
+                className="invalid-feedback text-start"
+              />
+            </>
+          )}
         </Col>
       </Row>
     </>

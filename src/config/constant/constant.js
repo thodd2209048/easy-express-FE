@@ -5,4 +5,5 @@ export const shipmentStatus = [
   "PROCESSED",
   "DEPARTED",
   "DELIVERED",
+  "RETURNED_TO_SENDER",
 ];
