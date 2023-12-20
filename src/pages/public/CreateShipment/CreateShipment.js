@@ -14,6 +14,7 @@ import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import { addShipment } from "~/api/api";
+import RegionInput from "~/components/inputs/RegionInput/RegionInput";
 
 CreateShipment.propTypes = {};
 
@@ -25,6 +26,7 @@ function CreateShipment(props) {
       queryClient.invalidateQueries({ queryKey: ["shipments"] });
     },
   });
+  console.log(mutation.data?.data);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
@@ -35,18 +37,28 @@ function CreateShipment(props) {
           senderName: "",
           senderPhone: "",
           senderAddress: "",
+          senderProvinceCode: "",
+          senderDistrictCode: "",
           receiverName: "",
           receiverPhone: "",
           receiverAddress: "",
-          value: "",
+          receiverProvinceCode: "",
+          receiverDistrictCode: "",
+          valueInDollar: "",
           description: "",
-          weight: "",
-          length: "",
-          width: "",
-          height: "",
+          weightInKg: "",
+          lengthInCm: "",
+          widthInCm: "",
+          heightInCm: "",
         }}
         validationSchema={schemas.shipment}
-        onSubmit={(values) => mutation.mutate(values)}
+        onSubmit={(values) => {
+          delete values.senderProvinceCode;
+          delete values.receiverProvinceCode;
+          console.log(values);
+
+          mutation.mutate(values);
+        }}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-3">
@@ -90,6 +102,10 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
+              <RegionInput
+                provinceFieldName="senderProvinceCode"
+                districtFieldName="senderDistrictCode"
+              />
             </SubContentLayout>
             <SubContentLayout subTitle="To:">
               <Field name="receiverName">
@@ -131,6 +147,10 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
+              <RegionInput
+                provinceFieldName="receiverProvinceCode"
+                districtFieldName="receiverDistrictCode"
+              />
             </SubContentLayout>
             <SubContentLayout subTitle="Shipment details: ">
               <Field name="description">
@@ -146,7 +166,7 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
-              <Field name="value">
+              <Field name="valueInDollar">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
@@ -160,7 +180,7 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
-              <Field name="weight">
+              <Field name="weightInKg">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
@@ -174,7 +194,7 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
-              <Field name="length">
+              <Field name="lengthInCm">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
@@ -188,7 +208,7 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
-              <Field name="width">
+              <Field name="widthInCm">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
@@ -202,7 +222,7 @@ function CreateShipment(props) {
                   </>
                 )}
               </Field>
-              <Field name="height">
+              <Field name="heightInCm">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
@@ -245,20 +265,45 @@ function CreateShipment(props) {
             <p className="m-0">Name: {mutation.data.data.senderName} </p>
             <p className="m-0">Phone: {mutation.data.data.senderPhone}</p>
             <p className="m-0">Address: {mutation.data.data.senderAddress}</p>
+            <p className="m-0">
+              Region: {mutation.data.data.senderDistrict.name}
+              {", "}
+              {mutation.data.data.senderDistrict.province.name}
+            </p>
             <p className="mb-0 mt-2 fw-bold">To:</p>
             <p className="m-0">Name: {mutation.data.data.receiverName} </p>
             <p className="m-0">Phone: {mutation.data.data.receiverPhone}</p>
             <p className="m-0">Address: {mutation.data.data.receiverAddress}</p>
-            <p className="m-0">From:</p>
+            <p className="m-0">
+              Region: {mutation.data.data.receiverDistrict.name}
+              {", "}
+              {mutation.data.data.receiverDistrict.province.name}
+            </p>
+
             <p className="mb-0 mt-2 fw-bold">Shipment details:</p>
             <p className="m-0">
               Description: {mutation.data.data.description}{" "}
             </p>
-            <p className="m-0">Value: {mutation.data.data.value}</p>
-            <p className="m-0">Weight: {mutation.data.data.weight}</p>
-            <p className="m-0">Length: {mutation.data.data.length} </p>
-            <p className="m-0">Width: {mutation.data.data.width}</p>
-            <p className="m-0">Height: {mutation.data.data.height}</p>
+            <p className="m-0">
+              Value: {mutation.data.data.valueInDollar}
+              {"USD"}
+            </p>
+            <p className="m-0">
+              Weight: {mutation.data.data.weightInKg}
+              {"kg"}
+            </p>
+            <p className="m-0">
+              Length: {mutation.data.data.lengthInCm}
+              {"cm"}{" "}
+            </p>
+            <p className="m-0">
+              Width: {mutation.data.data.widthInCm}
+              {"cm"}
+            </p>
+            <p className="m-0">
+              Height: {mutation.data.data.heightInCm}
+              {"cm"}
+            </p>
           </>
         )}
       </NotificationApi>

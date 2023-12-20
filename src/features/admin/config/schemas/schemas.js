@@ -9,6 +9,10 @@ export const hub = Yup.object({
     .max(100, "Must be 100 characters or less")
     .min(10, "Must be 10 characters or more")
     .required("Required"),
+  districtCode: Yup.number()
+    .integer("Must be integer")
+    .positive("Must be positive")
+    .required("Required"),
 });
 
 export const staff = Yup.object({
@@ -18,4 +22,3 @@ export const staff = Yup.object({
     .required("Required"),
   hubId: Yup.number().positive("Must be positive").required("Required"),
 });
-

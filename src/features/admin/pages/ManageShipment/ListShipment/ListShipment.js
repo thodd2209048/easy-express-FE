@@ -30,6 +30,8 @@ function ListShipment(props) {
     }
     setPage();
   }, [location]);
+
+  console.log(query);
   return (
     <>
       {query.isSuccess && (

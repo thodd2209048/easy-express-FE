@@ -3,10 +3,12 @@ import { Field, Form, Formik } from "formik";
 import PropTypes from "prop-types";
 
 import { updateHub } from "../../../api/api";
-import schemas from "../../../config/schemas";
+import adminSchemas from "../../../config/schemas";
+import schemas from "~/config/schemas";
 
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import RegionInput from "~/components/inputs/RegionInput/RegionInput";
 
 UpdateHub.propTypes = {
   item: PropTypes.object,
@@ -28,8 +30,10 @@ function UpdateHub({ item }) {
           name: `${item.name}`,
           location: `${item.location}`,
         }}
-        validationSchema={schemas.hub}
-        onSubmit={(values) => mutation.mutate(values)}
+        validationSchema={adminSchemas.hub.concat(schemas.region)}
+        onSubmit={({ name, location, districtCode }) => {
+          mutation.mutate({ name, location, districtCode });
+        }}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
           <Form className="mt-2">
@@ -62,6 +66,7 @@ function UpdateHub({ item }) {
                   </>
                 )}
               </Field>
+              <RegionInput />
             </div>
             <div className="row mt-3">
               <div className="col">

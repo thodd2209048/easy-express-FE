@@ -11,9 +11,11 @@ export const shipment = Yup.object({
     .min(8, "Must be 8 characters or more")
     .required("Required"),
   senderAddress: Yup.string()
-    .max(45, "Must be 45 characters or less")
+    .max(90, "Must be 90 characters or less")
     .min(1, "Must be 1 characters or more")
     .required("Required"),
+  senderProvinceCode: Yup.string().required("Required"),
+  senderDistrictCode: Yup.string().required("Required"),
   receiverName: Yup.string()
     .max(30, "Must be 30 characters or less")
     .min(1, "Must be 1 characters or more")
@@ -23,18 +25,20 @@ export const shipment = Yup.object({
     .min(8, "Must be 8 characters or more")
     .required("Required"),
   receiverAddress: Yup.string()
-    .max(45, "Must be 45 characters or less")
+    .max(90, "Must be 90 characters or less")
     .min(1, "Must be 1 characters or more")
     .required("Required"),
-  value: Yup.number().positive("Must be positive").required("Required"),
+  receiverProvinceCode: Yup.string().required("Required"),
+  receiverDistrictCode: Yup.string().required("Required"),
+  valueInDollar: Yup.number().positive("Must be positive").required("Required"),
   description: Yup.string()
-    .max(100, "Must be 100 characters or less")
+    .max(200, "Must be 200 characters or less")
     .min(1, "Must be 1 characters or more")
     .required("Required"),
-  weight: Yup.number().positive("Must be positive").required("Required"),
-  length: Yup.number().positive("Must be positive").required("Required"),
-  width: Yup.number().positive("Must be positive").required("Required"),
-  height: Yup.number().positive("Must be positive").required("Required"),
+  weightInKg: Yup.number().positive("Must be positive").required("Required"),
+  lengthInCm: Yup.number().positive("Must be positive").required("Required"),
+  widthInCm: Yup.number().positive("Must be positive").required("Required"),
+  heightInCm: Yup.number().positive("Must be positive").required("Required"),
 });
 
 export const tracking = Yup.object({
@@ -52,4 +56,9 @@ export const trackingShipment = Yup.object({
     .max(10, "Must be 10 characters")
     .min(10, "Must be 10 characters")
     .required("Required"),
+});
+
+export const region = Yup.object({
+  provinceCode: Yup.string().required("Required"),
+  districtCode: Yup.string().required("Required"),
 });

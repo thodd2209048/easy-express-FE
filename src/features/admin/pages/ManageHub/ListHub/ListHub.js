@@ -20,9 +20,9 @@ function ListHub(props) {
     <>
       {query.isSuccess && (
         <SubContentLayout subTitle="List of hubs">
-          {query.data.data.content.map((hub, idx) => (
+          {query.data.data.content.map((hub) => (
             <SingleItemDisplay
-              key={idx}
+              key={hub.id}
               item={hub}
               keyInfo={hub.name}
               editComponent={UpdateHub}

@@ -21,3 +21,13 @@ export const addTracking = async (values) => {
   const res = await axios.post(baseURL + "/api/trackings", values);
   return res;
 };
+
+export const listProvince = async () => {
+  const res = await axios.get(baseURL + "/api/regions/provinces");
+  return res;
+};
+
+export const listDistrict = async () => {
+  const res = await axios.get(baseURL + "/api/regions/districts");
+  return res;
+};

@@ -3,11 +3,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 
 import { addHub } from "../../../api/api";
-import schemas from "../../../config/schemas";
 
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
+import RegionInput from "~/components/inputs/RegionInput/RegionInput";
+import adminSchemas from "~/features/admin/config/schemas";
+import schemas from "~/config/schemas";
 
 AddHub.propTypes = {};
 
@@ -19,18 +21,22 @@ function AddHub(props) {
       queryClient.invalidateQueries({ queryKey: ["hubs"] });
     },
   });
-
   return (
     <>
       <Formik
         initialValues={{
           name: "",
           location: "",
+          provinceCode: "",
+          districtCode: "",
         }}
-        validationSchema={schemas.hub}
-        onSubmit={(values) => mutation.mutate(values)}
+        validationSchema={adminSchemas.hub.concat(schemas.region)}
+        onSubmit={({ name, location, districtCode }) => {
+          mutation.mutate({ name, location, districtCode });
+        }}
       >
-        {({ resetForm }) => {
+        {(props) => {
+          console.log(props.values);
           return (
             <Form className="mt-3">
               <SubContentLayout subTitle="Enter new hub's information">
@@ -61,6 +67,7 @@ function AddHub(props) {
                       </>
                     )}
                   </Field>
+                  <RegionInput />
                 </div>
                 <div className="row mt-3">
                   <div className="col">
@@ -74,7 +81,7 @@ function AddHub(props) {
                     <button
                       className="btn btn-outline-secondary"
                       type="reset"
-                      onClick={() => resetForm()}
+                      onClick={() => props.resetForm()}
                     >
                       Reset
                     </button>
