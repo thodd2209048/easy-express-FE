@@ -6,6 +6,7 @@ import { publicRoutes, privateRoutes } from "./routes/routes";
 
 import { Fragment } from "react";
 import adminRoutes from "./features/admin/routes/adminRoutes";
+import customerRoutes from "./features/customer/routes/customerRoutes";
 import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
 
 function App() {
@@ -55,6 +56,34 @@ function App() {
           );
         })}
         {adminRoutes.map((route, idx) => {
+          const Page = route.component;
+          let Layout = DefaultLayout;
+          if (route.layout) {
+            Layout = route.layout;
+          } else if (route.layout === null) {
+            Layout = Fragment;
+          }
+          return (
+            <Route
+              key={idx}
+              path={route.path}
+              element={
+                <Layout>
+                  <Page />
+                </Layout>
+              }
+            >
+              {route.child?.map((subRoute, idx) => (
+                <Route
+                  key={idx}
+                  path={subRoute.path}
+                  element={<subRoute.component />}
+                />
+              ))}
+            </Route>
+          );
+        })}
+        {customerRoutes.map((route, idx) => {
           const Page = route.component;
           let Layout = DefaultLayout;
           if (route.layout) {

@@ -1,3 +1,5 @@
+import paths from "./paths/paths";
+
 import AdminPanel from "../pages/AdminPanel/AdminPanel";
 import AddHub from "../pages/ManageHub/AddHub/AddHub";
 import ListHub from "../pages/ManageHub/ListHub/ListHub";
@@ -8,7 +10,6 @@ import ManageShipment from "../pages/ManageShipment/ManageShipment";
 import AddStaff from "../pages/ManageStaff/AddStaff/AddStaff";
 import ListStaff from "../pages/ManageStaff/ListStaff/ListStaff";
 import ManageStaff from "../pages/ManageStaff/ManageStaff";
-import paths from "./paths/paths";
 import ManageTracking from "~/features/admin/pages/ManageTracking/ManageTracking";
 
 const adminRoutes = [

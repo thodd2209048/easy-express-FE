@@ -1,7 +1,6 @@
-import { shipment, tracking, trackingShipment, region } from "./schemas";
+import { tracking, trackingShipment, region } from "./schemas";
 
 const schemas = {
-  shipment,
   tracking,
   trackingShipment,
   region,

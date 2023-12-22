@@ -5,51 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a2c6bfa-0d87-4768-9508-ec191831acef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/AddHub/AddHub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/DeleteHub/DeleteHub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/DeleteHub/DeleteHub.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ManageHub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ManageHub.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/UpdateHub/UpdateHub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/UpdateHub/UpdateHub.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ManageShipment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ManageShipment.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/AddStaff/AddStaff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/DeleteStaff/DeleteStaff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/DeleteStaff/DeleteStaff.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/ListStaff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/ListStaff.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ManageStaff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ManageStaff.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/UpdateStaff/UpdateStaff.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/DeleteTracking/DeleteTracking.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/ManageTracking.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/ManageTracking.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/routes/adminRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/admin/routes/paths/paths.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/customer/routes/paths/paths.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/paths/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/schemas/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/schemas/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/schemas/schemas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/AdminManageTracking/AdminManageTracking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/AdminManageTracking/AdminManageTracking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/AdminPanel/AdminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/AdminPanel/AdminPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/AddHub/AddHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/AddHub/AddHub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageHub/ManageHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageHub/ManageHub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageShipment/ManageShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageShipment/ManageShipment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/private/ManageStaff/ManageStaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/ManageStaff/ManageStaff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/public/CreateShipment/CreateShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/public/CreateShipment/CreateShipment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingShipment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/routes/adminRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/routes/adminRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "re-structure",
+    "git-widget-placeholder": "order",
     "last_opened_file_path": "D:/Work/Project/easy-express/easy-express-github-fe/src/features/admin/pages/ManageTracking",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

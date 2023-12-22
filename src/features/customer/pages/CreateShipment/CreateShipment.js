@@ -6,7 +6,7 @@ import { Field, Form, Formik } from "formik";
 
 import styles from "./CreateShipment.module.scss";
 // import paths from "~/config/paths/paths";
-import schemas from "~/config/schemas";
+import schemas from "../../config/schemas";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 
@@ -26,7 +26,6 @@ function CreateShipment(props) {
       queryClient.invalidateQueries({ queryKey: ["shipments"] });
     },
   });
-  console.log(mutation.data?.data);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
