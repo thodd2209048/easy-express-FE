@@ -8,7 +8,12 @@ export const tracking = Yup.object({
     .required("Required"),
   staffId: Yup.number().integer("Id must be an integer").required("Required"),
   hubId: Yup.number().integer("Id must be an integer").required("Required"),
-  status: Yup.string().oneOf(shipmentStatus).required("Required"),
+  shipmentStatus: Yup.string()
+    .oneOf(shipmentStatus, "Please select one option")
+    .required("Required"),
+  newShipmentNumber: Yup.string()
+    .max(10, "Must be 10 characters")
+    .min(10, "Must be 10 characters"),
 });
 
 export const trackingShipment = Yup.object({

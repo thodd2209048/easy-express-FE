@@ -49,7 +49,7 @@ export const addOrderSchema = Yup.object({
   senderPhone: Yup.string()
     .max(15, "Must be 15 characters or less")
     .matches(
-      /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+      /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/,
       "Invalid phone number format"
     )
     .required("Required"),

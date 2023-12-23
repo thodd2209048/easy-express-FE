@@ -28,14 +28,15 @@ function AddTracking(props) {
           shipmentNumber: "",
           staffId: "",
           hubId: "",
-          status: "",
+          shipmentStatus: "",
+          newShipmentNumber: "",
         }}
         validationSchema={config.schemas.tracking}
         onSubmit={(values) => {
           mutation.mutate({ ...values });
         }}
       >
-        {({ touched, errors, isSubmitting, submitForm, resetForm }) => {
+        {({ touched, errors, isSubmitting, submitForm, resetForm, values }) => {
           return (
             <Form className="mt-3">
               <SubContentLayout subTitle="Enter new tracking's information">
@@ -85,8 +86,12 @@ function AddTracking(props) {
                       </>
                     )}
                   </Field>
-                  <Field name="status">
+                  <Field name="shipmentStatus">
                     {({ field, form, meta }) => {
+                      const onChange = (e) => {
+                        form.handleChange(e);
+                        form.setFieldValue("newShipmentNumber", "");
+                      };
                       return (
                         <>
                           <ConstantInput
@@ -95,11 +100,29 @@ function AddTracking(props) {
                             field={field}
                             form={form}
                             meta={meta}
+                            onChange={onChange}
                           />
                         </>
                       );
                     }}
                   </Field>
+                  {values.shipmentStatus === "RETURNED_TO_SENDER" && (
+                    <Field name="newShipmentNumber">
+                      {({ field, form, meta }) => (
+                        <>
+                          <GeneralInput
+                            label="New shipment number: "
+                            type="number"
+                            inputMode="numeric"
+                            pattern="[0-9]+"
+                            field={field}
+                            form={form}
+                            meta={meta}
+                          />
+                        </>
+                      )}
+                    </Field>
+                  )}
                 </div>
                 <div className="row mt-3">
                   <div className="col">

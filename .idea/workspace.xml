@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="5a2c6bfa-0d87-4768-9508-ec191831acef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/customer/config/schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/config/schemas/schemas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/customer/pages/CustomerOrders/CustomerOrders/CustomerOrders.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/customer/routes/customerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/routes/customerRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/customer/routes/paths/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/routes/paths/paths.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/constant/constant.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/constant/constant.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/schemas/schemas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/private/AddTracking/AddTracking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/private/AddTracking/AddTracking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingShipment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingsDisplay/TrackingsDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/public/TrackingShipment/TrackingsDisplay/TrackingsDisplay.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;order&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Work/Project/easy-express/easy-express-github-fe/src/features/admin/pages/ManageTracking&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,6 +78,8 @@
       <workItem from="1702722745386" duration="1183000" />
       <workItem from="1702807689679" duration="4150000" />
       <workItem from="1703322115604" duration="130000" />
+      <workItem from="1703338530228" duration="707000" />
+      <workItem from="1703343902443" duration="62000" />
     </task>
     <servers />
   </component>

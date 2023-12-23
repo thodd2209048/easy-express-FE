@@ -1,9 +1,9 @@
 export const shipmentStatus = [
-  "SHIPMENT_INFORMATION_RECEIVED",
   "PICKED_UP",
   "ARRIVED",
   "PROCESSED",
   "DEPARTED",
   "DELIVERED",
+  "WAITING_TO_RETURN",
   "RETURNED_TO_SENDER",
 ];

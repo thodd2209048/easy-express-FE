@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
-import axios from "axios";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { Col } from "react-bootstrap";
 
 import { listTrackingOfShipment } from "~/api/api";
+import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 import styles from "./TrackingsDisplay.module.scss";
 
+import DropDownHead from "~/components/ui/DropDownHead/DropDownHead";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDisplay";
-import DropDownHead from "~/components/ui/DropDownHead/DropDownHead";
-import { Col } from "react-bootstrap";
-import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 
 TrackingsDisplay.propTypes = {
   number: PropTypes.string,
@@ -28,6 +27,7 @@ function TrackingsDisplay({ number }) {
     setShowAllTracking((prev) => !prev);
   };
 
+  console.log(data?.data.trackingList);
   return (
     <div className={clsx(styles.wrapper)}>
       <NotificationApi
@@ -60,6 +60,11 @@ function TrackingsDisplay({ number }) {
                 data.data.trackingList[0].createdAt
               )}
             </p>
+            {!!data.data.trackingList[0].newShipmentNumber && (
+              <p className="m-0">
+                Refer to: {data.data.trackingList[0].newShipmentNumber}
+              </p>
+            )}
             {/* <p className="m-0">{data.data.trackingList[0].hub.name}</p> */}
           </div>
 
@@ -83,6 +88,9 @@ function TrackingsDisplay({ number }) {
                 <p className="m-0">
                   {tracking.district.name}-{tracking.district.province.name}
                 </p>
+                {!!tracking.newShipmentNumber && (
+                  <p className="m-0">Refer to: {tracking.newShipmentNumber}</p>
+                )}
               </SingleItemDisplay>
             ))}
         </div>
