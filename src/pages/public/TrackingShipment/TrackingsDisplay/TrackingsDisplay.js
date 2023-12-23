@@ -10,6 +10,8 @@ import styles from "./TrackingsDisplay.module.scss";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDisplay";
 import DropDownHead from "~/components/ui/DropDownHead/DropDownHead";
+import { Col } from "react-bootstrap";
+import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 
 TrackingsDisplay.propTypes = {
   number: PropTypes.string,
@@ -25,7 +27,7 @@ function TrackingsDisplay({ number }) {
   const handleShowAllUpdates = () => {
     setShowAllTracking((prev) => !prev);
   };
-  console.log(data);
+
   return (
     <div className={clsx(styles.wrapper)}>
       <NotificationApi
@@ -37,15 +39,28 @@ function TrackingsDisplay({ number }) {
         <div className="border rounded">
           <div className="p-2">
             <p className="m-0">Tracking number: {number}</p>
-            <div className={clsx(styles.address)}>
-              <span>{data.data.shipment.senderAddress}</span>
-              <span>{data.data.shipment.receiverAddress}</span>
+            <div className={clsx(styles.addresses, "row")}>
+              <Col className="d-flex flex-column flex-md-row">
+                <span>{data.data.shipment.senderDistrict.name}</span>
+                <span className="d-none d-md-block">{"-"}</span>
+                <span>{data.data.shipment.senderDistrict.province.name}</span>
+              </Col>
+              <Col className="d-flex flex-column flex-md-row">
+                <span>{data.data.shipment.receiverDistrict.name}</span>
+                <span className="d-none d-md-block">{"-"}</span>
+                <span>{data.data.shipment.receiverDistrict.province.name}</span>
+              </Col>
             </div>
             <p className="fw-bold fs-5 mt-3">
-              {data.data.trackingList[0].status}
+              {data.data.trackingList[0].shipmentStatus}
             </p>
-            <p className="m-0">{data.data.trackingList[0].timeString}</p>
-            <p className="m-0">{data.data.trackingList[0].hub.name}</p>
+
+            <p className="m-0">
+              {convertZonedDateTimeToDateTime(
+                data.data.trackingList[0].createdAt
+              )}
+            </p>
+            {/* <p className="m-0">{data.data.trackingList[0].hub.name}</p> */}
           </div>
 
           <DropDownHead
@@ -60,10 +75,14 @@ function TrackingsDisplay({ number }) {
               <SingleItemDisplay
                 className={clsx(styles.trackingItem)}
                 key={tracking.id}
-                keyInfo={tracking.status}
+                keyInfo={tracking.shipmentStatus}
               >
-                <p className="m-0">{tracking.timeString}</p>
-                <p className="m-0">{tracking.hub.name}</p>
+                <p className="m-0">
+                  {convertZonedDateTimeToDateTime(tracking.createdAt)}
+                </p>
+                <p className="m-0">
+                  {tracking.district.name}-{tracking.district.province.name}
+                </p>
               </SingleItemDisplay>
             ))}
         </div>
