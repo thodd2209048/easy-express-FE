@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import { NavLink, Outlet, Route } from "react-router-dom";
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
-import paths from "~/routes/paths/paths";
+import paths from "../../routes/paths/paths";
 import styles from "./AdminPanel.module.scss";
 import adminRoutes from "../../routes/adminRoutes";
 

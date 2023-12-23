@@ -7,6 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import images from "~/assets/images";
 import styles from "./Header.module.scss";
 import paths from "~/routes/paths/paths";
+import customerPaths from "~/features/customer/routes/paths/paths";
 
 Header.propTypes = {};
 
@@ -53,6 +54,9 @@ function Header(props) {
                 <Nav.Link as={Link} to={paths.home}>
                   Home
                 </Nav.Link>
+                <Nav.Link as={Link} to={paths.trackingShipment}>
+                  Tracking
+                </Nav.Link>
                 <Nav.Link as={Link} to={paths.adminPanel}>
                   Admin
                 </Nav.Link>
@@ -60,16 +64,10 @@ function Header(props) {
                   Test
                 </Nav.Link>
                 <NavDropdown title="Customer">
-                  <NavDropdown.Item as={Link} to={paths.shipment}>
-                    Shipment
+                  <NavDropdown.Item as={Link} to={customerPaths.createShipment}>
+                    New shipment
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={paths.trackingShipment}>
-                    Tracking
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Separated link
-                  </NavDropdown.Item>
+                  {/* <NavDropdown.Divider /> */}
                 </NavDropdown>
                 <NavDropdown title="Staff">
                   <NavDropdown.Item as={Link} to={paths.addTracking}>
