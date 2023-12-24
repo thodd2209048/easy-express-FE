@@ -29,3 +29,9 @@ export const filterStaff = Yup.object({
   direction: Yup.string(),
   searchTerm: Yup.string(),
 });
+
+export const filterHub = Yup.object({
+  sortField: Yup.string(),
+  direction: Yup.string(),
+  searchTerm: Yup.string(),
+});

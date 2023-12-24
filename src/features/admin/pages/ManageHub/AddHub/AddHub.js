@@ -36,7 +36,6 @@ function AddHub(props) {
         }}
       >
         {(props) => {
-          console.log(props.values);
           return (
             <Form className="mt-3">
               <SubContentLayout subTitle="Enter new hub's information">

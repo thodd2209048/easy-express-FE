@@ -42,10 +42,10 @@ function ListStaff(props) {
 
   return (
     <>
-      <FilterStaff setCondition={setCondition} />
-      {query.isSuccess && (
-        <SubContentLayout>
-          {query.data.data.content.map((staff) => (
+      <SubContentLayout subTitle="List of staffs">
+        <FilterStaff setCondition={setCondition} />
+        {query.isSuccess &&
+          query.data.data.content.map((staff) => (
             <SingleItemDisplay
               key={staff.id}
               item={staff}
@@ -59,8 +59,7 @@ function ListStaff(props) {
               </div>
             </SingleItemDisplay>
           ))}
-        </SubContentLayout>
-      )}
+      </SubContentLayout>
       {query.isSuccess && (
         <Paginate
           pageCount={query.data?.data.totalPages}

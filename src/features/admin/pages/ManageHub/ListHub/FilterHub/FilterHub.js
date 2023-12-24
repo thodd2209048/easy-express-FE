@@ -1,34 +1,24 @@
-import { useQuery } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
-import PropTypes from "prop-types";
 import { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import adminSchemas from "~/features/admin/config/schemas";
-import { listHub } from "../../../../api/api";
 
 import ListenAllChangeFormik from "~/components/auto/ListenAllChangeFormik/ListenAllChangeFormik";
 
-FilterStaff.propTypes = {
-  setCondition: PropTypes.func,
-};
+FilterHub.propTypes = {};
 
-function FilterStaff({ setCondition }) {
-  const { data, isSuccess } = useQuery({
-    queryKey: ["hubs"],
-    queryFn: listHub,
-  });
-
+function FilterHub({ setCondition }) {
   return (
     <div className="mb-3">
+      {" "}
       <Formik
         initialValues={{
-          hubId: "",
           sortField: "",
           direction: "",
           searchTerm: "",
         }}
-        validationSchema={adminSchemas.filterStaff}
+        validationSchema={adminSchemas.filterHub}
         onSubmit={(values) => {
           setCondition((prev) => ({ ...prev, ...values }));
         }}
@@ -37,18 +27,6 @@ function FilterStaff({ setCondition }) {
           return (
             <Form className="mt-3">
               <Row>
-                <Col>
-                  {isSuccess && (
-                    <Field as="select" name="hubId" className={"form-select"}>
-                      <option>All hub</option>
-                      {data?.data.content.map((hub) => (
-                        <option key={hub.id} value={hub.id}>
-                          {hub.name}
-                        </option>
-                      ))}
-                    </Field>
-                  )}
-                </Col>
                 <Col>
                   <Field as="select" name="sortField" className={"form-select"}>
                     <option value={"id"}>Sort by ID</option>
@@ -78,4 +56,4 @@ function FilterStaff({ setCondition }) {
   );
 }
 
-export default memo(FilterStaff);
+export default memo(FilterHub);
