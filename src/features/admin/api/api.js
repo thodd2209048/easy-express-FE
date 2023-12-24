@@ -2,10 +2,26 @@ import axios from "axios";
 
 import { baseURL, pageSize } from "~/api/api";
 
-export const listStaff = async (page) => {
+export const listStaff = async ({
+  page,
+  hubId,
+  sortField,
+  direction,
+  searchTerm,
+}) => {
+  let hubIdParamString = hubId === undefined ? "" : `&hubId=${hubId}`;
+  let sortFieldString =
+    sortField === undefined ? "" : `&sort-field=${sortField}`;
+  let directionParamString =
+    direction === undefined ? "" : `&direction=${direction}`;
+  let searchTermParamString =
+    searchTerm === undefined ? "" : `&search=${searchTerm}`;
+
   const res = await axios.get(
-    baseURL + `/api/staffs?page=${page}&size=${pageSize}`
+    baseURL +
+      `/api/staffs?page=${page}&size=${pageSize}${hubIdParamString}${sortFieldString}${directionParamString}${searchTermParamString}`
   );
+
   return res;
 };
 

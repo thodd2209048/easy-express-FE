@@ -1,8 +1,9 @@
-import { hub, staff, shipment, tracking } from "./schemas";
+import { hub, staff, filterStaff } from "./schemas";
 
 const schemas = {
   hub,
   staff,
+  filterStaff,
 };
 
 export default schemas;

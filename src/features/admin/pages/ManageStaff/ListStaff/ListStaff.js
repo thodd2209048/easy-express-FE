@@ -12,31 +12,37 @@ import SingleItemDisplay from "~/components/ui/SingleItemDisplay/SingleItemDispl
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import DeleteStaff from "../DeleteStaff/DeleteStaff";
 import UpdateStaff from "../UpdateStaff/UpdateStaff";
+import FilterStaff from "./FilterStaff/FilterStaff";
 
 ListStaff.propTypes = {};
 
 function ListStaff(props) {
-  const [page, setPage] = useState(0);
+  const [condition, setCondition] = useState({
+    page: 0,
+  });
   const navigate = useNavigate();
   const location = useLocation();
   const query = useQuery({
-    queryKey: ["staffs", page],
-    queryFn: () => listStaff(page),
+    queryKey: ["staffs", condition],
+    queryFn: () => listStaff(condition),
   });
+
   const handlePageClick = (e) => {
     navigate(`/admin-panel/staff/list-staff?page=${e.selected + 1}`);
   };
 
   useEffect(() => {
-    let pageUrl = new URLSearchParams(location.search).get("page") - 1;
+    let pageUrl = new URLSearchParams(location.search).get("page");
     if (pageUrl) {
-      setPage(pageUrl);
+      setCondition((prev) => ({ ...prev, page: pageUrl - 1 }));
+    } else {
+      setCondition((prev) => ({ ...prev, page: 0 }));
     }
-    setPage();
   }, [location]);
 
   return (
     <>
+      <FilterStaff setCondition={setCondition} />
       {query.isSuccess && (
         <SubContentLayout>
           {query.data.data.content.map((staff) => (
@@ -59,7 +65,7 @@ function ListStaff(props) {
         <Paginate
           pageCount={query.data?.data.totalPages}
           handlePageClick={handlePageClick}
-          currentPage={page}
+          currentPage={condition.page}
         />
       )}
       <NotificationApi response={query} showSuccess={false}></NotificationApi>

@@ -22,3 +22,10 @@ export const staff = Yup.object({
     .required("Required"),
   hubId: Yup.number().positive("Must be positive").required("Required"),
 });
+
+export const filterStaff = Yup.object({
+  hubId: Yup.number().positive("Must be positive"),
+  sortField: Yup.string(),
+  direction: Yup.string(),
+  searchTerm: Yup.string(),
+});
