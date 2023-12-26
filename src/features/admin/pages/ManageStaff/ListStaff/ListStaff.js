@@ -22,6 +22,7 @@ function ListStaff(props) {
   });
   const navigate = useNavigate();
   const location = useLocation();
+
   const query = useQuery({
     queryKey: ["staffs", condition],
     queryFn: () => listStaff(condition),

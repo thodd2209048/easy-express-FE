@@ -40,7 +40,7 @@ function FilterStaff({ setCondition }) {
                 <Col>
                   {isSuccess && (
                     <Field as="select" name="hubId" className={"form-select"}>
-                      <option>All hub</option>
+                      <option value={""}>All hub</option>
                       {data?.data.content.map((hub) => (
                         <option key={hub.id} value={hub.id}>
                           {hub.name}

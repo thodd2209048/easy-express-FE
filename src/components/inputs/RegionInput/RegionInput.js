@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Field } from "formik";
+import { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 
 import { listDistrict, listProvince } from "~/api/api";
@@ -17,9 +18,8 @@ function RegionInput({
   });
   const districtQuery = useQuery({
     queryKey: ["district"],
-    queryFn: listDistrict,
+    queryFn: () => listDistrict(),
   });
-
   return (
     <Row className="mt-2 mt-md-3 form-group">
       <Col xs="3" lg="2" className="d-flex">
@@ -67,7 +67,10 @@ function RegionInput({
                           form.values[provinceFieldName]
                       )
                       .map((district, idx) => (
-                        <option key={idx} value={district.code}>
+                        <option
+                          key={idx}
+                          // value={district.code}
+                        >
                           {district.name}
                         </option>
                       ))}

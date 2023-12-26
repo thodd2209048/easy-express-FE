@@ -27,7 +27,10 @@ export const listProvince = async () => {
   return res;
 };
 
-export const listDistrict = async () => {
-  const res = await axios.get(baseURL + "/api/regions/districts");
+export const listDistrict = async (provinceCode) => {
+  const res = await axios.get(baseURL + "/api/regions/districts", {
+    params: { provinceCode: provinceCode },
+  });
+
   return res;
 };
