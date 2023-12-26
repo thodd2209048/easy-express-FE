@@ -15,10 +15,12 @@ function RegionInput({
   const provinceQuery = useQuery({
     queryKey: ["province"],
     queryFn: listProvince,
+    staleTime: 1000 * 60 * 10,
   });
   const districtQuery = useQuery({
     queryKey: ["district"],
     queryFn: () => listDistrict(),
+    staleTime: 1000 * 60 * 10,
   });
   return (
     <Row className="mt-2 mt-md-3 form-group">
@@ -67,10 +69,7 @@ function RegionInput({
                           form.values[provinceFieldName]
                       )
                       .map((district, idx) => (
-                        <option
-                          key={idx}
-                          // value={district.code}
-                        >
+                        <option key={idx} value={district.code}>
                           {district.name}
                         </option>
                       ))}

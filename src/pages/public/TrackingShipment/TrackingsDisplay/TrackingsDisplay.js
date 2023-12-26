@@ -20,6 +20,7 @@ function TrackingsDisplay({ number }) {
   const { isSuccess, data, ...query } = useQuery({
     queryKey: ["trackingShipment", number],
     queryFn: () => listTrackingOfShipment(number),
+    staleTime: 1000 * 60 * 10,
   });
   const [showAllTracking, setShowAllTracking] = useState(false);
 

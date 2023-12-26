@@ -25,16 +25,10 @@ export const deleteStaff = async (id) => {
   return res;
 };
 
-export const listHub = async ({ page, sortField, direction }) => {
-  let sortFieldString =
-    sortField === undefined ? "" : `&sort-field=${sortField}`;
-  let directionParamString =
-    direction === undefined ? "" : `&direction=${direction}`;
-
-  const res = await axios.get(
-    baseURL +
-      `/api/hubs?page=${page}&size=${pageSize}${sortFieldString}${directionParamString}`
-  );
+export const listHub = async (condition) => {
+  const res = await axios.get(baseURL + "/api/hubs", {
+    params: { ...condition, pageSize },
+  });
 
   return res;
 };

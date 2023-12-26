@@ -26,6 +26,7 @@ function ListStaff(props) {
   const query = useQuery({
     queryKey: ["staffs", condition],
     queryFn: () => listStaff(condition),
+    staleTime: 1000 * 60 * 10,
   });
 
   const handlePageClick = (e) => {

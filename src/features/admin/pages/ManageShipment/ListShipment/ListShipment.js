@@ -18,6 +18,7 @@ function ListShipment(props) {
   const query = useQuery({
     queryKey: ["staffs", page],
     queryFn: () => listShipment(page),
+    staleTime: 1000 * 60 * 10,
   });
   const handlePageClick = (e) => {
     navigate(`/admin-panel/shipment/list-shipment?page=${e.selected + 1}`);
