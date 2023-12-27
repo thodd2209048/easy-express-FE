@@ -41,36 +41,46 @@ function SingleItemDisplay({
   };
 
   return (
-    <div className={clsx(styles.wrapper, "mt-1 p-2 border rounded", className)}>
-      <div className={clsx(styles.title, "row")}>
-        <div className="col fw-bold">{keyInfo}</div>
-        {(!!editComponent || !!deleteComponent) && (
-          <div className={clsx(styles.itemContainer, "col-2")}>
-            {!!editComponent && (
-              <FontAwesomeIcon
-                icon={showEdit ? faRectangleXmark : faPenToSquare}
-                className={clsx(styles.btnEdit)}
-                onClick={() => toggleEdit()}
-              />
-            )}
+    <div className={clsx(styles.wrapper, "mt-1 row", className)}>
+      <div className="col ">
+        <div className="border rounded p-2">
+          <div className={clsx(styles.title, " row")}>
+            <div className="col fw-bold">
+              <div>{keyInfo}</div>
+            </div>
+            {(!!editComponent || !!deleteComponent) && (
+              <div className={clsx(styles.itemContainer, "col-2")}>
+                {!!editComponent && (
+                  <FontAwesomeIcon
+                    icon={showEdit ? faRectangleXmark : faPenToSquare}
+                    className={clsx(styles.btnEdit)}
+                    onClick={() => toggleEdit()}
+                  />
+                )}
 
-            {!!deleteComponent && (
-              <FontAwesomeIcon
-                icon={faTrashCan}
-                className={clsx(styles.btnDelete)}
-                onClick={() => toggleDelete()}
-              />
+                {!!deleteComponent && (
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    className={clsx(styles.btnDelete)}
+                    onClick={() => toggleDelete()}
+                  />
+                )}
+              </div>
             )}
           </div>
-        )}
+
+          <div className={clsx(styles.itemInfo, "row")}>
+            <div className="col">
+              <div>{children}</div>
+            </div>
+          </div>
+
+          {showEdit && <EditComponent item={item} />}
+          {showDelete && (
+            <DeleteComponent item={item} setShowDelete={setShowDelete} />
+          )}
+        </div>
       </div>
-
-      <div className={clsx(styles.itemInfo, "row")}>{children}</div>
-
-      {showEdit && <EditComponent item={item} />}
-      {showDelete && (
-        <DeleteComponent item={item} setShowDelete={setShowDelete} />
-      )}
     </div>
   );
 }

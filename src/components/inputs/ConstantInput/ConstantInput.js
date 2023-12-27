@@ -7,16 +7,18 @@ ConstantInput.propTypes = { label: PropTypes.string };
 function ConstantInput({ label, options, field, form, meta, ...props }) {
   return (
     <Row className="mt-2 mt-md-3 form-group">
-      <Col xs="3" lg="2" className="d-flex">
-        <label>{label}</label>
-      </Col>
-      <Col xs="9" lg="10">
+      {!!label && (
+        <Col xs="3" lg="2" className="d-flex">
+          <label>{label}</label>
+        </Col>
+      )}
+      <Col>
         <Form.Select
           className={meta.error && meta.touched ? "is-invalid" : ""}
           {...field}
           {...props}
         >
-          <option>Open this select menu</option>
+          <option value={""}>Select status</option>
           {options.map((option, idx) => (
             <option key={idx} value={option}>
               {option}

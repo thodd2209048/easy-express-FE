@@ -2,10 +2,11 @@ import axios from "axios";
 
 import { baseURL, pageSize } from "~/api/api";
 
-export const listStaff = async (page) => {
-  const res = await axios.get(
-    baseURL + `/api/staffs?page=${page}&size=${pageSize}`
-  );
+export const listStaff = async (condition) => {
+  const res = await axios.get(baseURL + `/api/staffs`, {
+    params: { ...condition, pageSize },
+  });
+
   return res;
 };
 
@@ -24,8 +25,11 @@ export const deleteStaff = async (id) => {
   return res;
 };
 
-export const listHub = async () => {
-  const res = await axios.get(baseURL + "/api/hubs");
+export const listHubWithCondition = async (condition) => {
+  const res = await axios.get(baseURL + "/api/hubs", {
+    params: { ...condition, pageSize },
+  });
+
   return res;
 };
 
@@ -44,10 +48,10 @@ export const deleteHub = async (hubId) => {
   return res;
 };
 
-export const listShipment = async (page) => {
-  const res = await axios.get(
-    baseURL + `/api/shipments?page=${page}&size=${pageSize}`
-  );
+export const listShipment = async (condition) => {
+  const res = await axios.get(baseURL + "/api/shipments", {
+    params: { ...condition, pageSize },
+  });
   return res;
 };
 

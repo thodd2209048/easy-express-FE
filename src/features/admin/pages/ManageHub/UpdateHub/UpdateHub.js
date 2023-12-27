@@ -29,6 +29,8 @@ function UpdateHub({ item }) {
         initialValues={{
           name: `${item.name}`,
           location: `${item.location}`,
+          provinceCode: `${item.district.province.code}`,
+          districtCode: `${item.district.code}`,
         }}
         validationSchema={adminSchemas.hub.concat(schemas.region)}
         onSubmit={({ name, location, districtCode }) => {

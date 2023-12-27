@@ -3,12 +3,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 
 import { addHub } from "../../../api/api";
+import adminSchemas from "~/features/admin/config/schemas";
 
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import RegionInput from "~/components/inputs/RegionInput/RegionInput";
-import adminSchemas from "~/features/admin/config/schemas";
 import schemas from "~/config/schemas";
 
 AddHub.propTypes = {};
@@ -36,7 +36,6 @@ function AddHub(props) {
         }}
       >
         {(props) => {
-          console.log(props.values);
           return (
             <Form className="mt-3">
               <SubContentLayout subTitle="Enter new hub's information">
