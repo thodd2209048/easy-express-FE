@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { listHub } from "../../../api/api";
+import { listHubWithCondition } from "../../../api/api";
 
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
@@ -22,9 +22,10 @@ function ListHub(props) {
   const [condition, setCondition] = useState({
     page: 0,
   });
+  const pageSize = 10;
   const query = useQuery({
     queryKey: ["hubs", condition],
-    queryFn: () => listHub(condition),
+    queryFn: () => listHubWithCondition({ ...condition, pageSize }),
     staleTime: 1000 * 60 * 10,
   });
 

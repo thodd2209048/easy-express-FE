@@ -11,10 +11,12 @@ function GeneralInput({ label, prefix, suffix, field, form, meta, ...props }) {
   return (
     <>
       <Row className="mt-2 mt-md-3 form-group">
-        <Col xs="3" lg="2" className="d-flex">
-          <label>{label}</label>
-        </Col>
-        <Col xs="9" lg="10">
+        {!!label && (
+          <Col xs="3" lg="2" className="d-flex">
+            <label>{label}</label>
+          </Col>
+        )}
+        <Col>
           {!!prefix || !!suffix ? (
             <InputGroup>
               {!!prefix && <InputGroup.Text>{prefix}</InputGroup.Text>}

@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { shipmentStatus } from "~/config/constant/constant";
 
 export const hub = Yup.object({
   name: Yup.string()
@@ -34,4 +35,17 @@ export const filterHub = Yup.object({
   sortField: Yup.string(),
   direction: Yup.string(),
   searchTerm: Yup.string(),
+});
+
+export const filterShipment = Yup.object({
+  hubId: Yup.number().positive("Must be positive"),
+  shipmentStatus: Yup.string().oneOf(
+    [...shipmentStatus, ""],
+    "Please select one option"
+  ),
+  startDateTime: Yup.string(),
+  //   .matches(
+  //   "yyyy-MM-dd'T'HH:mm:ssZ",
+  //   "Start date time must be in the format yyyy-MM-dd'T'HH:mm:ssZ"
+  // ),
 });

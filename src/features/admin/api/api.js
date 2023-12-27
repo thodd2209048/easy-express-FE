@@ -25,7 +25,7 @@ export const deleteStaff = async (id) => {
   return res;
 };
 
-export const listHub = async (condition) => {
+export const listHubWithCondition = async (condition) => {
   const res = await axios.get(baseURL + "/api/hubs", {
     params: { ...condition, pageSize },
   });
@@ -48,10 +48,10 @@ export const deleteHub = async (hubId) => {
   return res;
 };
 
-export const listShipment = async (page) => {
-  const res = await axios.get(
-    baseURL + `/api/shipments?page=${page}&size=${pageSize}`
-  );
+export const listShipment = async (condition) => {
+  const res = await axios.get(baseURL + "/api/shipments", {
+    params: { ...condition, pageSize },
+  });
   return res;
 };
 

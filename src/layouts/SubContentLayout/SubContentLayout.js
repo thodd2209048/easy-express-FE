@@ -10,9 +10,11 @@ SubContentLayout.propTypes = {
 function SubContentLayout({ subTitle, children }) {
   return (
     <>
-      <div className={clsx("mt-3 rounded")}>
-        <h4>{subTitle}</h4>
-        {children}
+      <div className={clsx("mt-3 rounded row")}>
+        <div className="col">
+          <h4>{subTitle}</h4>
+          {children}
+        </div>
       </div>
     </>
   );

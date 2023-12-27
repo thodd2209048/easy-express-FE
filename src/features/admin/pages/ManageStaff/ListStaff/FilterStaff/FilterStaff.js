@@ -5,7 +5,7 @@ import { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 
 import adminSchemas from "~/features/admin/config/schemas";
-import { listHub } from "../../../../api/api";
+import { listHubWithCondition } from "../../../../api/api";
 
 import ListenAllChangeFormik from "~/components/auto/ListenAllChangeFormik/ListenAllChangeFormik";
 
@@ -16,7 +16,7 @@ FilterStaff.propTypes = {
 function FilterStaff({ setCondition }) {
   const { data, isSuccess } = useQuery({
     queryKey: ["hubs"],
-    queryFn: listHub,
+    queryFn: listHubWithCondition,
   });
 
   return (

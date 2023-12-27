@@ -24,7 +24,7 @@ function CreateShipment(props) {
       queryClient.invalidateQueries({ queryKey: ["shipments"] });
     },
   });
-  console.log(mutation);
+  console.log("mutation:", mutation);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
@@ -61,8 +61,6 @@ function CreateShipment(props) {
           onSubmit={(values) => {
             delete values.senderProvinceCode;
             delete values.receiverProvinceCode;
-            console.log(values);
-
             mutation.mutate(values);
           }}
         >
