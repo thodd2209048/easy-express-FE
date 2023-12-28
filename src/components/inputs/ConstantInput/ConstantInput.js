@@ -4,12 +4,20 @@ import { Col, Form, Row } from "react-bootstrap";
 
 ConstantInput.propTypes = { label: PropTypes.string };
 
-function ConstantInput({ label, options, field, form, meta, ...props }) {
+function ConstantInput({
+  label,
+  leftLabel,
+  options,
+  field,
+  form,
+  meta,
+  ...props
+}) {
   return (
     <Row className="mt-2 mt-md-3 form-group">
-      {!!label && (
+      {!!leftLabel && (
         <Col xs="3" lg="2" className="d-flex">
-          <label>{label}</label>
+          <label>{leftLabel}</label>
         </Col>
       )}
       <Col>
@@ -18,7 +26,7 @@ function ConstantInput({ label, options, field, form, meta, ...props }) {
           {...field}
           {...props}
         >
-          <option value={""}>Select status</option>
+          <option value={""}>{label}</option>
           {options.map((option, idx) => (
             <option key={idx} value={option}>
               {option}

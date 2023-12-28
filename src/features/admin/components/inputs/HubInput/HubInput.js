@@ -25,7 +25,7 @@ function HubInput({ label, field, form, meta, ...props }) {
           {...field}
           {...props}
         >
-          <option value="">Select hub</option>
+          <option value="">Hub</option>
           {query.data?.data.content.map((hub, idx) => (
             <option key={idx} value={hub.id}>
               {hub.name}

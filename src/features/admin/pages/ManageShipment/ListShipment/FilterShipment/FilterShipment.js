@@ -55,6 +55,7 @@ function FilterShipment({ setCondition }) {
                         return (
                           <>
                             <ConstantInput
+                              label={"Status"}
                               options={shipmentStatus}
                               field={field}
                               form={form}
@@ -90,4 +91,4 @@ function FilterShipment({ setCondition }) {
   );
 }
 
-export default FilterShipment;
+export default memo(FilterShipment);
