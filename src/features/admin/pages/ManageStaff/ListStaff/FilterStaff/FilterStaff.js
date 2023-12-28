@@ -16,7 +16,7 @@ FilterStaff.propTypes = {
 function FilterStaff({ setCondition }) {
   const { data, isSuccess } = useQuery({
     queryKey: ["hubs"],
-    queryFn: listHubWithCondition,
+    queryFn: () => listHubWithCondition(),
   });
 
   return (
@@ -38,16 +38,15 @@ function FilterStaff({ setCondition }) {
             <Form className="mt-3">
               <Row>
                 <Col>
-                  {isSuccess && (
-                    <Field as="select" name="hubId" className={"form-select"}>
-                      <option value={""}>All hub</option>
-                      {data?.data.content.map((hub) => (
+                  <Field as="select" name="hubId" className={"form-select"}>
+                    <option value={""}>All hub</option>
+                    {isSuccess &&
+                      data?.data.content.map((hub) => (
                         <option key={hub.id} value={hub.id}>
                           {hub.name}
                         </option>
                       ))}
-                    </Field>
-                  )}
+                  </Field>
                 </Col>
                 <Col>
                   <Field as="select" name="sortField" className={"form-select"}>

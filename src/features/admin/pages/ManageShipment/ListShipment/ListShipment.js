@@ -20,7 +20,7 @@ function ListShipment(props) {
   const query = useQuery({
     queryKey: ["shipments", condition],
     queryFn: () => listShipment(condition),
-    staleTime: 1000 * 60 * 10,
+    staleTime: 1000 * 20,
   });
 
   const navigate = useNavigate();
@@ -74,10 +74,12 @@ function ListShipment(props) {
                         Hub: {shipment.lastTracking.hub.name}
                       </p>
                     )}
-                    <p className="m-0">
-                      Staff: {shipment.lastTracking.staff.id} -{" "}
-                      {shipment.lastTracking.staff.name}
-                    </p>
+                    {!!shipment.lastTracking.staff && (
+                      <p className="m-0">
+                        Staff: {shipment.lastTracking.staff.id} -{" "}
+                        {shipment.lastTracking.staff.name}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

@@ -20,7 +20,7 @@ function AddTracking(props) {
       queryClient.invalidateQueries({ queryKey: ["trackings"] });
     },
   });
-
+  console.log(mutation);
   return (
     <>
       <Formik
@@ -95,7 +95,8 @@ function AddTracking(props) {
                       return (
                         <>
                           <ConstantInput
-                            label="Status: "
+                            leftLabel="Status:"
+                            label="Select an option"
                             options={shipmentStatus}
                             field={field}
                             form={form}
@@ -152,7 +153,7 @@ function AddTracking(props) {
           <>
             <p>Tracking is added</p>
             <p className="m-0">Number: {mutation.data.data.shipmentNumber}</p>
-            <p className="m-0">Status: {mutation.data.data.status}</p>
+            <p className="m-0">Status: {mutation.data.data.shipmentStatus}</p>
             <p className="m-0">
               Staff: {mutation.data.data.staff.id} -{" "}
               {mutation.data.data.staff.name}
