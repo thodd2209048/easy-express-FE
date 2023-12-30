@@ -28,7 +28,7 @@ function TrackingsDisplay({ number }) {
     setShowAllTracking((prev) => !prev);
   };
 
-  console.log(data?.data.trackingList);
+  console.log(data);
   return (
     <div className={clsx(styles.wrapper)}>
       <NotificationApi
@@ -76,24 +76,29 @@ function TrackingsDisplay({ number }) {
             className={"fw-bold fs-5 border-top"}
           />
 
-          {showAllTracking &&
-            data.data.trackingList.map((tracking) => (
-              <SingleItemDisplay
-                className={clsx(styles.trackingItem)}
-                key={tracking.id}
-                keyInfo={tracking.shipmentStatus}
-              >
-                <p className="m-0">
-                  {convertZonedDateTimeToDateTime(tracking.createdAt)}
-                </p>
-                <p className="m-0">
-                  {tracking.district.name}-{tracking.district.province.name}
-                </p>
-                {!!tracking.newShipmentNumber && (
-                  <p className="m-0">Refer to: {tracking.newShipmentNumber}</p>
-                )}
-              </SingleItemDisplay>
-            ))}
+          {showAllTracking && (
+            <div className="p-1">
+              {data.data.trackingList.map((tracking) => (
+                <SingleItemDisplay
+                  className={clsx(styles.trackingItem)}
+                  key={tracking.id}
+                  keyInfo={tracking.shipmentStatus}
+                >
+                  <p className="m-0">
+                    {convertZonedDateTimeToDateTime(tracking.createdAt)}
+                  </p>
+                  <p className="m-0">
+                    {tracking.district.name}-{tracking.district.province.name}
+                  </p>
+                  {!!tracking.newShipmentNumber && (
+                    <p className="m-0">
+                      Refer to: {tracking.newShipmentNumber}
+                    </p>
+                  )}
+                </SingleItemDisplay>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
