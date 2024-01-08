@@ -39,7 +39,6 @@ function ListShipment(props) {
     }
   }, [location]);
 
-  console.log(query);
   return (
     <>
       <SubContentLayout>
@@ -51,36 +50,26 @@ function ListShipment(props) {
               item={shipment}
               keyInfo={shipment.number}
             >
-              <div className={clsx(styles.address, "row")}>
-                <div className="col-6">
-                  <p className="m-0">{shipment.senderName}</p>
-                  <p className="m-0">{shipment.senderDistrict.province.name}</p>
-                </div>
-                <div className="col-6">
-                  <p className="m-0">{shipment.receiverName}</p>
-                  <p className="m-0">
-                    {shipment.receiverDistrict.province.name}
-                  </p>
-                </div>
-              </div>
               <div className="row">
                 <div className="col">
-                  <div className="border-top">
+                  <div className="">
                     <p className="m-0">
-                      Status: {shipment.lastTracking.shipmentStatus}
+                      {shipment.lastTracking.shipmentStatus}
                     </p>
                     {!!shipment.lastTracking.hub && (
                       <p className="m-0">
                         Hub: {shipment.lastTracking.hub.name}
                       </p>
                     )}
-                    {!!shipment.lastTracking.staff && (
-                      <p className="m-0">
-                        Staff: {shipment.lastTracking.staff.id} -{" "}
-                        {shipment.lastTracking.staff.name}
-                      </p>
-                    )}
                   </div>
+                </div>
+              </div>
+              <div className={clsx(styles.address, "row")}>
+                <div className="col-6">
+                  <p className="m-0">{shipment.senderName}</p>
+                </div>
+                <div className="col-6">
+                  <p className="m-0">{shipment.receiverName}</p>
                 </div>
               </div>
             </SingleItemDisplay>

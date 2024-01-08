@@ -11,7 +11,7 @@ function DefaultLayout({ children }) {
   return (
     <div className={clsx(styles.wrapper)}>
       <Header />
-      <main className={"container mt-4"}>{children}</main>
+      <main className={"container"}>{children}</main>
       <Footer />
     </div>
   );
