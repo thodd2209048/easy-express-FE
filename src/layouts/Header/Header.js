@@ -67,7 +67,12 @@ function Header(props) {
                   <NavDropdown.Item as={Link} to={customerPaths.createShipment}>
                     New shipment
                   </NavDropdown.Item>
-                  {/* <NavDropdown.Divider /> */}
+                  <NavDropdown.Item
+                    as={Link}
+                    to={customerPaths.createPickUpOrder}
+                  >
+                    New pick up order
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Staff">
                   <NavDropdown.Item as={Link} to={paths.addTracking}>

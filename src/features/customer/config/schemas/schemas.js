@@ -40,7 +40,7 @@ export const shipment = Yup.object({
   heightInCm: Yup.number().positive("Must be positive").required("Required"),
 });
 
-export const addOrderSchema = Yup.object({
+export const addPickUpOrder = Yup.object({
   // Sender information
   senderName: Yup.string()
     .max(30, "Must be 30 characters or less")
