@@ -5,13 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a2c6bfa-0d87-4768-9508-ec191831acef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/routes/paths.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/admin/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/admin/components/inputs/HubInput/HubInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/components/inputs/HubInput/HubInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/FilterStaff/FilterStaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/FilterStaff/FilterStaff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/customer/pages/CreateShipment/CreateShipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/pages/CreateShipment/CreateShipment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/api/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/components/inputs/HubInput/HubInput.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/config/schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/admin/config/schemas/schemas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/AdminPanel/AdminPanel.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/AddHub/AddHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/DeleteHub/DeleteHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/DeleteHub/DeleteHub.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/FilterHub/FilterHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ListHub/ListHub.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ManageHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/ManageHub.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/UpdateHub/UpdateHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageHub/UpdateHub/UpdateHub.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/FilterShipment/FilterShipment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ListShipment/ListShipment.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ManageShipment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageShipment/ManageShipment.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/AddStaff/AddStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/DeleteStaff/DeleteStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/DeleteStaff/DeleteStaff.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/FilterStaff/FilterStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/ListStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ListStaff/ListStaff.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ManageStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/ManageStaff.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageStaff/UpdateStaff/UpdateStaff.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/DeleteTracking/DeleteTracking.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/ManageTracking.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/admin/pages/ManageTracking/ManageTracking.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/customer/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/customer/config/schemas/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/config/schemas/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/customer/config/schemas/schemas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/config/schemas/schemas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/customer/pages/CreatePickUpOrder/CreatePickUpOrder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/pages/CreatePickUpOrder/CreatePickUpOrder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/customer/routes/paths/paths.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/customer/routes/paths/paths.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,33 +65,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;filter&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Work/Project/easy-express/easy-express-github-fe/src/features/admin/pages/ManageTracking&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "home-page",
+    "last_opened_file_path": "D:/Work/Project/easy-express/easy-express-github-fe - Copy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\admin\pages\ManageTracking" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\admin\pages" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\admin" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub\features" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub\features\admin\pages\admin" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub\features\admin\pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\routes" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\admin\pages" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\components\ui" />
-      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\assets\styles" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub\features\admin\pages\admin" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\hub\features" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\zzz\components" />
+      <recent name="D:\Work\Project\easy-express\easy-express-github-fe\src\features\zzz" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -83,6 +118,9 @@
       <workItem from="1703343902443" duration="62000" />
       <workItem from="1703585439080" duration="13000" />
       <workItem from="1703649440248" duration="846000" />
+      <workItem from="1704082112848" duration="35000" />
+      <workItem from="1704982274692" duration="2172000" />
+      <workItem from="1705075798304" duration="33000" />
     </task>
     <servers />
   </component>

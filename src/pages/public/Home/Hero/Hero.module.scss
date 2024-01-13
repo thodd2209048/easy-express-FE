@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background-image: url("../../../../assets/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.trackingContainer {
+}
+
+.trackingTitle {
+  font-size: larger;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+.button {
+}

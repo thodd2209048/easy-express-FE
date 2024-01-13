@@ -33,6 +33,7 @@ function AddTracking(props) {
         }}
         validationSchema={config.schemas.tracking}
         onSubmit={(values) => {
+          console.log("values", values);
           mutation.mutate({ ...values });
         }}
       >
@@ -152,15 +153,17 @@ function AddTracking(props) {
         {mutation.isSuccess && (
           <>
             <p>Tracking is added</p>
-            <p className="m-0">Number: {mutation.data.data.shipmentNumber}</p>
-            <p className="m-0">Status: {mutation.data.data.shipmentStatus}</p>
-            <p className="m-0">
-              Staff: {mutation.data.data.staff.id} -{" "}
-              {mutation.data.data.staff.name}
-            </p>
-            <p className="m-0">
-              Hub: {mutation.data.data.hub.id} - {mutation.data.data.hub.name}
-            </p>
+            <p className="m-0">{mutation.data.data.title}</p>
+            <p className="m-0">{mutation.data.data.url}</p>
+            {mutation.data.data.tags.map((tag) => (
+              <p className="m-0">{tag.name}</p>
+            ))}
+            <p className="m-0">{mutation.data.data.subject}</p>
+            <p className="m-0">{mutation.data.data.series}</p>
+            <p className="m-0">{mutation.data.data.type}</p>
+            <p className="m-0">{mutation.data.data.lastTimeRead}</p>
+            <p className="m-0">{mutation.data.data.repetition}</p>
+            <p className="m-0">{mutation.data.data.nextTimeRead}</p>
           </>
         )}
       </NotificationApi>

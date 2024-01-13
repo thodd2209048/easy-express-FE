@@ -32,12 +32,12 @@ function RegionInput({
           {({ field, form, meta }) => (
             <Form.Select
               className={meta.error && meta.touched ? "is-invalid" : ""}
-              {...field}
-              {...props}
               onChange={(e) => {
                 form.handleChange(e);
                 form.setFieldValue(districtFieldName, "");
               }}
+              {...field}
+              {...props}
             >
               <option value={""}>Open this select province</option>
               {provinceQuery.isSuccess &&

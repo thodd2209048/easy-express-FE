@@ -1,13 +1,11 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import Hero from "./Hero/Hero";
 
 Home.propTypes = {};
 
 function Home(props) {
   return (
-    <div className="mt-5">
-      <h3>Home</h3>
-      <Button variant="primary">Test</Button>
+    <div>
+      <Hero />
     </div>
   );
 }
