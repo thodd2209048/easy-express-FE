@@ -1,8 +1,13 @@
-import { shipment, addPickUpOrder } from "./schemas";
+import {
+  shipment,
+  addPickUpOrder,
+  updatePickUpOrderByCustomer,
+} from "./schemas";
 
 const schemas = {
   shipment,
   addPickUpOrder,
+  updatePickUpOrderByCustomer,
 };
 
 export default schemas;

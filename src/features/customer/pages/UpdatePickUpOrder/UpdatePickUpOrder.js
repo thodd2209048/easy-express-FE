@@ -1,39 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 import { Button, Col, Row } from "react-bootstrap";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import clsx from "clsx";
 import { Field, Form, Formik } from "formik";
 
-import styles from "./CreatePickUpOrder.module.scss";
-import { createPickUpOrder } from "../../api/api";
-import schemas from "../../config/schemas";
+import styles from "./UpdatePickUpOrder.module.scss";
 import {
   convertLocalDateTimeToZonedDateTime,
   convertZonedDateTimeToDateTime,
 } from "~/utils/convertZonedDateTimeToDateTime";
+import schemas from "../../config/schemas";
+import { updatePickUpOrder } from "../../api/api";
 
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import GeneralInput from "~/components/inputs/GeneralInput/GeneralInput";
-import RegionInput from "~/components/inputs/RegionInput/RegionInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 
-CreatePickUpOrder.propTypes = {};
+UpdatePickUpOrder.propTypes = {};
 
-function CreatePickUpOrder(props) {
+function UpdatePickUpOrder(props) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: (values) => createPickUpOrder(values),
+    mutationFn: (id, values) => updatePickUpOrder(id, values),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["pickUpOrders"] });
     },
   });
-
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
-        <PageTitle title="Book a pick up order" />
+        <PageTitle title="Update pick up order" />
       </div>
       <Row>
         <Col>
@@ -45,19 +43,13 @@ function CreatePickUpOrder(props) {
       {!mutation.isSuccess && (
         <Formik
           initialValues={{
+            status: "",
             senderName: "",
             senderPhone: "",
-            senderAddress: "",
-            districtCode: "",
             startTime: "",
             endTime: "",
-            description: "",
-            weightInKg: "",
-            lengthInCm: "",
-            widthInCm: "",
-            heightInCm: "",
           }}
-          validationSchema={schemas.addPickUpOrder}
+          validationSchema={schemas.updatePickUpOrderByCustomer}
           onSubmit={(values) => {
             const startTimeZDT = convertLocalDateTimeToZonedDateTime(
               values.startTime
@@ -111,23 +103,6 @@ function CreatePickUpOrder(props) {
                       </>
                     )}
                   </Field>
-                  <Field name="senderAddress">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          label="Address: "
-                          type="text"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                  <RegionInput
-                    // provinceFieldName="senderProvinceCode"
-                    districtFieldName="districtCode"
-                  />
                 </SubContentLayout>
                 <SubContentLayout subTitle="Pick up time">
                   <Field name="startTime">
@@ -149,77 +124,6 @@ function CreatePickUpOrder(props) {
                         <GeneralInput
                           label="To time: "
                           type="datetime-local"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                </SubContentLayout>
-                <SubContentLayout subTitle="Shipment details">
-                  <Field name="description">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          label="Description: "
-                          as="textarea"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                  <Field name="weightInKg">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          prefix="kg"
-                          label="Weight: "
-                          type="number"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                  <Field name="lengthInCm">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          prefix="cm"
-                          label="Length: "
-                          type="number"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                  <Field name="widthInCm">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          prefix="cm"
-                          label="Width: "
-                          type="number"
-                          field={field}
-                          form={form}
-                          meta={meta}
-                        />
-                      </>
-                    )}
-                  </Field>
-                  <Field name="heightInCm">
-                    {({ field, form, meta }) => (
-                      <>
-                        <GeneralInput
-                          prefix="cm"
-                          label="Height: "
-                          type="number"
                           field={field}
                           form={form}
                           meta={meta}
@@ -301,4 +205,4 @@ function CreatePickUpOrder(props) {
   );
 }
 
-export default CreatePickUpOrder;
+export default UpdatePickUpOrder;
