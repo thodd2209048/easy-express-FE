@@ -37,7 +37,7 @@ function ListShipment(props) {
       setCondition((prev) => ({ ...prev, page: 0 }));
     }
   }, [location]);
-
+  console.log(query);
   return (
     <>
       <SubContentLayout>
@@ -74,7 +74,7 @@ function ListShipment(props) {
             </SingleItemDisplay>
           ))}
       </SubContentLayout>
-      {query.isSuccess && (
+      {query.isSuccess && query.data.data.totalPages > 0 && (
         <Paginate
           pageCount={query.data?.data.totalPages}
           handlePageClick={handlePageClick}

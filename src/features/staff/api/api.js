@@ -2,7 +2,7 @@ import axios from "axios";
 import { baseURL, pageSize } from "~/api/api";
 
 export const listStaff = async (condition) => {
-  const res = await axios.get(baseURL + `/api/staffs`, {
+  const res = await axios.get(baseURL + `/staffs`, {
     params: { ...condition, pageSize },
   });
 

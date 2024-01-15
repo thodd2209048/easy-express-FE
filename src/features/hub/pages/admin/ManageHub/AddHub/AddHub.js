@@ -55,7 +55,7 @@ function AddHub(props) {
                     {({ field, form, meta }) => (
                       <>
                         <GeneralInput
-                          label="Location: "
+                          label="Address: "
                           type="text"
                           field={field}
                           form={form}
@@ -95,7 +95,7 @@ function AddHub(props) {
             <p>Hub is added</p>
             <p className="m-0">Hub: {mutation.data.data.name} </p>
             <p className="m-0">Id: {mutation.data.data.id}</p>
-            <p className="m-0">Location: {mutation.data.data.location}</p>
+            <p className="m-0">Location: {mutation.data.data.address}</p>
           </>
         )}
       </NotificationApi>

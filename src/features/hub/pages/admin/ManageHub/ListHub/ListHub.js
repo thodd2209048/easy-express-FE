@@ -58,7 +58,7 @@ function ListHub(props) {
               deleteComponent={DeleteHub}
             >
               <>
-                <p className="m-0">{hub.location}</p>
+                <p className="m-0">{hub.address}</p>
               </>
             </SingleItemDisplay>
           ))}

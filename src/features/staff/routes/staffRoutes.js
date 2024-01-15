@@ -9,9 +9,9 @@ export const staffAdmin = [
     path: paths.staffAdmin,
     component: ManageStaff,
     child: [
-      { path: paths.addHub, component: AddStaff },
-      { path: paths.listHub, component: ListStaff },
-      { path: paths.updateHub, component: UpdateStaff },
+      { path: paths.addStaff, component: AddStaff },
+      { path: paths.listStaff, component: ListStaff },
+      { path: paths.updateStaff, component: UpdateStaff },
     ],
   },
 ];

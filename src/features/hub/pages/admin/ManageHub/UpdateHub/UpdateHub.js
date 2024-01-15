@@ -26,13 +26,13 @@ function UpdateHub({ item }) {
       <Formik
         initialValues={{
           name: `${item.name}`,
-          location: `${item.location}`,
+          address: `${item.address}`,
           provinceCode: `${item.district.province.code}`,
           districtCode: `${item.district.code}`,
         }}
         validationSchema={schemas.updateHub}
-        onSubmit={({ name, location, districtCode }) => {
-          mutation.mutate({ name, location, districtCode });
+        onSubmit={({ name, address, districtCode }) => {
+          mutation.mutate({ name, address, districtCode });
         }}
       >
         {({ touched, errors, isSubmitting, resetForm }) => (
@@ -53,11 +53,11 @@ function UpdateHub({ item }) {
                   </>
                 )}
               </Field>
-              <Field name="location">
+              <Field name="address">
                 {({ field, form, meta }) => (
                   <>
                     <GeneralInput
-                      label="Location: "
+                      label="Address: "
                       type="text"
                       field={field}
                       form={form}
@@ -95,7 +95,7 @@ function UpdateHub({ item }) {
             <p>Hub is updated</p>
             <p className="m-0">Hub: {mutation.data.data.name} </p>
             <p className="m-0">Id: {mutation.data.data.id}</p>
-            <p className="m-0">Location: {mutation.data.data.location}</p>
+            <p className="m-0">Address: {mutation.data.data.address}</p>
           </>
         )}
       </NotificationApi>
