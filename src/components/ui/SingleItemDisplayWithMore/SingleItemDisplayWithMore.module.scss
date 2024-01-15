@@ -1,0 +1,20 @@
+.itemInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btnEdit {
+  cursor: pointer;
+}
+
+.btnDelete {
+  cursor: pointer;
+}

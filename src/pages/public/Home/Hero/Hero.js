@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import styles from "./Hero.module.scss";
 import { useNavigate } from "react-router-dom";
-import paths from "~/routes/paths/paths";
+import paths from "~/routes/paths";
 
 Hero.propTypes = {};
 

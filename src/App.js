@@ -2,12 +2,15 @@ import { Route, Routes } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { publicRoutes, privateRoutes } from "./routes/routes";
+import {
+  adminRoutes,
+  customerRoutes,
+  publicRoutes,
+  staffRoutes,
+} from "./routes/routes";
 
-import { Fragment } from "react";
-import adminRoutes from "./features/admin/routes/adminRoutes";
-import customerRoutes from "./features/customer/routes/customerRoutes";
 import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
+import { Fragment } from "react";
 
 function App() {
   return (
@@ -27,32 +30,32 @@ function App() {
             />
           );
         })}
-        {privateRoutes.map((route, idx) => {
+        {customerRoutes.map((route, idx) => {
           const Page = route.component;
-          let Layout = DefaultLayout;
-          if (route.layout) {
-            Layout = route.layout;
-          } else if (route.layout === null) {
-            Layout = Fragment;
-          }
           return (
             <Route
               key={idx}
               path={route.path}
               element={
-                <Layout>
+                <DefaultLayout>
                   <Page />
-                </Layout>
+                </DefaultLayout>
               }
-            >
-              {route.child?.map((subRoute, idx) => (
-                <Route
-                  key={idx}
-                  path={subRoute.path}
-                  element={<subRoute.component />}
-                />
-              ))}
-            </Route>
+            />
+          );
+        })}
+        {staffRoutes.map((route, idx) => {
+          const Page = route.component;
+          return (
+            <Route
+              key={idx}
+              path={route.path}
+              element={
+                <DefaultLayout>
+                  <Page />
+                </DefaultLayout>
+              }
+            />
           );
         })}
         {adminRoutes.map((route, idx) => {
@@ -83,7 +86,7 @@ function App() {
             </Route>
           );
         })}
-        {customerRoutes.map((route, idx) => {
+        {/* {customerRoutes.map((route, idx) => {
           const Page = route.component;
           let Layout = DefaultLayout;
           if (route.layout) {
@@ -110,7 +113,7 @@ function App() {
               ))}
             </Route>
           );
-        })}
+        })} */}
       </Routes>
     </div>
   );
