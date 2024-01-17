@@ -1,5 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import clsx from "clsx";
+
+import styles from "./PageTitle.module.scss";
 
 PageTitle.propTypes = {
   title: PropTypes.string.isRequired,

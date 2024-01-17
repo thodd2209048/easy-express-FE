@@ -18,6 +18,7 @@ function NotificationApi({ response, showSuccess = true, children }) {
       )}
       {response.isError && (
         <div className="alert alert-warning" role="alert">
+          <h5>Error</h5>
           <span>{response.error.response?.data.message}</span>
         </div>
       )}

@@ -21,7 +21,7 @@ function Footer(props) {
               <h5>Easy express</h5>
               <p className="m-0">Tel: +84 99 999 999</p>
               <p className="m-0">Email: cs@easyexpress.com</p>
-              <p className="m-0">28, Hoi Nong Dan, Cau Giay, Ha Noi</p>
+              <p className="m-0">8, Tôn Thất Thuyết, Cầu Giấy, Hà Nội</p>
             </div>
           </div>
         </div>

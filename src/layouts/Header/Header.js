@@ -6,8 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 
 import images from "~/assets/images";
 import styles from "./Header.module.scss";
-import paths from "~/routes/paths/paths";
-import customerPaths from "~/features/customer/routes/paths/paths";
+import paths from "~/routes/paths";
 
 Header.propTypes = {};
 
@@ -57,26 +56,44 @@ function Header(props) {
                 <Nav.Link as={Link} to={paths.trackingShipment}>
                   Tracking
                 </Nav.Link>
-                <Nav.Link as={Link} to={paths.adminPanel}>
-                  Admin
-                </Nav.Link>
-                <Nav.Link as={Link} to={paths.test}>
-                  Test
-                </Nav.Link>
-                <NavDropdown title="Customer">
-                  <NavDropdown.Item as={Link} to={customerPaths.createShipment}>
-                    New shipment
+
+                <NavDropdown title="Admin">
+                  <NavDropdown.Item as={Link} to={paths.listHub}>
+                    Hub
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={paths.listStaff}>
+                    Staff
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={Link}
-                    to={customerPaths.createPickUpOrder}
+                    to={paths.shipmentAdminListShipment}
                   >
-                    New pick up order
+                    Shipment
                   </NavDropdown.Item>
                 </NavDropdown>
+
                 <NavDropdown title="Staff">
-                  <NavDropdown.Item as={Link} to={paths.addTracking}>
-                    Handle shipment
+                  <NavDropdown.Item
+                    as={Link}
+                    to={paths.trackingStaffAddTracking}
+                  >
+                    Add tracking
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown title="Customer">
+                  <NavDropdown.Item
+                    as={Link}
+                    to={paths.shipmentCustomerAddShipment}
+                  >
+                    Create new shipment
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item as={Link} to={paths.createOrder}>
+                    Create new pick up order
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={paths.listOrder}>
+                    List pick up orders
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
