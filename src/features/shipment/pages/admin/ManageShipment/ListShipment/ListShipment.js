@@ -15,6 +15,7 @@ import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
 
 import { paths } from "~/features/shipment/routes/paths";
+import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
 
 function ListShipment(props) {
   const [condition, setCondition] = useState({
@@ -46,6 +47,7 @@ function ListShipment(props) {
   return (
     <>
       <FilterShipment setCondition={setCondition} />
+
       {query.isSuccess &&
         query.data.data.content.map((shipment) => (
           <SingleItemDisplayWithMore key={shipment.id} item={shipment}>
@@ -75,18 +77,12 @@ function ListShipment(props) {
             </div>
             <div className={clsx(styles.address, "row")}>
               <div className="col-6">
-                <p className="m-0">
-                  {shipment.senderDistrict.name}
-                  {" - "}
-                  {shipment.senderDistrict.province.name}
-                </p>
+                <DisplayDistrictAndProvince id={shipment.senderDistrictCode} />
               </div>
               <div className="col-6">
-                <p className="m-0">
-                  {shipment.receiverDistrict.name}
-                  {" - "}
-                  {shipment.receiverDistrict.province.name}
-                </p>
+                <DisplayDistrictAndProvince
+                  id={shipment.receiverDistrictCode}
+                />
               </div>
             </div>
           </SingleItemDisplayWithMore>

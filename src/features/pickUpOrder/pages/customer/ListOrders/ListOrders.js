@@ -18,6 +18,7 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
+import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
 
 ListOrders.propTypes = {};
 
@@ -48,7 +49,6 @@ function ListOrders(props) {
     }
   }, [location]);
 
-  console.log(query);
   return (
     <>
       <SubContentLayout>
@@ -89,9 +89,7 @@ function ListOrders(props) {
                 </div>
                 <div className={clsx(styles.address, "row")}>
                   <div className="col">
-                    <span className="m-0">{order.district.name}</span>
-                    <span> - </span>
-                    <span className="m-0">{order.district.province.name}</span>
+                    <DisplayDistrictAndProvince id={order.districtCode} />
                   </div>
                 </div>
               </div>

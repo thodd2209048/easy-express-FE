@@ -8,14 +8,14 @@ Paginate.propTypes = {
   currentPage: PropTypes.number,
 };
 
-function Paginate({ handlePageClick, pageCount, currentPage = 0 }) {
+function Paginate({ handlePageClick, pageCount = 0, currentPage = 0 }) {
   return (
     <div className="mt-2 d-flex justify-content-center">
       <ReactPaginate
         onPageChange={handlePageClick}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
-        pageCount={pageCount}
+        pageCount={pageCount > 0 ? pageCount : 1}
         previousLabel="<"
         nextLabel=">"
         pageClassName="page-item"

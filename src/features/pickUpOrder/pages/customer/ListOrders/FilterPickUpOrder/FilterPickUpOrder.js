@@ -2,7 +2,6 @@ import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { Field, Form, Formik } from "formik";
 import { Col, Row } from "react-bootstrap";
-import { format } from "date-fns";
 
 import { pickUpOrderStatus } from "~/features/pickUpOrder/config/constant";
 import schemas from "~/features/pickUpOrder/config/schemas";
