@@ -17,20 +17,20 @@ function ManageStaff(props) {
       </div>
       <div className={clsx(styles.options)}>
         <NavLink
-          to={paths.addStaff}
-          className={({ isActive }) =>
-            isActive ? "btn btn-info" : "btn btn-outline-info"
-          }
-        >
-          Add staff
-        </NavLink>
-        <NavLink
           to={paths.listStaff}
           className={({ isActive }) =>
             isActive ? "btn btn-info" : "btn btn-outline-info"
           }
         >
           List staff
+        </NavLink>
+        <NavLink
+          to={paths.addStaff}
+          className={({ isActive }) =>
+            isActive ? "btn btn-info" : "btn btn-outline-info"
+          }
+        >
+          Add staff
         </NavLink>
       </div>
       <Outlet />

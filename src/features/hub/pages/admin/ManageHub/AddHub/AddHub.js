@@ -24,18 +24,18 @@ function AddHub(props) {
       <Formik
         initialValues={{
           name: "",
-          location: "",
+          address: "",
           provinceCode: "",
           districtCode: "",
         }}
         validationSchema={schemas.addHub}
-        onSubmit={({ name, location, districtCode }) => {
-          mutation.mutate({ name, location, districtCode });
+        onSubmit={({ name, address, districtCode }) => {
+          mutation.mutate({ name, address, districtCode });
         }}
       >
         {(props) => {
           return (
-            <Form className="mt-3">
+            <Form className="mt-3 ">
               <SubContentLayout subTitle="Enter new hub's information">
                 <div>
                   <Field name="name">
@@ -51,7 +51,7 @@ function AddHub(props) {
                       </>
                     )}
                   </Field>
-                  <Field name="location">
+                  <Field name="address">
                     {({ field, form, meta }) => (
                       <>
                         <GeneralInput

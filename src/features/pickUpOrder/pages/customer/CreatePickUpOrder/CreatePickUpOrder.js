@@ -21,7 +21,7 @@ import RegionInput from "~/components/input/RegionInput/RegionInput";
 
 CreatePickUpOrder.propTypes = {};
 
-function CreatePickUpOrder(props) {
+function CreatePickUpOrder({ state }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (values) => createPickUpOrder(values),
@@ -30,6 +30,7 @@ function CreatePickUpOrder(props) {
     },
   });
 
+  console.log(state);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
@@ -45,17 +46,17 @@ function CreatePickUpOrder(props) {
       {!mutation.isSuccess && (
         <Formik
           initialValues={{
-            senderName: "",
-            senderPhone: "",
-            senderAddress: "",
-            districtCode: "",
-            startTime: "",
-            endTime: "",
-            description: "",
-            weightInKg: "",
-            lengthInCm: "",
-            widthInCm: "",
-            heightInCm: "",
+            senderName: state?.senderName || "",
+            senderPhone: state?.senderPhone || "",
+            senderAddress: state?.senderAddress || "",
+            districtCode: state?.districtCode || "",
+            startTime: state?.startTime || "",
+            endTime: state?.endTime || "",
+            description: state?.description || "",
+            weightInKg: state?.weightInKg || "",
+            lengthInCm: state?.lengthInCm || "",
+            widthInCm: state?.widthInCm || "",
+            heightInCm: state?.heightInCm || "",
           }}
           validationSchema={schemas.createPickUpOrder}
           onSubmit={(values) => {

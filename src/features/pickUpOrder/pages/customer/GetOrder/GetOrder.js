@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useQuery } from "@tanstack/react-query";
 import { getPickUpOrder } from "~/features/pickUpOrder/api/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 import { Button, Table } from "react-bootstrap";
 import { paths } from "~/features/pickUpOrder/routes/paths";
 import UpdatePickUpOrder from "../UpdatePickUpOrder/UpdatePickUpOrder";
+import { closedPickUpOrderStatuses } from "~/features/pickUpOrder/config/constant";
 
 GetOrder.propTypes = {};
 
@@ -20,6 +21,9 @@ function GetOrder(props) {
     staleTime: 1000 * 20,
   });
 
+  const isDisableUpdate = closedPickUpOrderStatuses.includes(data?.data.status)
+    ? true
+    : false;
   return (
     <div className="row">
       <div className="col">
@@ -30,9 +34,22 @@ function GetOrder(props) {
           onClick={() => {
             setShowUpdate((prev) => !prev);
           }}
+          disabled={isDisableUpdate}
         >
           Update order
         </Button>
+        <Link
+          variant="secondary"
+          className="mb-2 mx-2"
+          to={paths.createOrder}
+          state={data?.data}
+          // onClick={() => {
+          //   const state = data?.data;
+          //   console.log(state);
+          // }}
+        >
+          Rebook an order
+        </Link>
         {showUpdate && <UpdatePickUpOrder id={id} initData={data.data} />}
         {isSuccess && (
           <Table bordered hover>

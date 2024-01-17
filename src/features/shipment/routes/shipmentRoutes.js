@@ -1,3 +1,4 @@
+import GetShipment from "../pages/admin/ManageShipment/GetShipment/GetShipment";
 import ListShipment from "../pages/admin/ManageShipment/ListShipment/ListShipment";
 import ManageShipment from "../pages/admin/ManageShipment/ManageShipment";
 import CreateShipment from "../pages/customer/CreateShipment/CreateShipment";
@@ -7,7 +8,13 @@ export const shipmentAdmin = [
   {
     path: paths.shipmentAdmin,
     component: ManageShipment,
-    child: [{ path: paths.shipmentAdminListShipment, component: ListShipment }],
+    child: [
+      { path: paths.shipmentAdminListShipment, component: ListShipment },
+      {
+        path: paths.shipmentAdminGetShipmentWithNumber,
+        component: GetShipment,
+      },
+    ],
   },
 ];
 

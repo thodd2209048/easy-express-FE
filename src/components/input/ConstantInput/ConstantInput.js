@@ -16,7 +16,7 @@ function ConstantInput({
   return (
     <Row className="mt-2 mt-md-3 form-group">
       {!!leftLabel && (
-        <Col xs="3" lg="2" className="d-flex">
+        <Col xs={12} sm={3} lg={2} className="d-flex">
           <label>{leftLabel}</label>
         </Col>
       )}

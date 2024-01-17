@@ -15,7 +15,7 @@ function HubInput({ label, field, form, meta, ...props }) {
   return (
     <Row className="mt-2 mt-md-3 form-group">
       {!!label && (
-        <Col xs="3" lg="2" className="d-flex">
+        <Col xs={12} sm={3} lg={2} className="d-flex">
           <label>{label}</label>
         </Col>
       )}

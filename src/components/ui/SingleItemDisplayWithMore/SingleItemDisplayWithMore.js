@@ -22,7 +22,7 @@ function SingleItemDisplayWithMore({ keyInfo, children, className }) {
     <div className={clsx(styles.wrapper, "mt-1 row", className)}>
       <div className="col ">
         <div className="border rounded p-2">
-          <div className={" row"}>
+          <div className={"row"}>
             <div className="col fw-bold">{children[0]}</div>
           </div>
 

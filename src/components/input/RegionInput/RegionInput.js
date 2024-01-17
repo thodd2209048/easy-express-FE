@@ -22,10 +22,10 @@ function RegionInput({
   });
   return (
     <Row className="mt-2 mt-md-3 form-group">
-      <Col xs="3" lg="2" className="d-flex">
+      <Col xs={12} sm={3} lg={2} className="d-flex">
         <label>Region: </label>
       </Col>
-      <Col xs="9" lg="10">
+      <Col>
         <Field name={provinceFieldName}>
           {({ field, form, meta }) => (
             <Form.Select

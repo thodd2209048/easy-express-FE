@@ -13,6 +13,7 @@ import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import RegionInput from "~/components/input/RegionInput/RegionInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import images from "~/assets/images";
 
 CreateShipment.propTypes = {};
 
@@ -27,7 +28,7 @@ function CreateShipment(props) {
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
-        <PageTitle title="Create new shipment" />
+        <PageTitle title="Create new shipment" topImage={images.parcel} />
       </div>
       <Row>
         <Col>

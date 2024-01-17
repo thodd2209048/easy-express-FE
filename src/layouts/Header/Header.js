@@ -58,13 +58,16 @@ function Header(props) {
                 </Nav.Link>
 
                 <NavDropdown title="Admin">
-                  <NavDropdown.Item as={Link} to={paths.hubAdmin}>
+                  <NavDropdown.Item as={Link} to={paths.listHub}>
                     Hub
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={paths.staffAdmin}>
+                  <NavDropdown.Item as={Link} to={paths.listStaff}>
                     Staff
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to={paths.shipmentAdmin}>
+                  <NavDropdown.Item
+                    as={Link}
+                    to={paths.shipmentAdminListShipment}
+                  >
                     Shipment
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -79,6 +82,13 @@ function Header(props) {
                 </NavDropdown>
 
                 <NavDropdown title="Customer">
+                  <NavDropdown.Item
+                    as={Link}
+                    to={paths.shipmentCustomerAddShipment}
+                  >
+                    Create new shipment
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to={paths.createOrder}>
                     Create new pick up order
                   </NavDropdown.Item>

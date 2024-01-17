@@ -1,7 +1,14 @@
 export const customerUpdatePickUpOrDerOptions = ["CANCELLED"];
 
 export const pickUpOrderStatus = [
-  "READY_FOR_PICK_UP",
+  "INFORMATION_RECEIVED",
   "PICKED_UP",
   "CANCELLED",
+];
+
+export const closedPickUpOrderStatuses = [
+  "CANCELLED",
+  "PICKED_UP",
+  "SHIPMENT_NOT_READY",
+  "EXPIRED",
 ];

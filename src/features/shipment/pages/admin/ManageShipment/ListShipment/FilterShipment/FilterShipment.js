@@ -37,7 +37,7 @@ function FilterShipment({ setCondition }) {
         >
           {(props) => {
             return (
-              <Form className="mt-3">
+              <Form>
                 <Row>
                   <Col>
                     <Field name="hubId">
