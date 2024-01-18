@@ -8,6 +8,7 @@ const shipmentAdminGetShipmentWithNumber = shipmentAdmin + "/shipment/:number";
 
 const shipmentCustomer = shipment + "/customer";
 const shipmentCustomerAddShipment = shipmentCustomer + "/add-shipment";
+const shipmentCustomerListShipment = shipmentCustomer + "/list-shipment";
 // const updateHub = hubAdmin + "/update-hub/:hubId";
 
 export const paths = {
@@ -15,7 +16,8 @@ export const paths = {
   shipmentAdmin,
   shipmentAdminListShipment,
   shipmentAdminGetShipment,
+  shipmentAdminGetShipmentWithNumber,
   shipmentCustomer,
   shipmentCustomerAddShipment,
-  shipmentAdminGetShipmentWithNumber,
+  shipmentCustomerListShipment,
 };

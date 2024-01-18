@@ -21,11 +21,17 @@ function DisplayDistrictAndProvince({ id }) {
   }, [data, id]);
 
   return (
-    <p className="m-0">
-      {district?.name}
-      {isSuccess && " - "}
-      {district?.province.name}
-    </p>
+    <div>
+      <p className="m-0 d-none d-lg-block">
+        {district?.name}
+        {isSuccess && " - "}
+        {district?.province.name}
+      </p>
+      <div className="d-block d-lg-none">
+        <p className="m-0"> {district?.name}</p>
+        <p className="m-0"> {district?.province.name}</p>
+      </div>
+    </div>
   );
 }
 

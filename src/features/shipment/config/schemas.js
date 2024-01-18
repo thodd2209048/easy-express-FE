@@ -32,6 +32,10 @@ const addShipment = Yup.object({
   heightInCm: shipmentSchemas.heightInCm.required("Required"),
 });
 
-const schemas = { filterShipment, addShipment };
+const FilterShipmentForCustomer = Yup.object({
+  startDateTime: timeSchemas.startDateTime,
+});
+
+const schemas = { filterShipment, addShipment, FilterShipmentForCustomer };
 
 export default schemas;
