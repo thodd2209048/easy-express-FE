@@ -5,7 +5,7 @@ import { listDistrict } from "~/api/api";
 
 DisplayDistrictAndProvince.propTypes = {};
 
-function DisplayDistrictAndProvince({ id }) {
+function DisplayDistrictAndProvince({ id, displayAsRow = false }) {
   const [district, setDistrict] = useState({
     name: "",
     province: { name: "" },
@@ -22,15 +22,17 @@ function DisplayDistrictAndProvince({ id }) {
 
   return (
     <div>
-      <p className="m-0 d-none d-lg-block">
+      <p className={displayAsRow ? "m-0 " : "m-0 d-none d-lg-block"}>
         {district?.name}
         {isSuccess && " - "}
         {district?.province.name}
       </p>
-      <div className="d-block d-lg-none">
-        <p className="m-0"> {district?.name}</p>
-        <p className="m-0"> {district?.province.name}</p>
-      </div>
+      {!displayAsRow && (
+        <div className="d-block d-lg-none">
+          <p className="m-0"> {district?.name}</p>
+          <p className="m-0"> {district?.province.name}</p>
+        </div>
+      )}
     </div>
   );
 }

@@ -16,3 +16,7 @@ export const convertLocalDateToZoneDateTime = (localDateString) => {
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return moment.tz(localDateString, timeZone).format();
 };
+
+export const compareTime = (firstTime, secondTime) => {
+  return firstTime - secondTime;
+};

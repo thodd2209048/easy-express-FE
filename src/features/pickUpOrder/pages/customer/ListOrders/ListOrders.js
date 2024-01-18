@@ -89,7 +89,10 @@ function ListOrders(props) {
                 </div>
                 <div className={clsx(styles.address, "row")}>
                   <div className="col">
-                    <DisplayDistrictAndProvince id={order.districtCode} />
+                    <DisplayDistrictAndProvince
+                      id={order.districtCode}
+                      displayAsRow={true}
+                    />
                   </div>
                 </div>
               </div>
