@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+
 import { useQuery } from "@tanstack/react-query";
 import { listDistrict } from "~/api/api";
 

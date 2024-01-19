@@ -1,41 +1,39 @@
-import { useQuery } from "@tanstack/react-query";
-import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
-import { listPickUpOrders } from "~/features/pickUpOrder/api/api";
-import { paths } from "~/features/pickUpOrder/routes/paths";
-import styles from "./ListOrders.module.scss";
 
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useQuery } from "@tanstack/react-query";
+import clsx from "clsx";
 import { Button } from "react-bootstrap";
-import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
+import { useLocation, useNavigate } from "react-router-dom";
+
+import styles from "./ListOrdersForStaff.module.scss";
+import { listPickUpOrdersForAdmin } from "~/features/pickUpOrder/api/api";
+import { paths } from "~/features/pickUpOrder/routes/paths";
+import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
+
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import Paginate from "~/components/ui/Paginate/Paginate";
 import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
+import DisplayHub from "~/features/hub/components/ui/DisplayHub/DisplayHub";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
-import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
-import FilterPickUpOrder from "./FilterPickUpOrder/FilterPickUpOrder";
+import FilterPickUpOrderForStaff from "./FilterPickUpOrderForStaff/FilterPickUpOrderForStaff";
 
-ListOrders.propTypes = {};
+ListOrdersForStaff.propTypes = {};
 
-function ListOrders(props) {
-  const [condition, setCondition] = useState({
-    page: 0,
-  });
+function ListOrdersForStaff(props) {
+  const [condition, setCondition] = useState({ page: 0 });
 
   const query = useQuery({
-    queryKey: ["pickUpOrders", condition],
-    queryFn: () => listPickUpOrders(condition),
-    staleTime: 1000 * 20,
+    queryKey: ["pickUpOrdersStaff", condition],
+    queryFn: () => listPickUpOrdersForAdmin(condition),
   });
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const handlePageClick = (e) => {
-    navigate(`${paths.listOrder}?page=${e.selected + 1}`);
+    navigate(`${paths.listOrderForStaff}?page=${e.selected + 1}`);
   };
 
   useEffect(() => {
@@ -49,8 +47,8 @@ function ListOrders(props) {
 
   return (
     <>
-      <SubContentLayout>
-        <FilterPickUpOrder setCondition={setCondition} />
+      <SubContentLayout subTitle="List pick up orders">
+        <FilterPickUpOrderForStaff setCondition={setCondition} />
         {query.isSuccess &&
           query.data.data.content.map((order) => (
             <SingleItemDisplayWithMore key={order.orderNumber} item={order}>
@@ -59,7 +57,9 @@ function ListOrders(props) {
                 <Button
                   variant="outline-secondary"
                   className={clsx(styles.moreBtn, "border-0")}
-                  onClick={() => navigate(`${paths.getOrder}/${order.id}`)}
+                  onClick={() =>
+                    navigate(`${paths.getOrderForStaff}/${order.id}`)
+                  }
                 >
                   <FontAwesomeIcon icon={faEllipsisVertical} />
                 </Button>
@@ -68,7 +68,6 @@ function ListOrders(props) {
                 <div className="row">
                   <div className="col">
                     <div className="">
-                      <p className="m-0">Description: {order.description}</p>
                       <span className="m-0 ">{order.status}</span>
                     </div>
                   </div>
@@ -87,10 +86,7 @@ function ListOrders(props) {
                 </div>
                 <div className={clsx(styles.address, "row")}>
                   <div className="col">
-                    <DisplayDistrictAndProvince
-                      id={order.districtCode}
-                      displayAsRow={true}
-                    />
+                    <DisplayHub id={order.hubId} />
                   </div>
                 </div>
               </div>
@@ -108,5 +104,4 @@ function ListOrders(props) {
     </>
   );
 }
-
-export default ListOrders;
+export default ListOrdersForStaff;

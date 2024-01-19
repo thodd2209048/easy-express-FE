@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-import { shipmentStatus } from "~/config/constant";
 import {
   humanSchemas,
   locationSchemas,

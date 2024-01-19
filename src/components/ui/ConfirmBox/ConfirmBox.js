@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
-
-import styles from "./ConfirmBox.module.scss";
+import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 import NotificationApi from "../NotificationApi/NotificationApi";
+import styles from "./ConfirmBox.module.scss";
 
-ConfirmBox.propTypes = {};
+ConfirmBox.propTypes = {
+  className: PropTypes.string,
+  action: PropTypes.func,
+  setIsShowBox: PropTypes.func,
+  message: PropTypes.string,
+  response: PropTypes.object,
+};
 
 function ConfirmBox({ className, action, setIsShowBox, message, response }) {
   const defaultMessage = "Confirm your action!";
@@ -15,7 +20,7 @@ function ConfirmBox({ className, action, setIsShowBox, message, response }) {
     if (response?.isSuccess) {
       setIsShowBox(false);
     }
-  }, [response]);
+  }, [response, setIsShowBox]);
 
   return (
     <div className={clsx(styles.wrapper, className, "border rounded p-2 my-2")}>
@@ -32,6 +37,7 @@ function ConfirmBox({ className, action, setIsShowBox, message, response }) {
           Yes
         </Button>
       </div>
+
       <NotificationApi response={response} />
     </div>
   );

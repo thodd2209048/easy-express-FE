@@ -1,0 +1,11 @@
+.orderTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.moreBtn {
+  padding: 0 0.8rem;
+  cursor: pointer;
+}

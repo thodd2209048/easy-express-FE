@@ -1,14 +1,12 @@
 import * as Yup from "yup";
 import {
+  filterSchemas,
   humanSchemas,
   locationSchemas,
   shipmentSchemas,
   timeSchemas,
 } from "~/config/schemas";
-import {
-  customerUpdatePickUpOrDerOptions,
-  pickUpOrderStatus,
-} from "./constant";
+import { pickUpOrderStatus, pickUpOrderStatusForStaffUpdate } from "./constant";
 
 const createPickUpOrder = Yup.object({
   senderName: humanSchemas.name.required("Required"),
@@ -38,10 +36,30 @@ const filterPickUpOrder = Yup.object({
   startTime: timeSchemas.startDateTime.nullable(),
 });
 
+const filterPickUpOrderForAdmin = Yup.object({
+  status: Yup.string().oneOf(pickUpOrderStatus, "Please select an option"),
+  hubId: filterSchemas.id.nullable(),
+  startTime: timeSchemas.startDateTime.nullable(),
+});
+
+const filterPickUpOrderForStaff = Yup.object({
+  status: Yup.string().oneOf(pickUpOrderStatus, "Please select an option"),
+});
+
+const updatePickUpOrderByStaff = Yup.object({
+  status: Yup.string().oneOf(
+    pickUpOrderStatusForStaffUpdate,
+    "Please select an option"
+  ),
+});
+
 const schemas = {
   createPickUpOrder,
   updatePickUpOrderByCustomer,
   filterPickUpOrder,
+  filterPickUpOrderForAdmin,
+  filterPickUpOrderForStaff,
+  updatePickUpOrderByStaff,
 };
 
 export default schemas;

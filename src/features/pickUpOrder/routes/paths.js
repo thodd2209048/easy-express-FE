@@ -2,16 +2,22 @@ import { home } from "~/config/homePath";
 
 const pickUpOrder = home + "pick-up-order";
 
+//  CUSTOMER
 const pickUpOrderCustomer = pickUpOrder + "/customer";
 const createOrder = pickUpOrderCustomer + "/create-order";
 const listOrder = pickUpOrderCustomer + "/list-order";
 const getOrder = pickUpOrderCustomer + "/get-order";
 const getOrderWithId = pickUpOrderCustomer + "/get-order/:id";
-// const trackingAdmin = tracking + "/admin";
-// const trackingAdminDeleteTracking = trackingAdmin + "/delete-tracking/:staffId";
-
-// const trackingStaff = tracking + "/staff";
-// const trackingStaffAddTracking = trackingStaff + "/add-tracking";
+//  ADMIN
+const pickUpOrderAdmin = pickUpOrder + "/admin";
+const listOrderForAdmin = pickUpOrderAdmin + "/list-order";
+const getOrderForAdmin = pickUpOrderAdmin + "/get-order";
+const getOrderForAdminWithId = getOrderForAdmin + "/:id";
+// STAFF
+const pickUpOrderStaff = pickUpOrder + "/staff";
+const listOrderForStaff = pickUpOrderStaff + "/list-order";
+const getOrderForStaff = pickUpOrderStaff + "/get-order";
+const getOrderForStaffWithId = getOrderForStaff + "/:id";
 
 export const paths = {
   pickUpOrder,
@@ -20,4 +26,12 @@ export const paths = {
   listOrder,
   getOrder,
   getOrderWithId,
+  //
+  listOrderForAdmin,
+  getOrderForAdmin,
+  getOrderForAdminWithId,
+  //
+  listOrderForStaff,
+  getOrderForStaff,
+  getOrderForStaffWithId,
 };

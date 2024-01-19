@@ -1,9 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 
 import styles from "./LogisticCard.module.scss";
-import images from "~/assets/images";
 
 LogisticCard.propTypes = {};
 

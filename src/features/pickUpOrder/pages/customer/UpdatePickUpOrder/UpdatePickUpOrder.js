@@ -24,12 +24,18 @@ function UpdatePickUpOrder({ id, initData }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (values) => {
-      updatePickUpOrder(id, values);
+      return updatePickUpOrder(id, values);
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["pickUpOrder", id] });
+    onSuccess: (data) => {
+      queryClient.setQueryData({
+        queryKey: ["pickUpOrder", id],
+        data,
+      });
+      queryClient.refetchQueries({ queryKey: ["pickUpOrder", id] });
     },
   });
+
+  console.log("mutation", mutation);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       {!mutation.isSuccess && (
@@ -147,7 +153,10 @@ function UpdatePickUpOrder({ id, initData }) {
           }}
         </Formik>
       )}
-      <NotificationApi response={mutation}></NotificationApi>
+      <NotificationApi
+        response={mutation}
+        showSuccess={false}
+      ></NotificationApi>
     </div>
   );
 }

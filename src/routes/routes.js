@@ -1,17 +1,21 @@
-import Home from "~/pages/public/Home/Home";
 import { home } from "~/config/homePath";
-import { staffAdmin } from "~/features/staff/routes/staffRoutes";
 import { hubAdmin } from "~/features/hub/routes/hubRoutes";
+import {
+  pickUpOrderAdmin,
+  pickUpOrderCustomer,
+  pickUpOrderStaff,
+} from "~/features/pickUpOrder/routes/pickUpOrderRoutes";
 import {
   shipmentAdmin,
   shipmentCustomer,
 } from "~/features/shipment/routes/shipmentRoutes";
+import { staffAdmin } from "~/features/staff/routes/staffRoutes";
 import {
   trackingAdmin,
   trackingPublic,
   trackingStaff,
 } from "~/features/tracking/routes/trackingRoutes";
-import { pickUpOrderCustomer } from "~/features/pickUpOrder/routes/pickUpOrderRoutes";
+import Home from "~/pages/public/Home/Home";
 // import TrackingShipment from "~/pages/public/TrackingShipment/TrackingShipment";
 
 const publicRoutes = [
@@ -25,9 +29,10 @@ const adminRoutes = [
   ...staffAdmin,
   ...shipmentAdmin,
   ...trackingAdmin,
+  ...pickUpOrderAdmin,
 ];
 
 const customerRoutes = [...shipmentCustomer, ...pickUpOrderCustomer];
-const staffRoutes = [...trackingStaff];
+const staffRoutes = [...trackingStaff, ...pickUpOrderStaff];
 
-export { publicRoutes, adminRoutes, customerRoutes, staffRoutes };
+export { adminRoutes, customerRoutes, publicRoutes, staffRoutes };

@@ -7,6 +7,7 @@ import styles from "./DeleteStaff.module.scss";
 import { deleteStaff } from "~/features/staff/api/api";
 
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import { useEffect } from "react";
 
 DeleteStaff.propTypes = {
   item: PropTypes.object,
@@ -18,9 +19,16 @@ function DeleteStaff({ item, setShowDelete }) {
   const mutation = useMutation({
     mutationFn: deleteStaff,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["staffs"] });
+      queryClient.invalidateQueries({ queryKey: ["staffs", item.id] });
+      queryClient.refetchQueries({ queryKey: ["staffs", item.id] });
     },
   });
+
+  useEffect(() => {
+    if (mutation.isSuccess) {
+      setShowDelete(false);
+    }
+  }, [mutation.isSuccess, setShowDelete]);
 
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
@@ -39,7 +47,7 @@ function DeleteStaff({ item, setShowDelete }) {
           No
         </Button>
       </div>
-      <NotificationApi response={mutation} />
+      <NotificationApi response={mutation} showSuccess={false} />
     </div>
   );
 }

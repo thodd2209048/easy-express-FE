@@ -70,6 +70,9 @@ function Header(props) {
                   >
                     Shipment
                   </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={paths.listOrderForAdmin}>
+                    Pick up order
+                  </NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown title="Staff">
@@ -78,6 +81,9 @@ function Header(props) {
                     to={paths.trackingStaffAddTracking}
                   >
                     Add tracking
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to={paths.listOrderForStaff}>
+                    Pick up order
                   </NavDropdown.Item>
                 </NavDropdown>
 

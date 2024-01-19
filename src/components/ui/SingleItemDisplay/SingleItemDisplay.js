@@ -75,7 +75,9 @@ function SingleItemDisplay({
             </div>
           </div>
 
-          {showEdit && <EditComponent item={item} />}
+          {showEdit && (
+            <EditComponent item={item} setShowUpdate={setShowEdit} />
+          )}
           {showDelete && (
             <DeleteComponent item={item} setShowDelete={setShowDelete} />
           )}

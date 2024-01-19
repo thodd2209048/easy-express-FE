@@ -1,6 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Field, Form, Formik } from "formik";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+
 import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import HubInput from "~/features/hub/components/input/HubInput/HubInput";
@@ -11,7 +13,7 @@ UpdateStaff.propTypes = {
   item: PropTypes.object,
 };
 
-function UpdateStaff({ item }) {
+function UpdateStaff({ item, setShowUpdate }) {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (values) => updateStaff(item.id, values),
@@ -19,6 +21,12 @@ function UpdateStaff({ item }) {
       queryClient.invalidateQueries({ queryKey: ["staffs"] });
     },
   });
+
+  useEffect(() => {
+    if (mutation.isSuccess) {
+      setShowUpdate(false);
+    }
+  }, [mutation.isSuccess, setShowUpdate]);
   return (
     <>
       <Formik
