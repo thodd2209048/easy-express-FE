@@ -1,13 +1,13 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
 import PageTitle from "~/components/ui/PageTitle/PageTitle";
 import { getPickUpOrder } from "~/features/pickUpOrder/api/api";
 import { closedPickUpOrderStatuses } from "~/features/pickUpOrder/config/constant";
 import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 import UpdatePickUpOrderForStaff from "../UpdatePickUpOrderForStaff/UpdatePickUpOrderForStaff";
-import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
 
 GetOrderForStaff.propTypes = {};
 
@@ -53,16 +53,13 @@ function GetOrderForStaff(props) {
             Update order
           </Button>
         </div>
-        {
-          // showUpdate
-          true && (
-            <UpdatePickUpOrderForStaff
-              id={id}
-              initData={data?.data}
-              setShowUpdate={() => setShowUpdate()}
-            />
-          )
-        }
+        {showUpdate && (
+          <UpdatePickUpOrderForStaff
+            id={id}
+            initData={data?.data}
+            setShowUpdate={() => setShowUpdate()}
+          />
+        )}
         {isSuccess && (
           <Table bordered hover>
             <tbody>
