@@ -9,6 +9,11 @@ import schemas from "~/features/pickUpOrder/config/schemas";
 import { pickUpOrderStatus } from "~/features/pickUpOrder/config/constant";
 import ConstantInput from "~/components/input/ConstantInput/ConstantInput";
 import ListenAllChangeFormik from "~/components/auto/ListenAllChangeFormik/ListenAllChangeFormik";
+import {
+  convertLocalDateTimeToZonedDateTime,
+  getLocalDate,
+} from "~/utils/convertZonedDateTimeToDateTime";
+import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 
 FilterPickUpOrderForStaff.propTypes = {
   className: PropTypes.string,
@@ -19,17 +24,27 @@ function FilterPickUpOrderForStaff({ className, setCondition }) {
   return (
     <div className={clsx(styles.warpper, className)}>
       <Formik
-        initialValues={{ status: "ASSIGNED_TO_HUB" }}
+        initialValues={{
+          status: "ASSIGNED_TO_HUB",
+          startTime: getLocalDate(new Date()),
+        }}
         validationSchema={schemas.filterPickUpOrderForStaff}
-        onSubmit={({ status }) => {
-          setCondition((prev) => ({ ...prev, status }));
+        onSubmit={({ status, startTime }) => {
+          setCondition((prev) => ({
+            ...prev,
+            status,
+            startTime:
+              startTime !== ""
+                ? convertLocalDateTimeToZonedDateTime(startTime)
+                : "",
+          }));
         }}
       >
         {(props) => {
           return (
             <Form>
               <Row>
-                <Col xs={12} md={4}>
+                <Col>
                   <Field name="status">
                     {({ field, form, meta }) => {
                       return (
@@ -44,6 +59,20 @@ function FilterPickUpOrderForStaff({ className, setCondition }) {
                         </>
                       );
                     }}
+                  </Field>
+                </Col>
+                <Col>
+                  <Field name="startTime">
+                    {({ field, form, meta }) => (
+                      <>
+                        <GeneralInput
+                          type="date"
+                          field={field}
+                          form={form}
+                          meta={meta}
+                        />
+                      </>
+                    )}
                   </Field>
                 </Col>
               </Row>

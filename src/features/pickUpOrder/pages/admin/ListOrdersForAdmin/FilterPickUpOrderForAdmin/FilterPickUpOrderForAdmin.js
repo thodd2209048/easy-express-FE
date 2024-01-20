@@ -8,7 +8,10 @@ import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import HubInput from "~/features/hub/components/input/HubInput/HubInput";
 import { pickUpOrderStatus } from "~/features/pickUpOrder/config/constant";
 import schemas from "~/features/pickUpOrder/config/schemas";
-import { convertLocalDateToZoneDateTime } from "~/utils/convertZonedDateTimeToDateTime";
+import {
+  convertLocalDateToZoneDateTime,
+  getLocalDate,
+} from "~/utils/convertZonedDateTimeToDateTime";
 
 FilterPickUpOrderForAdmin.propTypes = {};
 
@@ -20,7 +23,7 @@ function FilterPickUpOrderForAdmin({ setCondition }) {
           initialValues={{
             status: "",
             hubId: "",
-            startTime: "",
+            startTime: getLocalDate(new Date()),
           }}
           validationSchema={schemas.filterPickUpOrderForAdmin}
           onSubmit={({ status, hubId, startTime }) =>
@@ -35,7 +38,7 @@ function FilterPickUpOrderForAdmin({ setCondition }) {
             }))
           }
         >
-          {(props) => {
+          {({ values }) => {
             return (
               <Form>
                 <Row>

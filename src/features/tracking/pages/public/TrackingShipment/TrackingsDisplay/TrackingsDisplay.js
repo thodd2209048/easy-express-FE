@@ -28,7 +28,6 @@ function TrackingsDisplay({ number }) {
     setShowAllTracking((prev) => !prev);
   };
 
-  console.log(data);
   return (
     <div className={clsx(styles.wrapper)}>
       <NotificationApi

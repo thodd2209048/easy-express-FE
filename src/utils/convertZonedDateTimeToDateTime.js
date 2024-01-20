@@ -20,3 +20,7 @@ export const convertLocalDateToZoneDateTime = (localDateString) => {
 export const compareTime = (firstTime, secondTime) => {
   return firstTime - secondTime;
 };
+
+export const getLocalDate = (date) => {
+  return date.toJSON().slice(0, 10);
+};

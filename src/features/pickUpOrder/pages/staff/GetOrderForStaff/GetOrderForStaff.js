@@ -37,6 +37,7 @@ function GetOrderForStaff(props) {
     );
   }, [data]);
 
+  console.log(data);
   return (
     <div className="row">
       <div className="col">
@@ -89,7 +90,7 @@ function GetOrderForStaff(props) {
               <tr>
                 <td>Region</td>
                 <td colSpan={3}>
-                  <DisplayDistrictAndProvince id={data.data.provinceCode} />
+                  <DisplayDistrictAndProvince id={data.data.districtCode} />
                 </td>
               </tr>
               <tr>

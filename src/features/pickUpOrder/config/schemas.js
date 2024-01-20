@@ -44,6 +44,7 @@ const filterPickUpOrderForAdmin = Yup.object({
 
 const filterPickUpOrderForStaff = Yup.object({
   status: Yup.string().oneOf(pickUpOrderStatus, "Please select an option"),
+  startTime: timeSchemas.startDateTime.nullable(),
 });
 
 const updatePickUpOrderByStaff = Yup.object({
