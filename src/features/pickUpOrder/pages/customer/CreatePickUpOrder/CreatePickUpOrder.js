@@ -18,6 +18,7 @@ import schemas from "~/features/pickUpOrder/config/schemas";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import RegionInput from "~/components/input/RegionInput/RegionInput";
+import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
 
 CreatePickUpOrder.propTypes = {};
 
@@ -30,7 +31,6 @@ function CreatePickUpOrder({ state }) {
     },
   });
 
-  console.log(state);
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
       <div className="row">
@@ -261,9 +261,9 @@ function CreatePickUpOrder({ state }) {
             <p className="m-0">Phone: {mutation.data.data.senderPhone}</p>
             <p className="m-0">Address: {mutation.data.data.senderAddress}</p>
             <p className="m-0">
-              Region: {mutation.data.data.district.name}
-              {", "}
-              {mutation.data.data.district.province.name}
+              <DisplayDistrictAndProvince
+                id={mutation.data.data.districtCode}
+              />
             </p>
 
             <p className="mb-0 mt-2 fw-bold">Pick up time:</p>

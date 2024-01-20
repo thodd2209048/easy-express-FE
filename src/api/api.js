@@ -1,6 +1,7 @@
 import axios from "axios";
-
+// const host = process.env.REACT_APP_HOST;
 const baseURL = `http://localhost:8080/api`;
+// const baseURL = `http://34.126.159.204:8080/api`;
 const pageSize = 10;
 
 export { baseURL, pageSize };

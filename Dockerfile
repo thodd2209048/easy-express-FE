@@ -6,8 +6,12 @@ COPY . .
 
 RUN npm install
 
+ARG REACT_APP_HOST
+
+ENV REACT_APP_HOST $REACT_APP_HOST
+
 RUN npm run build
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD [ "npx", "serve", "build" ]
