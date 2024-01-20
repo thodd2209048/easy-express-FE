@@ -18,7 +18,7 @@ export const humanSchemas = {
 
 export const locationSchemas = {
   name: Yup.string()
-    .max(20, "Must be 20 characters or less")
+    .max(40, "Must be 40 characters or less")
     .min(4, "Must be 4 characters or more"),
   address: Yup.string()
     .max(100, "Must be 100 characters or less")
