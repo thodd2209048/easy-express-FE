@@ -98,14 +98,14 @@ function Header(props) {
                     as={Link}
                     to={paths.shipmentCustomerListShipment}
                   >
-                    List shipments
+                    Your shipments
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item as={Link} to={paths.createOrder}>
-                    Create new pick up order
+                    Book new pick up order
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to={paths.listOrder}>
-                    List pick up orders
+                    Order history
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>

@@ -19,6 +19,8 @@ import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import RegionInput from "~/components/input/RegionInput/RegionInput";
 import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
+import TopImage from "~/components/ui/TopImage/TopImage";
+import images from "~/assets/images";
 
 CreatePickUpOrder.propTypes = {};
 
@@ -33,9 +35,11 @@ function CreatePickUpOrder({ state }) {
 
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
-      <div className="row">
-        <PageTitle title="Book a pick up order" />
-      </div>
+      <TopImage
+        title="Book a pick up order"
+        image={images.top.pickUp1}
+        imagePosition={"center 90%"}
+      />
       <Row>
         <Col>
           {mutation.data && (

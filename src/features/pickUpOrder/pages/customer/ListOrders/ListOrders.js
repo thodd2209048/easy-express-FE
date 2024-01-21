@@ -17,6 +17,8 @@ import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import { convertZonedDateTimeToDateTime } from "~/utils/convertZonedDateTimeToDateTime";
 import FilterPickUpOrder from "./FilterPickUpOrder/FilterPickUpOrder";
+import TopImage from "~/components/ui/TopImage/TopImage";
+import images from "~/assets/images";
 
 ListOrders.propTypes = {};
 
@@ -48,7 +50,12 @@ function ListOrders(props) {
   }, [location]);
 
   return (
-    <>
+    <div className={clsx(styles.wrapper, "mt-2")}>
+      <TopImage
+        title="Your order history"
+        image={images.top.pickUp1}
+        imagePosition="center 90%"
+      />
       <SubContentLayout>
         <FilterPickUpOrder setCondition={setCondition} />
         {query.isSuccess &&
@@ -105,7 +112,7 @@ function ListOrders(props) {
         />
       )}
       <NotificationApi response={query} showSuccess={false}></NotificationApi>
-    </>
+    </div>
   );
 }
 

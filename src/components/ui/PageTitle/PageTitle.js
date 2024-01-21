@@ -10,7 +10,7 @@ PageTitle.propTypes = {
 
 function PageTitle({ title }) {
   return (
-    <div className="pb-3">
+    <div className="pt-3">
       <h1>{title}</h1>
     </div>
   );

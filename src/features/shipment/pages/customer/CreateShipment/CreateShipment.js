@@ -14,6 +14,7 @@ import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import RegionInput from "~/components/input/RegionInput/RegionInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import images from "~/assets/images";
+import TopImage from "~/components/ui/TopImage/TopImage";
 
 CreateShipment.propTypes = {};
 
@@ -27,9 +28,7 @@ function CreateShipment(props) {
   });
   return (
     <div className={clsx(styles.wrapper, "mt-2")}>
-      <div className="row">
-        <PageTitle title="Create new shipment" topImage={images.parcel} />
-      </div>
+      <TopImage image={images.top.shipment} title={"Create new shipment"} />
       <Row>
         <Col>
           {mutation.data && (

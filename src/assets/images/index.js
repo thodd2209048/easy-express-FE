@@ -1,3 +1,4 @@
+import top from "./topImages/topImages";
 const images = {
   logo: require("./express.svg").default,
   png: require("./express.png"),
@@ -14,6 +15,7 @@ const images = {
   exhibition: require("./exhibition.jpg"),
   parcel: require("./parcel.jpg"),
   delivery: require("./pickUp.png"),
+  top,
 };
 
 export default images;

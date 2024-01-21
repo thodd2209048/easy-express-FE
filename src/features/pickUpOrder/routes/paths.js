@@ -27,6 +27,7 @@ export const paths = {
   getOrder,
   getOrderWithId,
   //
+  pickUpOrderAdmin,
   listOrderForAdmin,
   getOrderForAdmin,
   getOrderForAdminWithId,

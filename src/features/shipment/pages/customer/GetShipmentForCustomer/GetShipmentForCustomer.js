@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import { Table } from "react-bootstrap";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import TopImage from "~/components/ui/TopImage/TopImage";
+import images from "~/assets/images";
 
 GetShipmentForCustomer.propTypes = {};
 
@@ -18,9 +20,9 @@ function GetShipmentForCustomer(props) {
 
   return (
     <div>
-      <SubContentLayout subTitle={`Shipment ${number}`} />
+      <TopImage title={`Shipment ${number}`} image={images.top.shipment} />
       {query.isSuccess && (
-        <Table bordered hover>
+        <Table bordered hover className="mt-4">
           <tbody>
             {/* --------------- FROM --------------- */}
             <tr>

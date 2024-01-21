@@ -14,6 +14,9 @@ import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvin
 import Paginate from "~/components/ui/Paginate/Paginate";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import FilterShipmentForCustomer from "./FilterShipmentForCustomer/FilterShipmentForCustomer";
+import PageTitle from "~/components/ui/PageTitle/PageTitle";
+import TopImage from "~/components/ui/TopImage/TopImage";
+import images from "~/assets/images";
 
 function ListShipmentForCustomer(props) {
   const [condition, setCondition] = useState({
@@ -43,7 +46,8 @@ function ListShipmentForCustomer(props) {
   }, [location]);
 
   return (
-    <>
+    <div className={clsx(styles.wrapper, "mt-2")}>
+      <TopImage image={images.top.shipment} title={"Your shipments"} />
       <FilterShipmentForCustomer setCondition={setCondition} />
 
       {query.isSuccess &&
@@ -56,7 +60,7 @@ function ListShipmentForCustomer(props) {
                 className={clsx(styles.moreBtn, "border-0")}
                 onClick={() =>
                   navigate(
-                    `${paths.shipmentAdminGetShipment}/${shipment.number}`
+                    `${paths.shipmentCustomerGetShipment}/${shipment.number}`
                   )
                 }
               >
@@ -104,7 +108,7 @@ function ListShipmentForCustomer(props) {
         />
       )}
       <NotificationApi response={query} showSuccess={false}></NotificationApi>
-    </>
+    </div>
   );
 }
 

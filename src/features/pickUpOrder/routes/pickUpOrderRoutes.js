@@ -1,5 +1,6 @@
 import GetOrderForAdmin from "../pages/admin/GetOrderForAdmin/GetOrderForAdmin";
 import ListOrdersForAdmin from "../pages/admin/ListOrdersForAdmin/ListOrdersForAdmin";
+import ManageOrder from "../pages/admin/ManageOrder/ManageOrder";
 import CreatePickUpOrder from "../pages/customer/CreatePickUpOrder/CreatePickUpOrder";
 import GetOrder from "../pages/customer/GetOrder/GetOrder";
 import ListOrders from "../pages/customer/ListOrders/ListOrders";
@@ -14,8 +15,14 @@ export const pickUpOrderCustomer = [
 ];
 
 export const pickUpOrderAdmin = [
-  { path: paths.listOrderForAdmin, component: ListOrdersForAdmin },
-  { path: paths.getOrderForAdminWithId, component: GetOrderForAdmin },
+  {
+    path: paths.pickUpOrderAdmin,
+    component: ManageOrder,
+    child: [
+      { path: paths.listOrderForAdmin, component: ListOrdersForAdmin },
+      { path: paths.getOrderForAdminWithId, component: GetOrderForAdmin },
+    ],
+  },
 ];
 
 export const pickUpOrderStaff = [

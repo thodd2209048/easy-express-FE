@@ -2,6 +2,7 @@ import GetShipment from "../pages/admin/ManageShipment/GetShipment/GetShipment";
 import ListShipment from "../pages/admin/ManageShipment/ListShipment/ListShipment";
 import ManageShipment from "../pages/admin/ManageShipment/ManageShipment";
 import CreateShipment from "../pages/customer/CreateShipment/CreateShipment";
+import GetShipmentForCustomer from "../pages/customer/GetShipmentForCustomer/GetShipmentForCustomer";
 import ListShipmentForCustomer from "../pages/customer/ListShipmentForCustomer/ListShipmentForCustomer";
 import { paths } from "./paths";
 
@@ -24,5 +25,9 @@ export const shipmentCustomer = [
   {
     path: paths.shipmentCustomerListShipment,
     component: ListShipmentForCustomer,
+  },
+  {
+    path: paths.shipmentCustomerGetShipmentWithNumber,
+    component: GetShipmentForCustomer,
   },
 ];
