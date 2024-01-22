@@ -23,16 +23,16 @@ function GetOrderForStaff(props) {
   });
 
   useEffect(() => {
-    const now = new Date();
-    const startPickUpTime = new Date(data?.data.startTime * 1000);
+    // const now = new Date();
+    // const startPickUpTime = new Date(data?.data.startTime * 1000);
 
-    let isValidToChangePickUpOrderNow =
-      startPickUpTime - now > 1 * 60 * 60 * 1000;
+    // let isValidToChangePickUpOrderNow =
+    //   startPickUpTime - now > 1 * 60 * 60 * 1000;
 
     setIsDisableUpdate(
-      closedPickUpOrderStatuses.includes(data?.data.status) ||
-        !isValidToChangePickUpOrderNow
-        ? true
+      closedPickUpOrderStatuses.includes(data?.data.status)
+        ? // ||!isValidToChangePickUpOrderNow
+          true
         : false
     );
   }, [data]);

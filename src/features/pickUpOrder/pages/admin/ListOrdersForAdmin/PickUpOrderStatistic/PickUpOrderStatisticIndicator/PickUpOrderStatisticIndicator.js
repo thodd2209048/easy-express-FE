@@ -17,7 +17,7 @@ function PickUpOrderStatisticIndicator({ title, value, icon, color }) {
         <FontAwesomeIcon icon={icon} color={color} />
         <span className="fs-4">{title}</span>
       </div>
-      <p className="mt-2 mb-0 fs-3">{value}</p>
+      <p className="mt-2 mb-0 fs-1">{value}</p>
     </div>
   );
 }
