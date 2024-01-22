@@ -43,7 +43,9 @@ function CreatePickUpOrder({ state }) {
       <Row>
         <Col>
           {mutation.data && (
-            <Button onClick={mutation.reset}>Book another pick up order</Button>
+            <Button className="mt-2" onClick={mutation.reset}>
+              Book another pick up order
+            </Button>
           )}
         </Col>
       </Row>

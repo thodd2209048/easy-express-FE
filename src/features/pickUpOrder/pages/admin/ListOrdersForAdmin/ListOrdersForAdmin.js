@@ -14,9 +14,10 @@ import styles from "./ListOrdersForAdmin.module.scss";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import Paginate from "~/components/ui/Paginate/Paginate";
 import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
+import DisplayHub from "~/features/hub/components/ui/DisplayHub/DisplayHub";
 import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 import FilterPickUpOrderForAdmin from "./FilterPickUpOrderForAdmin/FilterPickUpOrderForAdmin";
-import DisplayHub from "~/features/hub/components/ui/DisplayHub/DisplayHub";
+import PickUpOrderStatistic from "./PickUpOrderStatistic/PickUpOrderStatistic";
 
 ListOrdersForAdmin.propTypes = {};
 
@@ -49,7 +50,8 @@ function ListOrdersForAdmin(props) {
 
   return (
     <>
-      <SubContentLayout subTitle="List pick up orders">
+      <PickUpOrderStatistic />
+      <SubContentLayout className="mt-5" subTitle="List pick up orders">
         <FilterPickUpOrderForAdmin setCondition={setCondition} />
         {query.isSuccess &&
           query.data.data.content.map((order) => (

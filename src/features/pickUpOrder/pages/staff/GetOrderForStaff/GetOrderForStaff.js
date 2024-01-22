@@ -37,7 +37,6 @@ function GetOrderForStaff(props) {
     );
   }, [data]);
 
-  console.log(data);
   return (
     <div className="row">
       <div className="col">

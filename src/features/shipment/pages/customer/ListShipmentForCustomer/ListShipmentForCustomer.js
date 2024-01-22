@@ -1,22 +1,21 @@
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "@tanstack/react-query";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Col, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { useLocation, useNavigate } from "react-router-dom";
 
-import styles from "./ListShipmentForCustomer.module.scss";
+import images from "~/assets/images";
+import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
+import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
+import Paginate from "~/components/ui/Paginate/Paginate";
+import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
+import TopImage from "~/components/ui/TopImage/TopImage";
 import { listShipmentForCustomer } from "~/features/shipment/api/api";
 import { paths } from "~/features/shipment/routes/paths";
-import SingleItemDisplayWithMore from "~/components/ui/SingleItemDisplayWithMore/SingleItemDisplayWithMore";
-import DisplayDistrictAndProvince from "~/components/ui/DisplayDistrictAndProvince/DisplayDistrictAndProvince";
-import Paginate from "~/components/ui/Paginate/Paginate";
-import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
 import FilterShipmentForCustomer from "./FilterShipmentForCustomer/FilterShipmentForCustomer";
-import PageTitle from "~/components/ui/PageTitle/PageTitle";
-import TopImage from "~/components/ui/TopImage/TopImage";
-import images from "~/assets/images";
+import styles from "./ListShipmentForCustomer.module.scss";
 
 function ListShipmentForCustomer(props) {
   const [condition, setCondition] = useState({

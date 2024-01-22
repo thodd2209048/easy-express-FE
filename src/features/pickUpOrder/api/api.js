@@ -9,6 +9,8 @@ export const customerPickUpOrderApi = `${baseURL}${customerRole}${pathApi}`;
 export const adminPickUpOrderApi = `${baseURL}${adminRole}${pathApi}`;
 export const staffPickUpOrderApi = `${baseURL}${staffRole}${pathApi}`;
 
+export const statisticPickUpOrderApi = `${baseURL}/statistic/pickUpOrders/getNew`;
+
 // ---------- CUSTOMER ----------
 export const listPickUpOrders = async (condition) => {
   return await axios.get(customerPickUpOrderApi, {
@@ -44,6 +46,10 @@ export const listPickUpOrdersForAdmin = async (params) => {
 export const deletePickUpOrderForAdmin = async (id) => {
   const res = await axios.delete(`${adminPickUpOrderApi}/${id}`);
   return res;
+};
+
+export const getNewestPickUpOrdersStatistic = async () => {
+  return await axios.get(statisticPickUpOrderApi);
 };
 
 // ---------- STAFF ----------

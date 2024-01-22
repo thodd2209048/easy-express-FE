@@ -25,7 +25,7 @@ function DisplayHub({ id }) {
 
   return (
     <div>
-      {isSuccess && (
+      {isSuccess && !!id && (
         <div>
           <p className="m-0">
             Hub: {hub?.id} - {hub?.name}

@@ -40,6 +40,7 @@ function GetOrderForAdmin(props) {
     );
   }, [data]);
 
+  console.log(data);
   return (
     <div className="row">
       <div className="col">
@@ -94,7 +95,8 @@ function GetOrderForAdmin(props) {
               <tr>
                 <td>Region</td>
                 <td colSpan={3}>
-                  {data.data.district.name} - {data.data.district.province.name}
+                  {data.data.district?.name} -{" "}
+                  {data.data.district?.province.name}
                 </td>
               </tr>
               <tr>

@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -26,6 +24,7 @@ function ManageOrder(props) {
           List pick up orders
         </NavLink>
       </div>
+
       <Outlet />
     </div>
   );

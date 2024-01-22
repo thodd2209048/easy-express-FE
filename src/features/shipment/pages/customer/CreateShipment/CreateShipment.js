@@ -1,20 +1,18 @@
-import React from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import clsx from "clsx";
 import { Field, Form, Formik } from "formik";
 import { Button, Col, Row } from "react-bootstrap";
 
-import styles from "./CreateShipment.module.scss";
 import { addShipment } from "~/features/shipment/api/api";
+import styles from "./CreateShipment.module.scss";
 
-import PageTitle from "~/components/ui/PageTitle/PageTitle";
-import schemas from "~/features/shipment/config/schemas";
-import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
+import images from "~/assets/images";
 import GeneralInput from "~/components/input/GeneralInput/GeneralInput";
 import RegionInput from "~/components/input/RegionInput/RegionInput";
 import NotificationApi from "~/components/ui/NotificationApi/NotificationApi";
-import images from "~/assets/images";
 import TopImage from "~/components/ui/TopImage/TopImage";
+import schemas from "~/features/shipment/config/schemas";
+import SubContentLayout from "~/layouts/SubContentLayout/SubContentLayout";
 
 CreateShipment.propTypes = {};
 
@@ -32,7 +30,9 @@ function CreateShipment(props) {
       <Row>
         <Col>
           {mutation.data && (
-            <Button onClick={mutation.reset}>Create another shipment</Button>
+            <Button className="mt-2" onClick={mutation.reset}>
+              Create another shipment
+            </Button>
           )}
         </Col>
       </Row>
